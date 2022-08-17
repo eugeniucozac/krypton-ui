@@ -9,7 +9,7 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   align-items: center;
   display: inline-flex;
   transition: ease 0.3s;
-  background: ${(props) => `rgb(${colorMetric[props.color]})`};
+  background: ${(props) => colorMetric[props.color]};
   ${(props) =>
     props.disabled && {
       pointerEvents: "none",

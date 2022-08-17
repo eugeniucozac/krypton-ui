@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colorMetric } from "../utils/theme";
 import { toPercent } from "../utils/string";
+import { toRGBA } from "../utils/colors";
 import { ProgressStyleProps, ColorStyledProps, ValueStyleProps } from "./types";
 
 export const Wrapper = styled.div<ValueStyleProps>`
@@ -13,14 +14,14 @@ export const Wrapper = styled.div<ValueStyleProps>`
     props.withValue && {
       marginRight: "2.5rem",
     }};
-  background-color: ${(props) => `rgba(${colorMetric[props.color]}, 0.3)`};
+  background-color: ${(props) => toRGBA(colorMetric[props.color], "0.3")};
 `;
 
 export const Line = styled.div<ProgressStyleProps>`
   height: 100%;
   transition: all ease 0.2s;
   width: ${(props) => toPercent(props.value)};
-  background-color: ${(props) => `rgb(${colorMetric[props.color]})`};
+  background-color: ${(props) => colorMetric[props.color]};
 `;
 
 export const Label = styled.div<ColorStyledProps>`
@@ -30,5 +31,5 @@ export const Label = styled.div<ColorStyledProps>`
   line-height: 0.875rem;
   position: absolute;
   transform: translateY(-50%);
-  color: ${(props) => `rgb(${colorMetric[props.color]})`};
+  color: ${(props) => colorMetric[props.color]};
 `;

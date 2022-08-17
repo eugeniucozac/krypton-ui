@@ -6,16 +6,11 @@ import ProgressBar from "./ProgressBar";
 import Spinner from "./Spinner";
 import List from "./List";
 import Range from "./Range";
-import { toRGBA } from "./utils/colors";
+import AdvancedAlert from "./AdvancedAlert";
 
 function App() {
-  const [open, isOpen] = useState(true);
-
-  const handleClose = () => {
-    isOpen(false);
-  };
-
-  console.log(toRGBA("rgb(11,22,33)", "0,5"));
+  const [alertOpen, isAlertOpen] = useState(true);
+  const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
 
   const items = [
     { title: "Item 1", avatar: { name: "eugene" } },
@@ -44,36 +39,42 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Chip>UI design</Chip>
-        <div style={{ width: "60%", marginTop: "50px" }}>
-          <Range step={10} min={10} max={110} />
-        </div>
-        <div style={{ width: "60%", marginTop: "50px" }}>
-          {open && (
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          {alertOpen && (
             <Alert
               color="warning"
-              onClose={handleClose}
               heading="Oh, vivamus vulputate neque"
+              onClose={() => isAlertOpen(false)}
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </Alert>
           )}
         </div>
-        <div style={{ width: "60%", marginTop: "50px" }}>
+        <div style={{ width: "50%", marginTop: "20px" }}>
           <Avatar
-            name="Ana"
-            color="error"
-            imgSrc="https://www.gravatar.com/ava"
+            imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
+            name="Cozac Eugeniu"
           />
         </div>
-        <div style={{ width: "60%", marginTop: "50px" }}>
-          <ProgressBar value={80} color="info" showValue={true} />
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <ProgressBar value={20} color="info" showValue={true} />
         </div>
-        <div style={{ width: "60%", marginTop: "50px" }}></div>
-        <div style={{ width: "60%", marginTop: "50px" }}>
-          <Spinner color="info" size="xl" />
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <Chip variant="rounded">Textdata</Chip>
         </div>
-        <div style={{ width: "60%", marginTop: "50px" }}></div>
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <Spinner />
+        </div>
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          {advancedAlertOpen && (
+            <AdvancedAlert
+              color="success"
+              onClose={() => isAdvancedAlertOpen(false)}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </AdvancedAlert>
+          )}
+        </div>
       </header>
     </div>
   );

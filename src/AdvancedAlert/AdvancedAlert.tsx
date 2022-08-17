@@ -12,7 +12,7 @@ const AdvancedAlert = memo(
       <Wrapper color={color} onClose={onClose} className={className} {...props}>
         <div>{children}</div>
         {onClose && (
-          <Button color={color}>
+          <Button onClick={onClose} color={color}>
             <Icon name="close" />
           </Button>
         )}

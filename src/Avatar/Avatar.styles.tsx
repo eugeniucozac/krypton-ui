@@ -5,10 +5,10 @@ import { AvatarStyledProps } from "./types";
 
 export const Wrapper = styled.div<AvatarStyledProps>`
   font-family: "SFProDisplay";
-  font-size: ${(props) => `${sizeMetric[props.size]}rem`};
+  font-size: ${(props) => toRem(sizeMetric[props.size])};
   width: ${(props) => toRem(sizeMetric[props.size] * 2.5)};
   height: ${(props) => toRem(sizeMetric[props.size] * 2.5)};
-  background-color: ${(props) => `rgb(${colorMetric[props.color]})`};
+  background-color: ${(props) => colorMetric[props.color]};
   flex-grow: 0;
   flex-shrink: 0;
   overflow: hidden;
@@ -26,7 +26,7 @@ export const Wrapper = styled.div<AvatarStyledProps>`
     height: 100%;
     object-fit: cover;
     &:after {
-      background-color: ${(props) => `rgb(${colorMetric[props.color]})`};
+      background-color: ${(props) => colorMetric[props.color]};
       content: attr(alt);
       align-items: center;
       display: inline-flex;

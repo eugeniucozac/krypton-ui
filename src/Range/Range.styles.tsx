@@ -14,5 +14,5 @@ export const Input = styled.input<ColorStyledProps>`
   margin: 0 0 15px;
   border-radius: 24px;
   transition: all 0.2s;
-  background-color: ${(props) => `rgb(${colorMetric[props.color]})`};
+  background-color: ${(props) => colorMetric[props.color]};
 `;

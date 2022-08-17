@@ -14,7 +14,7 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   justify-content: flex-start;
   padding-right: 3rem;
   padding-left: ${(props) => (props.heading ? "2rem" : "1rem")};
-  color: ${(props) => `rgb(${colorMetric[props.color]})`};
+  color: ${(props) => colorMetric[props.color]};
   ${(props) => ({
     boxShadow: "0 3px 7px rgb(0 0 0 / 10%)",
     backgroundColor: "rgba(255, 255, 255, 0.1)",
@@ -27,7 +27,7 @@ export const Wrapper = styled.div<WrapperStyledProps>`
         position: "absolute",
         borderRadius: "2rem",
         height: "calc(100% - 30px)",
-        backgroundColor: `rgb(${colorMetric[props.color]})`,
+        backgroundColor: colorMetric[props.color],
       },
     }),
   })}};

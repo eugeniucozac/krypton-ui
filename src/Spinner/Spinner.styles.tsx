@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { colorMetric, sizeMetric } from "../utils/theme";
 import { toRem } from "../utils/string";
+import { toRGBA } from "../utils/colors";
 import { ColorStyledProps, SizeStyledProps } from "./types";
 
 const rotate = keyframes`
@@ -33,11 +34,11 @@ export const Wrapper = styled.svg<SizeStyledProps>`
 `;
 
 export const Background = styled.circle<ColorStyledProps>`
-  stroke: ${(props) => `rgba(${colorMetric[props.color]}, 0.1)`};
+  stroke: ${(props) => toRGBA(colorMetric[props.color])};
 `;
 
 export const Path = styled.circle<ColorStyledProps>`
   stroke-linecap: round;
   animation: ${dash} 1.5s ease-in-out infinite;
-  stroke: ${(props) => `rgb(${colorMetric[props.color]})`};
+  stroke: ${(props) => colorMetric[props.color]};
 `;

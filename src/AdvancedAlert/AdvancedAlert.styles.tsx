@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colorMetric } from "../utils/theme";
+import { toRGBA } from "../utils/colors";
 import { AdvancedAlertStyledProps, ColorStyledProps } from "./types";
 
 export const Wrapper = styled.div<AdvancedAlertStyledProps>`
@@ -14,8 +15,8 @@ export const Wrapper = styled.div<AdvancedAlertStyledProps>`
   justify-content: flex-start;
   padding-left: 1rem;
   padding-right: ${(props) => (props.onClick ? "3rem" : "1rem")};
-  color: ${(props) => `rgb(${colorMetric[props.color]})`};
-  background-color: ${(props) => `rgba(${colorMetric[props.color]}, 0.1)`};
+  color: ${(props) => colorMetric[props.color]};
+  background-color: ${(props) => toRGBA(colorMetric[props.color])};
 `;
 
 export const Button = styled.button<ColorStyledProps>`
@@ -23,7 +24,7 @@ export const Button = styled.button<ColorStyledProps>`
   right: 0;
   border: 0;
   padding: 15px;
-  color: ${(props) => `rgb(${colorMetric[props.color]})`};
+  color: ${(props) => colorMetric[props.color]};
   cursor: pointer;
   position: absolute;
   border-radius: 0.25rem;

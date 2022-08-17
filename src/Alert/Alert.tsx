@@ -38,7 +38,7 @@ const Alert = memo(
           {heading && <Heading>{heading}</Heading>}
           {children}
         </div>
-        <Button>
+        <Button onClick={onClose}>
           <Icon name={closeIcon as Name} color="rgb(193, 193, 193)" />
         </Button>
       </Wrapper>

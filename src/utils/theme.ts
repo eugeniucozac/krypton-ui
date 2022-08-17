@@ -1,12 +1,12 @@
 import { ColorMetricProps, SizeMetricProps } from "../types";
 
 export const colorMetric: ColorMetricProps = {
-  default: "229, 229, 229",
-  primary: "39, 174, 96",
-  error: "255, 62, 62",
-  warning: "244, 197, 83",
-  success: "39, 174, 96",
-  info: "3, 169, 244",
+  default: "rgb(229, 229, 229)",
+  primary: "rgb(39, 174, 96)",
+  error: "rgb(255, 62, 62)",
+  warning: "rgb(244, 197, 83)",
+  success: "rgb(39, 174, 96)",
+  info: "rgb(3, 169, 244)",
 };
 
 export const sizeMetric: SizeMetricProps = {
