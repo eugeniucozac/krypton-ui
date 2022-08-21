@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Alert from "./Alert";
 import Chip from "./Chip";
 import Avatar from "./Avatar";
 import ProgressBar from "./ProgressBar";
 import Spinner from "./Spinner";
-import List from "./List";
-import Range from "./Range";
+import Icon from "./Icon";
 import AdvancedAlert from "./AdvancedAlert";
+import ButtonGroup from "./ButtonGroup";
+import Button from "./Button";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
+  const [data, setData] = useState<any>([]);
 
   const items = [
     { title: "Item 1", avatar: { name: "eugene" } },
@@ -36,9 +38,13 @@ function App() {
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
 */
 
+  const onClickButton = () => {
+    console.log("onClickButton");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <div style={{ width: "50%", marginTop: "20px" }}>
           {alertOpen && (
             <Alert
@@ -60,7 +66,9 @@ function App() {
           <ProgressBar value={20} color="info" showValue={true} />
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
-          <Chip variant="rounded">Textdata</Chip>
+          <Chip variant="rounded" color="default">
+            Textdata
+          </Chip>
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Spinner />
@@ -75,7 +83,28 @@ function App() {
             </AdvancedAlert>
           )}
         </div>
-      </header>
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <Button
+            color="default"
+            model="outline"
+            onClick={onClickButton}
+            endIcon={<Icon name="send" />}
+          >
+            Button
+          </Button>
+        </div>
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <ButtonGroup>
+            <Button onClick={onClickButton}>Button</Button>
+            <Button model="outline" onClick={onClickButton}>
+              Button
+            </Button>
+            <Button model="outline" onClick={onClickButton}>
+              Button
+            </Button>
+          </ButtonGroup>
+        </div>
+      </div>
     </div>
   );
 }

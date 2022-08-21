@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { sizeMetric, colorMetric } from "../utils/theme";
 import { toRem } from "../utils/string";
-import { WrapperStyledProps } from "./types";
+import { WrapperStyledProps, ColorStyledProps } from "./types";
 
 export const Wrapper = styled.div<WrapperStyledProps>`
   cursor: pointer;
-  padding: 0 1rem;
+  padding: ${(props) =>
+    ` 0.45rem ${toRem(sizeMetric[props.size])} 0.6rem ${toRem(
+      sizeMetric[props.size]
+    )}`};
   align-items: center;
   display: inline-flex;
   transition: ease 0.3s;
@@ -17,13 +20,13 @@ export const Wrapper = styled.div<WrapperStyledProps>`
     }}
   border-radius: ${(props) =>
     props.variant === "square" ? " 0.375rem" : "3.125rem"};
-  height: ${(props) => toRem(sizeMetric[props.size] * 2)};
+  height: ${(props) => toRem(sizeMetric[props.size])};
 `;
 
-export const Title = styled.span`
+export const Title = styled.span<ColorStyledProps>`
   font-family: "SFProDisplay";
   font-size: 0.875rem;
   font-weight: 200;
   user-select: none;
-  color: black;
+  color: ${(props) => (props.color === "default" ? "black" : "white")};
 `;

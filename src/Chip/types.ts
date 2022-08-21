@@ -34,9 +34,12 @@ type ChipType = {
    */
 };
 
-export type WrapperStyledProps = {
-  size: Size;
+export type ColorStyledProps = {
   color: Color;
+};
+
+export type WrapperStyledProps = ColorStyledProps & {
+  size: Size;
   variant: Variant;
   disabled: boolean;
 };

@@ -23,7 +23,7 @@ const Chip = memo(
         disabled={disabled}
         color={color}
       >
-        <Title>{children}</Title>
+        <Title color={color}>{children}</Title>
       </Wrapper>
     );
   }
