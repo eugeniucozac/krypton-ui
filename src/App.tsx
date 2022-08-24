@@ -8,11 +8,13 @@ import Icon from "./Icon";
 import AdvancedAlert from "./AdvancedAlert";
 import ButtonGroup from "./ButtonGroup";
 import Button from "./Button";
+import Rating from "./Rating";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
   const [data, setData] = useState<any>([]);
+  const [rating, setRating] = useState(4);
 
   const items = [
     { title: "Item 1", avatar: { name: "eugene" } },
@@ -103,6 +105,9 @@ function App() {
               Button
             </Button>
           </ButtonGroup>
+        </div>
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <Rating value={rating} onChangeValue={setRating} variant="disabled" />
         </div>
       </div>
     </div>
