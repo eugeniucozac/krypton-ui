@@ -5,19 +5,22 @@ import { RatingProps } from "./types";
 import { Wrapper, Star, Input } from "./Rating.styles";
 
 const Rating = memo(
-  ({
-    className,
-    variant = "controlled",
-    size = "md",
-    color = "success",
-    value,
-    onChangeValue,
-  }: RatingProps) => {
+  (
+    {
+      className,
+      variant = "controlled",
+      size = "md",
+      color = "success",
+      value,
+      onChangeValue,
+    }: RatingProps,
+    props
+  ) => {
     const stars = Array(5).fill(0);
     const uuidv4 = uuid();
 
     return (
-      <Wrapper color={color} variant={variant} className={className}>
+      <Wrapper color={color} variant={variant} className={className} {...props}>
         {stars.map((_, iter) => {
           const iterator = iter + 1;
           const icons = Array(iterator).fill(0);

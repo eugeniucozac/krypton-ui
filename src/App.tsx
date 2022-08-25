@@ -9,12 +9,20 @@ import AdvancedAlert from "./AdvancedAlert";
 import ButtonGroup from "./ButtonGroup";
 import Button from "./Button";
 import Rating from "./Rating";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionDescription,
+  AccordionTitle,
+} from "./Accordion";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
   const [data, setData] = useState<any>([]);
   const [rating, setRating] = useState(4);
+  const [panel, setPanel] = useState<number | null>(null);
+  const [panels, setPanels] = useState<any>([5, 6, null]);
 
   const items = [
     { title: "Item 1", avatar: { name: "eugene" } },
@@ -42,6 +50,10 @@ function App() {
 
   const onClickButton = () => {
     console.log("onClickButton");
+  };
+
+  const handleChangeAccordion = (val: any) => {
+    setPanel(val);
   };
 
   return (
@@ -108,6 +120,40 @@ function App() {
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Rating value={rating} onChangeValue={setRating} variant="disabled" />
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <Accordion
+            variant="toggle"
+            expandedPanel={panel}
+            onChange={handleChangeAccordion}
+          >
+            <AccordionItem>
+              <AccordionTitle targetId={1}>Accordion Header 1</AccordionTitle>
+              <AccordionDescription panelId={1}>
+                You can modify any of this with custom CSS or overriding our
+                default variables. It's also worth noting that just about any
+                HTML can go within th
+              </AccordionDescription>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionTitle targetId={2}>Accordion Header 2</AccordionTitle>
+              <AccordionDescription panelId={2}>
+                <strong>
+                  You can modify any of this with custom CSS or overriding our
+                  default variables. It's also worth noting that
+                </strong>
+                just about any HTML can go within th
+              </AccordionDescription>
+            </AccordionItem>
+            <AccordionItem>
+              <AccordionTitle targetId={3}>Accordion Header 3</AccordionTitle>
+              <AccordionDescription panelId={3}>
+                You can modify any of this with custom CSS or overriding our
+                default variables. It's also worth noting that just about any
+                HTML can go within th
+              </AccordionDescription>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ export const initials = (name: string) => {
 
 export const toRem = (size: number) => `${size}rem`;
 
+export const toPx = (size: number) => `${size}px`;
+
 export const toPercent = (value: number) => `${value}%`;
 
 export const uuid = () =>

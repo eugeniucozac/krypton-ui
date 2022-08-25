@@ -3,21 +3,25 @@ import { ButtonProps } from "./types";
 import { Wrapper } from "./Button.styles";
 
 const Button = memo(
-  ({
-    children,
-    className,
-    variant = "square",
-    color = "primary",
-    model = "default",
-    size = "md",
-    width = "default",
-    disabled = false,
-    beginIcon,
-    endIcon,
-    onClick,
-  }: ButtonProps) => {
+  (
+    {
+      children,
+      className,
+      variant = "square",
+      color = "primary",
+      model = "default",
+      size = "md",
+      width = "default",
+      disabled = false,
+      beginIcon,
+      endIcon,
+      onClick,
+    }: ButtonProps,
+    props
+  ) => {
     return (
       <Wrapper
+        {...props}
         className={className}
         color={color}
         size={size}
