@@ -15,6 +15,7 @@ import {
   AccordionDescription,
   AccordionTitle,
 } from "./Accordion";
+import Tooltip from "./Tooltip";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -120,6 +121,18 @@ function App() {
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Rating value={rating} onChangeValue={setRating} variant="disabled" />
+        </div>
+        <div
+          style={{
+            width: "35%",
+            margin: "20px 0",
+            display: "flex",
+            justifyContent: "right",
+          }}
+        >
+          <Tooltip title="Tooltip" placement="top">
+            <Button onClick={onClickButton}>Button</Button>
+          </Tooltip>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Accordion

@@ -1,8 +1,32 @@
-import { BundleView } from "./Bundle.view";
+import { memo } from "react";
 import { BundleProps } from "./types";
+import { Wrapper, Title } from "./Bundle.styles";
 
-export default function Bundle(props: BundleProps) {
-  const handleOnClick = () => {};
+const Bundle = memo(
+  (
+    {
+      children,
+      className,
+      color = "default",
+      size = "md",
+      variant = "square",
+      disabled = false,
+    }: BundleProps,
+    props
+  ) => {
+    return (
+      <Wrapper
+        {...props}
+        className={className}
+        variant={variant}
+        size={size}
+        disabled={disabled}
+        color={color}
+      >
+        <Title color={color}>{children}</Title>
+      </Wrapper>
+    );
+  }
+);
 
-  return <BundleView {...props} />;
-}
+export default Bundle;

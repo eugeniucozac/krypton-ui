@@ -1,11 +1,7 @@
-export type Variant =
-  | "default"
-  | "success"
-  | "warning"
-  | "info"
-  | "error"
-  | "krypton";
-export type Size = "sm" | "md" | "lg" | "xl";
+import { ComponentProps } from "react";
+import { Color, Size } from "../types";
+
+export type Variant = "square" | "rounded";
 
 type BundleType = {
   children?: React.ReactNode;
@@ -16,11 +12,7 @@ type BundleType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  text?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  variant?: Variant;
+  color?: Color;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default default
@@ -30,15 +22,26 @@ type BundleType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default md
    */
+  variant?: Variant;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default primary
+   */
   disabled?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default false
    */
-  onClick?: () => void | undefined;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
-export type BundleProps = React.HTMLAttributes<HTMLSpanElement> & BundleType;
+export type ColorStyledProps = {
+  color: Color;
+};
+
+export type WrapperStyledProps = ColorStyledProps & {
+  size: Size;
+  variant: Variant;
+  disabled: boolean;
+};
+
+export type BundleProps = ComponentProps<"div"> & BundleType;
