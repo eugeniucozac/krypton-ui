@@ -1,27 +1,11 @@
 import { memo } from "react";
-import Avatar from "../Avatar";
 import { ListProps } from "./types";
-import { AvatarWrapper, Wrapper, Item } from "./List.styles";
+import { Wrapper } from "./List.styles";
 
-const List = memo(({ className, items }: ListProps, props) => {
+export const List = memo(({ children, className }: ListProps, props) => {
   return (
     <Wrapper {...props} className={className}>
-      {items.map(({ title, avatar }, iter) => (
-        <Item key={iter}>
-          {avatar && (
-            <AvatarWrapper>
-              <Avatar
-                name={avatar.name}
-                color="success"
-                imgSrc={avatar.imgSrc}
-              />
-            </AvatarWrapper>
-          )}
-          {title}
-        </Item>
-      ))}
+      {children}
     </Wrapper>
   );
 });
-
-export default List;

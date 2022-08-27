@@ -16,6 +16,7 @@ import {
   AccordionTitle,
 } from "./Accordion";
 import Tooltip from "./Tooltip";
+import { List, ListItem } from "./List";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -167,6 +168,43 @@ function App() {
               </AccordionDescription>
             </AccordionItem>
           </Accordion>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <List>
+            <ListItem>Item 1</ListItem>
+            <ListItem>Item 2</ListItem>
+            <ListItem>Item 3</ListItem>
+            <ListItem>Item 4</ListItem>
+          </List>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <List>
+            <ListItem>
+              <Avatar imgSrc="" name="Cozac Eugeniu" />
+              Item 1
+            </ListItem>
+            <ListItem>
+              <Avatar
+                imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
+                name="Cozac Eugeniu"
+              />
+              Item 2
+            </ListItem>
+            <ListItem>
+              <Avatar
+                imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
+                name="Cozac Eugeniu"
+              />
+              Item 3
+            </ListItem>
+            <ListItem>
+              <Avatar
+                imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
+                name="Cozac Eugeniu"
+              />
+              Item 4
+            </ListItem>
+          </List>
         </div>
       </div>
     </div>
