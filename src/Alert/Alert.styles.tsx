@@ -6,7 +6,7 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   font-family: "SFProDisplay";
   font-size: 0.875rem;
   position: relative;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   display: flex;
   align-items: center;
   padding-top: 1rem;
@@ -20,13 +20,13 @@ export const Wrapper = styled.div<WrapperStyledProps>`
     backgroundColor: "rgba(255, 255, 255, 0.1)",
     ...(props.heading && {
       "&:before": {
-        top: "15px",
-        width: "4px",
-        left: "10px",
+        top: "0.938rem",
+        width: "0.25rem",
+        left: "0.625rem",
         display: "block",
         position: "absolute",
         borderRadius: "2rem",
-        height: "calc(100% - 30px)",
+        height: "calc(100% - 1.875rem)",
         backgroundColor: colorMetric[props.color],
       },
     }),
@@ -40,7 +40,7 @@ export const Button = styled.button`
   top: 50%;
   right: 0;
   border: 0;
-  padding: 15px;
+  padding: 1rem;
   color: inherit;
   cursor: pointer;
   position: absolute;
@@ -55,7 +55,7 @@ export const IconWrapper = styled.span`
 
 export const Heading = styled.div`
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 0.313rem;
   color: rgb(34, 34, 34);
   letter-spacing: 0.5px;
 `;

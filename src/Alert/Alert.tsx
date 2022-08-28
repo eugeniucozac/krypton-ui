@@ -1,8 +1,8 @@
 import { memo } from "react";
 import Icon from "../Icon";
 import { AlertProps } from "./types";
-import { Wrapper, Button, IconWrapper, Heading } from "./Alert.styles";
 import { Name } from "../Icon/types";
+import { Wrapper, Button, IconWrapper, Heading } from "./Alert.styles";
 
 const iconType: any = {
   error: "ok",

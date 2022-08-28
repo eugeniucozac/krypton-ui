@@ -26,26 +26,6 @@ function App() {
   const [panel, setPanel] = useState<number | null>(null);
   const [panels, setPanels] = useState<any>([5, 6, null]);
 
-  const items = [
-    { title: "Item 1", avatar: { name: "eugene" } },
-    { title: "Item 2", avatar: { name: "Dorina Costin" } },
-    {
-      title: "Item 3",
-      avatar: {
-        name: "John Johnson",
-        imgSrc:
-          "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5",
-      },
-    },
-  ];
-
-  const itemsOld = [
-    { title: "Item 1" },
-    { title: "Item 2" },
-    {
-      title: "Item 3",
-    },
-  ];
   /*
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
 */
@@ -82,7 +62,7 @@ function App() {
           <ProgressBar value={20} color="info" showValue={true} />
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
-          <Chip variant="rounded" color="default">
+          <Chip variant="rounded" color="secondary">
             Textdata
           </Chip>
         </div>
@@ -101,7 +81,7 @@ function App() {
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Button
-            color="default"
+            color="secondary"
             model="outline"
             onClick={onClickButton}
             endIcon={<Icon name="send" />}

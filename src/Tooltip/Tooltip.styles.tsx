@@ -30,7 +30,7 @@ export const Inner = styled.div<PlacementStyledProps>`
   text-align: center;
   white-space: nowrap;
   padding: 0.375rem 0.625rem;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   box-shadow: 0 1px 5px rgb(0 0 0 / 10%);
   & div {
     position: absolute;

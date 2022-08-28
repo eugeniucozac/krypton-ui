@@ -7,7 +7,7 @@ const Bundle = memo(
     {
       children,
       className,
-      color = "default",
+      color = "secondary",
       size = "md",
       variant = "square",
       disabled = false,

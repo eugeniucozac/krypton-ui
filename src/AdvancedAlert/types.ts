@@ -13,7 +13,7 @@ type AdvancedAlertType = {
   color?: Color;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default default
+   * @default secondary
    */
   onClose?: () => void;
   /**

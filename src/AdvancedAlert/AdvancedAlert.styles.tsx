@@ -7,7 +7,7 @@ export const Wrapper = styled.div<AdvancedAlertStyledProps>`
   font-family: "SFProDisplay";
   font-size: 0.875rem;
   position: relative;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   display: flex;
   align-items: center;
   padding-top: 1rem;
@@ -23,11 +23,11 @@ export const Button = styled.button<ColorStyledProps>`
   top: 50%;
   right: 0;
   border: 0;
-  padding: 15px;
-  color: ${(props) => colorMetric[props.color]};
+  padding: 1rem;
   cursor: pointer;
   position: absolute;
   border-radius: 0.25rem;
   transform: translateY(-50%);
   background-color: transparent;
+  color: ${(props) => colorMetric[props.color]};
 `;

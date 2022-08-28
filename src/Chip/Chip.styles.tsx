@@ -5,13 +5,13 @@ import { WrapperStyledProps, ColorStyledProps } from "./types";
 
 export const Wrapper = styled.div<WrapperStyledProps>`
   cursor: pointer;
+  align-items: center;
+  display: inline-flex;
+  transition: ease 0.3s;
   padding: ${(props) =>
     ` 0.45rem ${toRem(sizeMetric[props.size])} 0.6rem ${toRem(
       sizeMetric[props.size]
     )}`};
-  align-items: center;
-  display: inline-flex;
-  transition: ease 0.3s;
   background: ${(props) => colorMetric[props.color]};
   ${(props) =>
     props.disabled && {
@@ -28,5 +28,6 @@ export const Title = styled.span<ColorStyledProps>`
   font-size: 0.875rem;
   font-weight: 200;
   user-select: none;
-  color: ${(props) => (props.color === "default" ? "black" : "white")};
+  color: ${(props) =>
+    props.color === "secondary" ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)"};
 `;

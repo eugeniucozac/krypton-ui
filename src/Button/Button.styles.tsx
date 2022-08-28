@@ -30,16 +30,16 @@ export const Wrapper = styled.button<WrapperStyledProps>`
     props.model === "text"
       ? "transparent"
       : props.model === "outline"
-      ? "white"
+      ? "rgb(255, 255, 255)"
       : colorMetric[props.color]};
   color: ${(props) =>
     props.model === "outline" || props.model === "text"
       ? colorMetric[props.color]
-      : "white"};
+      : "rgb(255, 255, 255)"};
   border: ${(props) =>
     props.model === "text" ? "none" : `1px solid ${colorMetric[props.color]}`};
   &: hover {
-    color: white;
+    color: rgb(255, 255, 255);
     box-shadow: ${(props) =>
       props.model === "outline" && "0 3px 7px rgb(0 0 0 / 10%)"};
     background: ${(props) =>

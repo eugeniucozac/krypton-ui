@@ -28,5 +28,5 @@ export const Title = styled.span<ColorStyledProps>`
   font-size: 0.875rem;
   font-weight: 200;
   user-select: none;
-  color: ${(props) => (props.color === "default" ? "black" : "white")};
+  color: ${(props) => (props.color === "secondary" ? "black" : "white")};
 `;

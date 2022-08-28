@@ -6,9 +6,9 @@ export type ColorCodes = RGB | HEX;
 
 export type Color =
   | "primary"
-  | "black"
-  | "default"
-  | "error"
+  | "dark"
+  | "secondary"
+  | "danger"
   | "warning"
   | "info"
   | "success";

@@ -3,7 +3,9 @@ import { IconProps } from "./types";
 import { Wrapper } from "./Icon.styles";
 
 const Icon = memo(({ className, color, name, size = "md" }: IconProps) => {
-  return <Wrapper size={size} name={name} color={color} />;
+  return (
+    <Wrapper className={className} size={size} name={name} color={color} />
+  );
 });
 
 export default Icon;
