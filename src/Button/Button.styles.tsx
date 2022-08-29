@@ -22,28 +22,37 @@ export const Wrapper = styled.button<WrapperStyledProps>`
   cursor: ${(props) => (props.disabled ? "default" : "pointer")};
   width: ${(props) => (props.width === "full" ? "100%" : "auto")};
   padding: ${(props) =>
-    `${toRem(sizeMetric[props.size] * 0.625)} ${toRem(
-      sizeMetric[props.size] * 1.25
-    )}`};
+    props.model === "icon"
+      ? ".25rem"
+      : `${toRem(sizeMetric[props.size] * 0.625)} ${toRem(
+          sizeMetric[props.size] * 1.25
+        )}`};
   border-radius: ${(props) => (props.variant === "square" ? "0" : "3.125rem")};
   background: ${(props) =>
-    props.model === "text"
+    props.model === "text" || props.model === "icon"
       ? "transparent"
       : props.model === "outline"
       ? "rgb(255, 255, 255)"
       : colorMetric[props.color]};
   color: ${(props) =>
-    props.model === "outline" || props.model === "text"
+    props.model === "outline" ||
+    props.model === "text" ||
+    props.model === "icon"
       ? colorMetric[props.color]
       : "rgb(255, 255, 255)"};
   border: ${(props) =>
-    props.model === "text" ? "none" : `1px solid ${colorMetric[props.color]}`};
+    props.model === "text" || props.model === "icon"
+      ? "none"
+      : `1px solid ${colorMetric[props.color]}`};
   &: hover {
-    color: rgb(255, 255, 255);
+    color: ${(props) =>
+      props.model === "icon" ? colorMetric[props.color] : "rgb(255, 255, 255)"};
     box-shadow: ${(props) =>
       props.model === "outline" && "0 3px 7px rgb(0 0 0 / 10%)"};
     background: ${(props) =>
-      props.model === "outline"
+      props.model === "icon"
+        ? "transparent"
+        : props.model === "outline"
         ? colorMetric[props.color]
         : `linear-gradient(
       rgba(0, 0, 0, 0.25),

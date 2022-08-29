@@ -1,14 +1,7 @@
 import { ComponentProps } from "react";
-import { Color, Size } from "../types";
 
-export type Model = "default" | "outline" | "text" | "icon";
-
-export type Variant = "square" | "rounded";
-
-export type Width = "default" | "full";
-
-type ButtonType = {
-  children?: React.ReactNode;
+type CardBaseType = {
+  children: React.ReactNode;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -16,55 +9,59 @@ type ButtonType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  variant?: Variant;
+};
+
+type CardImageType = {
+  imgSrc: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  model?: Model;
+  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  color?: Color;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default default
-   */
-  width?: Width;
+  alt?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  size?: Size;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default md
-   */
-  disabled?: boolean;
+  height?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  beginIcon?: React.ReactNode;
+};
+
+type CardHeaderType = {
+  title: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  endIcon?: React.ReactNode;
+  subtitle: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  onClick?: () => void;
+  avatar: React.ReactNode;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  action: React.ReactNode;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
 };
 
 export type WrapperStyledProps = {
-  color: Color;
-  size: Size;
-  model: Model;
-  variant: Variant;
-  width: Width;
-  disabled: boolean;
-  beginIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  maxWidth: string;
 };
 
-export type ButtonProps = ComponentProps<"div"> & ButtonType;
+export type CardHeaderProps = ComponentProps<"div"> & CardHeaderType;
+
+export type CardProps = ComponentProps<"div"> &
+  CardBaseType & { maxWidth?: string };
+
+export type CardImageProps = ComponentProps<"img"> & CardImageType;
+
+export type CardBaseProps = ComponentProps<"div"> & CardBaseType;

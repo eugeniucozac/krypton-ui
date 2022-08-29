@@ -9,6 +9,10 @@ type ImageType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
+  alt?: string;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
   fluid?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

@@ -4,7 +4,7 @@ import { Wrapper } from "./Image.styles";
 
 const Image = memo(
   (
-    { imgSrc, className, fluid = false, rounded = false }: ImageProps,
+    { imgSrc, className, fluid = false, rounded = false, alt = "" }: ImageProps,
     props
   ) => {
     return (
@@ -13,6 +13,7 @@ const Image = memo(
         src={imgSrc}
         className={className}
         fluid={fluid}
+        alt={alt}
         rounded={rounded}
       />
     );

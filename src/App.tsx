@@ -18,6 +18,15 @@ import {
 import Tooltip from "./Tooltip";
 import Image from "./Image";
 import { List, ListItem } from "./List";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardImage,
+  CardTitle,
+  CardActions,
+  CardBody,
+} from "./Card";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -189,6 +198,38 @@ function App() {
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Image imgSrc="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_960_720.jpg" />
+        </div>
+        <div style={{ width: "25%", margin: "20px 0 20px 30px" }}>
+          <Card>
+            <CardHeader
+              title="Shrimp and Chorizo Paella"
+              subtitle="September 14, 2016"
+              avatar={
+                <Avatar
+                  imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
+                  name="Cozac Eugeniu"
+                />
+              }
+              action={
+                <Button model="icon" onClick={onClickButton}>
+                  <Icon name="keyboardControl" />
+                </Button>
+              }
+            />
+            <CardImage imgSrc="https://mui.com/static/images/cards/contemplative-reptile.jpg" />
+            <CardBody>
+              <CardTitle>Lizard</CardTitle>
+              <CardContent>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                vulputate neque vel quam accumsan dignissim. Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit.
+              </CardContent>
+              <CardActions>
+                <Button onClick={onClickButton}>Share</Button>
+                <Button onClick={onClickButton}>Learn More</Button>
+              </CardActions>
+            </CardBody>
+          </Card>
         </div>
       </div>
     </div>
