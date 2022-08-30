@@ -28,6 +28,7 @@ import {
   CardBody,
 } from "./Card";
 import Badge from "./Badge";
+import Link from "./Link";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -164,6 +165,9 @@ function App() {
           <Badge value={10}>
             <Icon name="mail" />
           </Badge>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <Link href="#">Hello sir</Link>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <List>
