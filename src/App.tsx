@@ -27,6 +27,7 @@ import {
   CardActions,
   CardBody,
 } from "./Card";
+import Badge from "./Badge";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -158,6 +159,11 @@ function App() {
               </AccordionDescription>
             </AccordionItem>
           </Accordion>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <Badge value={10}>
+            <Icon name="mail" />
+          </Badge>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <List>

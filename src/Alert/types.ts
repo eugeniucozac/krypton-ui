@@ -1,6 +1,8 @@
 import { ComponentProps } from "react";
 import { Color } from "../types";
 
+type IconType = "error" | "warning" | "success" | "info";
+
 type AlertType = {
   children?: React.ReactNode;
   /**
@@ -28,8 +30,6 @@ type AlertType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
 };
-
-type IconType = "error" | "warning" | "success" | "info";
 
 export type WrapperStyledProps = Pick<AlertType, "heading" | "onClose"> & {
   color: Color;
