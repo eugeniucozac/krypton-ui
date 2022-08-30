@@ -29,6 +29,7 @@ import {
 } from "./Card";
 import Badge from "./Badge";
 import Link from "./Link";
+import Breadcrumbs from "./Breadcrumbs";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -168,6 +169,16 @@ function App() {
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Link href="#">Hello sir</Link>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <Breadcrumbs separator={<Icon name="navigateNext" />}>
+            <Link color="dark" href="#">
+              Home
+            </Link>
+            <Link color="dark" href="#">
+              Services
+            </Link>
+          </Breadcrumbs>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <List>
