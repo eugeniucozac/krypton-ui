@@ -30,6 +30,7 @@ import {
 import Badge from "./Badge";
 import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
+import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -38,6 +39,7 @@ function App() {
   const [rating, setRating] = useState(4);
   const [panel, setPanel] = useState<number | null>(null);
   const [panels, setPanels] = useState<any>([5, 6, null]);
+  const [tabs, setTabs] = useState(1);
 
   /*
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
@@ -49,6 +51,10 @@ function App() {
 
   const handleChangeAccordion = (val: any) => {
     setPanel(val);
+  };
+
+  const handleChangeTabs = (val: any) => {
+    setTabs(val);
   };
 
   return (
@@ -169,6 +175,42 @@ function App() {
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Link href="#">Hello sir</Link>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <TabContainer value={tabs}>
+            <Tabs onChange={handleChangeTabs}>
+              <TabItem label="Item 1" value={1} />
+              <TabItem label="Item 2" value={2} />
+              <TabItem label="Item 3" value={3} />
+              <TabItem label="Item 4" value={4} disabled />
+            </Tabs>
+            <TabContent>
+              <TabPanel reference={1}>
+                First Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                A ab asperiores blanditiis commodi consequuntur dicta distinctio
+                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
+                veritatis vero? Corporis inventore quaerat voluptate.
+              </TabPanel>
+              <TabPanel reference={2}>
+                Second Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                A ab asperiores blanditiis commodi consequuntur dicta distinctio
+                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
+                veritatis vero? Corporis inventore quaerat voluptate.
+              </TabPanel>
+              <TabPanel reference={3}>
+                Third Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                A ab asperiores blanditiis commodi consequuntur dicta distinctio
+                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
+                veritatis vero? Corporis inventore quaerat voluptate.
+              </TabPanel>
+              <TabPanel reference={4}>
+                Fourth Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                A ab asperiores blanditiis commodi consequuntur dicta distinctio
+                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
+                veritatis vero? Corporis inventore quaerat voluptate.
+              </TabPanel>
+            </TabContent>
+          </TabContainer>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Breadcrumbs separator={<Icon name="navigateNext" />}>
