@@ -31,6 +31,7 @@ import Badge from "./Badge";
 import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
 import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
+import { BottomNavigation, BottomNavigationItem } from "./BottomNavigation";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -39,6 +40,7 @@ function App() {
   const [rating, setRating] = useState(4);
   const [panel, setPanel] = useState<number | null>(null);
   const [panels, setPanels] = useState<any>([5, 6, null]);
+  const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
 
   /*
@@ -55,6 +57,10 @@ function App() {
 
   const handleChangeTabs = (val: any) => {
     setTabs(val);
+  };
+
+  const handleChangeBottomNav = (val: any) => {
+    setBottomNav(val);
   };
 
   return (
@@ -211,6 +217,17 @@ function App() {
               </TabPanel>
             </TabContent>
           </TabContainer>
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <BottomNavigation
+            value={bottomNav}
+            onChange={handleChangeBottomNav}
+            color="rgb(39, 174, 96)"
+          >
+            <BottomNavigationItem icon="search" />
+            <BottomNavigationItem icon="person" />
+            <BottomNavigationItem icon="locationPin" />
+          </BottomNavigation>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Breadcrumbs separator={<Icon name="navigateNext" />}>
