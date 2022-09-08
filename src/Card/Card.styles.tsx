@@ -4,12 +4,12 @@ import { WrapperStyledProps } from "./types";
 export const Wrapper = styled.div<WrapperStyledProps>`
   font-family: "SFProDisplay";
   display: flex;
-  width: ${(props) => props.maxWidth};
-  max-width: ${(props) => props.maxWidth};
   margin: 0 0 1.25rem;
   transition: ease 0.2s;
   flex-direction: column;
   box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
+  width: ${(props) => props.maxWidth};
+  max-width: ${(props) => props.maxWidth};
 `;
 
 export const Title = styled.h4`

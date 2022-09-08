@@ -11,6 +11,7 @@ export type Color =
   | "danger"
   | "warning"
   | "info"
+  | "white"
   | "success";
 
 export type Size = "sm" | "md" | "lg" | "xl";

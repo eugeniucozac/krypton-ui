@@ -32,6 +32,7 @@ import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
 import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
 import { BottomNavigation, BottomNavigationItem } from "./BottomNavigation";
+import { Pagination } from "./Pagination";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -42,6 +43,7 @@ function App() {
   const [panels, setPanels] = useState<any>([5, 6, null]);
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
+  const [page, setPage] = useState(1);
 
   /*
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
@@ -61,6 +63,10 @@ function App() {
 
   const handleChangeBottomNav = (val: any) => {
     setBottomNav(val);
+  };
+
+  const handleChangePage = (val: any) => {
+    setPage(val);
   };
 
   return (
@@ -219,11 +225,14 @@ function App() {
           </TabContainer>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <BottomNavigation
-            value={bottomNav}
-            onChange={handleChangeBottomNav}
-            color="rgb(39, 174, 96)"
-          >
+          <Pagination
+            count={14}
+            currentPage={page}
+            onChange={handleChangePage}
+          />
+        </div>
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <BottomNavigation value={bottomNav} onChange={handleChangeBottomNav}>
             <BottomNavigationItem icon="search" />
             <BottomNavigationItem icon="person" />
             <BottomNavigationItem icon="locationPin" />

@@ -4,6 +4,7 @@ export const colorMetric: ColorMetricProps = {
   primary: "rgb(39, 174, 96)",
   secondary: "rgb(229, 229, 229)",
   dark: "rgb(0, 0, 0)",
+  white: "rgb(255, 255, 255)",
   danger: "rgb(255, 62, 62)",
   warning: "rgb(244, 197, 83)",
   info: "rgb(3, 169, 244)",

@@ -4,7 +4,13 @@ import { Wrapper } from "./BottomNavigation.styles";
 
 export const BottomNavigation = memo(
   (
-    { children, className, value, color, onChange }: BottomNavigationProps,
+    {
+      children,
+      className,
+      value,
+      color = "primary",
+      onChange,
+    }: BottomNavigationProps,
     props
   ) => {
     return (
