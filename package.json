@@ -1,6 +1,6 @@
 {
   "name": "krypton",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.2.1",
@@ -19,6 +19,7 @@
     "react-dom": "^18.1.0",
     "react-popper": "^2.3.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "reactstrap": "^9.1.1",
     "styled-components": "^5.3.5",
     "ts-number-range": "^1.0.4",

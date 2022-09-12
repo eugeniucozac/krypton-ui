@@ -33,6 +33,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
 import { BottomNavigation, BottomNavigationItem } from "./BottomNavigation";
 import { Pagination } from "./Pagination";
+import Modal from "./Modal";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -44,6 +45,7 @@ function App() {
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   /*
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
@@ -68,6 +70,9 @@ function App() {
   const handleChangePage = (val: any) => {
     setPage(val);
   };
+
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
 
   return (
     <div className="App">
@@ -230,6 +235,12 @@ function App() {
             currentPage={page}
             onChange={handleChangePage}
           />
+        </div>
+        <div style={{ width: "35%", margin: "40px 0 40px 30px" }}>
+          <Button onClick={handleShowModal}>Open Modal</Button>
+          <Modal onClose={handleCloseModal} isOpen={showModal}>
+            This is Modal Content!
+          </Modal>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <BottomNavigation value={bottomNav} onChange={handleChangeBottomNav}>
