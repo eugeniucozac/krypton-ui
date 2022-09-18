@@ -10,6 +10,8 @@ body {
   font-family: "SFProDisplay";
 }
 
-.jenea {
-  color: violet;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

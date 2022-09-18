@@ -17,3 +17,15 @@ export const sizeMetric: SizeMetricProps = {
   lg: 1.5,
   xl: 2,
 };
+
+export const screenSize = {
+  mobile: "580px",
+  tablet: "768px",
+  desktop: "1200px",
+};
+
+export const device = {
+  mobile: `(min-width: ${screenSize.mobile})`,
+  tablet: `(min-width: ${screenSize.tablet})`,
+  desktop: `(min-width: ${screenSize.desktop})`,
+};
