@@ -34,6 +34,7 @@ import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
 import { BottomNavigation, BottomNavigationItem } from "./BottomNavigation";
 import { Pagination } from "./Pagination";
 import Modal from "./Modal";
+import { TransferList, TransferListItem } from "./TransferList";
 
 function App() {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -46,6 +47,19 @@ function App() {
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
+
+  const [left, setLeft] = useState([
+    { label: "List Item 1", value: true },
+    { label: "List Item 2", value: false },
+    { label: "List Item 3", value: false },
+    { label: "List Item 4", value: false },
+  ]);
+  const [right, setRight] = useState([
+    { label: "List Item 5", value: false },
+    { label: "List Item 6", value: false },
+    { label: "List Item 7", value: false },
+    { label: "List Item 8", value: false },
+  ]);
 
   /*
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
@@ -73,6 +87,14 @@ function App() {
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
+
+  const handleOnMoveToRight = () => {};
+
+  const handleOnMoveToLeft = () => {};
+
+  const handleAllToLeft = () => {};
+
+  const handleAllToRight = () => {};
 
   return (
     <div className="App">
@@ -330,6 +352,30 @@ function App() {
               </CardActions>
             </CardBody>
           </Card>
+        </div>
+        <div style={{ width: "35%", margin: "40px 0 20px 30px" }}>
+          <TransferList
+            allChoices={true}
+            leftItems={left}
+            rightItems={right}
+            setLeftItems={setLeft}
+            setRightItems={setRight}
+          >
+            {left.map(({ label, value }) => (
+              <TransferListItem
+                label={label}
+                value={value}
+                onChange={setLeft}
+              />
+            ))}
+            {right.map(({ label, value }) => (
+              <TransferListItem
+                label={label}
+                value={value}
+                onChange={setRight}
+              />
+            ))}
+          </TransferList>
         </div>
       </div>
     </div>
