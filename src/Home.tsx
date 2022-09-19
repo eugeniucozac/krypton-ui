@@ -35,18 +35,18 @@ import { BottomNavigation, BottomNavigationItem } from "./BottomNavigation";
 import { Pagination } from "./Pagination";
 import Modal from "./Modal";
 import { TransferList, TransferListItem } from "./TransferList";
+import { Carousel, CarouselItem, CarouselCaption } from "./Carousel";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
-  const [data, setData] = useState<any>([]);
   const [rating, setRating] = useState(4);
   const [panel, setPanel] = useState<number | null>(null);
-  const [panels, setPanels] = useState<any>([5, 6, null]);
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -368,6 +368,50 @@ const Home = () => {
               />
             ))}
           </TransferList>
+        </div>
+        <div style={{ width: "55%", margin: "60px 0 20px 30px" }}>
+          <Carousel indicators={true} activeIndex={index}>
+            <CarouselItem>
+              <img src="https://placekitten.com/804/400" alt="First slide" />
+              <CarouselCaption>
+                <h4>Slide label 1</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vivamus vulputate neque.
+                </p>
+              </CarouselCaption>
+            </CarouselItem>
+            <CarouselItem>
+              <img src="https://placekitten.com/801/400" alt="Second slide" />
+              <CarouselCaption>
+                <h4>Slide label 2</h4>
+                <p>
+                  Now use Lorem Ipsum as their default model text, and a search
+                  for lorem from a line in section.
+                </p>
+              </CarouselCaption>
+            </CarouselItem>
+            <CarouselItem>
+              <img src="https://placekitten.com/802/400" alt="Third slide" />
+              <CarouselCaption>
+                <h4>Slide label 3</h4>
+                <p>
+                  All the Lorem Ipsum generators on the Internet tend to repeat
+                  predefined chunks as necessary.
+                </p>
+              </CarouselCaption>
+            </CarouselItem>
+            <CarouselItem>
+              <img src="https://placekitten.com/803/400" alt="Fourth slide" />
+              <CarouselCaption>
+                <h4>Slide label 4</h4>
+                <p>
+                  Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of Finibus
+                  Bonorum et Malorum The.
+                </p>
+              </CarouselCaption>
+            </CarouselItem>
+          </Carousel>
         </div>
       </>
     </div>
