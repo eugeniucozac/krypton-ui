@@ -36,6 +36,15 @@ import { Pagination } from "./Pagination";
 import Modal from "./Modal";
 import { TransferList, TransferListItem } from "./TransferList";
 import { Carousel, CarouselItem, CarouselCaption } from "./Carousel";
+import {
+  Table,
+  TableBody,
+  TableCol,
+  TableFooter,
+  TableHead,
+  TablePagination,
+  TableRow,
+} from "./Table";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -45,6 +54,8 @@ const Home = () => {
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);
+  const [tablePage, setTablePage] = useState(1);
+  const [rowsTablePerPage, setRowsTablePerPage] = useState(5);
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -54,6 +65,7 @@ const Home = () => {
     { label: "List Item 3", value: false },
     { label: "List Item 4", value: false },
   ]);
+
   const [right, setRight] = useState([
     { label: "List Item 5", value: false },
     { label: "List Item 6", value: false },
@@ -87,6 +99,54 @@ const Home = () => {
 
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
+
+  const forTable = [
+    {
+      name: "Kathryn",
+      email: "kathryn@gmail.com",
+      price: 436.85,
+    },
+    {
+      name: "Kristin",
+      email: "kristin@gmail.com",
+      price: 985.79,
+    },
+    {
+      name: "Eugene",
+      email: "ecozac@gmail.com",
+      price: 212.44,
+    },
+    {
+      name: "Eugene",
+      email: "ecozac@gmail.com",
+      price: 212.44,
+    },
+    {
+      name: "Eugene",
+      email: "ecozac@gmail.com",
+      price: 212.44,
+    },
+    {
+      name: "Eugene",
+      email: "ecozac@gmail.com",
+      price: 212.44,
+    },
+    {
+      name: "Eugene",
+      email: "ecozac@gmail.com",
+      price: 212.44,
+    },
+  ];
+
+  const rowsPerPageOptions = [5, 10, 20];
+
+  const handleTablePageChnage = (val: any) => {
+    setTablePage(val);
+  };
+
+  const handleRowsTablePerPageChnage = (val: any) => {
+    setRowsTablePerPage(val);
+  };
 
   return (
     <div>
@@ -412,6 +472,38 @@ const Home = () => {
               </CarouselCaption>
             </CarouselItem>
           </Carousel>
+        </div>
+        <div style={{ width: "55%", margin: "60px 0 20px 30px" }}>
+          <Table width="44rem" stripped>
+            <TableHead>
+              <TableRow>
+                <TableCol tag="th">Name</TableCol>
+                <TableCol tag="th">Address</TableCol>
+                <TableCol tag="th">Payment</TableCol>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {forTable.map(({ name, email, price }) => {
+                return (
+                  <TableRow>
+                    <TableCol>{name}</TableCol>
+                    <TableCol>{email}</TableCol>
+                    <TableCol>{price}</TableCol>
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+            <TableFooter>
+              <TablePagination
+                page={tablePage}
+                count={forTable.length}
+                rowsPerPage={rowsTablePerPage}
+                rowsPerPageOptions={rowsPerPageOptions}
+                onPageChange={handleTablePageChnage}
+                onRowsPerPageChange={handleRowsTablePerPageChnage}
+              />
+            </TableFooter>
+          </Table>
         </div>
       </>
     </div>
