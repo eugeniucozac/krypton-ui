@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, useState, useEffect } from "react";
+import React, { memo, useState, useEffect } from "react";
 import Button from "../Button";
 import Icon from "../Icon";
 import { CarouselProps } from "./types";
@@ -8,7 +8,6 @@ export const Carousel = memo(
   (
     {
       children,
-      className,
       controls = true,
       indicators = false,
       activeIndex = 0,
@@ -51,9 +50,9 @@ export const Carousel = memo(
     };
 
     return (
-      <Wrapper {...props} className={className}>
+      <Wrapper {...props}>
         <Inner>
-          {React.Children.map<ReactNode, ReactNode>(children, (child, iter) => {
+          {React.Children.map(children, (child, iter) => {
             if (React.isValidElement(child)) {
               return React.cloneElement(child, {
                 active: index === iter,

@@ -25,7 +25,7 @@ export type SeparatorStyledProps = {
   color: Color;
 };
 
-export type LinkStyledProps = {
+export type ItemWrapperStyledProps = {
   disabled: boolean;
 };
 

@@ -8,7 +8,6 @@ export const AccordionTitle = memo(
   (
     {
       children,
-      className,
       closeIcon = "plus",
       openIcon = "minus",
       color = "rgb(0, 0, 0)",
@@ -20,12 +19,7 @@ export const AccordionTitle = memo(
   ) => {
     const toggleIcon = expandedPanel === targetId ? openIcon : closeIcon;
     return (
-      <Title
-        className={className}
-        {...props}
-        type="button"
-        onClick={() => onChange(targetId)}
-      >
+      <Title {...props} type="button" onClick={() => onChange(targetId)}>
         <Header>{children}</Header>
         <Icon name={toggleIcon as Name} color={color} />
       </Title>

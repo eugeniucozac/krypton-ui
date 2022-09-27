@@ -7,7 +7,6 @@ import { Wrapper, Star, Input } from "./Rating.styles";
 const Rating = memo(
   (
     {
-      className,
       variant = "controlled",
       size = "md",
       color = "success",
@@ -20,7 +19,7 @@ const Rating = memo(
     const uuidv4 = uuid();
 
     return (
-      <Wrapper color={color} variant={variant} className={className} {...props}>
+      <Wrapper color={color} variant={variant} {...props}>
         {stars.map((_, iter) => {
           const iterator = iter + 1;
           const icons = Array(iterator).fill(0);

@@ -6,18 +6,17 @@ const Link = memo(
   (
     {
       children,
-      className,
+
       href,
       color = "primary",
       size = "md",
-      underline = "onHover",
+      underline = "hover",
     }: LinkProps,
     props
   ) => {
     return (
       <Wrapper
         {...props}
-        className={className}
         size={size}
         color={color}
         underline={underline}

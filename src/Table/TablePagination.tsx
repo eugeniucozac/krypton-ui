@@ -12,7 +12,6 @@ import {
 export const TablePagination = memo(
   (
     {
-      className,
       page,
       count,
       rowsPerPage,
@@ -42,7 +41,7 @@ export const TablePagination = memo(
     const to = currentPage * rows;
 
     return (
-      <Pagination className={className} {...props}>
+      <Pagination {...props}>
         <RowsPerPage>
           Rows per page:
           <select value={rows} onChange={onChangeRows}>

@@ -7,7 +7,7 @@ export const TransferListHeader = memo(
   (
     {
       children,
-      className,
+
       label,
       items,
       checkedItemsLength,
@@ -45,7 +45,7 @@ export const TransferListHeader = memo(
     };
 
     return (
-      <Header className={className} {...props}>
+      <Header {...props}>
         <Item htmlFor={label}>
           <input
             type="checkbox"

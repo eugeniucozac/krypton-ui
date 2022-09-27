@@ -2,12 +2,6 @@ import { memo } from "react";
 import { TableFooterProps } from "./types";
 import { Footer } from "./Table.styles";
 
-export const TableFooter = memo(
-  ({ children, className }: TableFooterProps, props) => {
-    return (
-      <Footer className={className} {...props}>
-        {children}
-      </Footer>
-    );
-  }
-);
+export const TableFooter = memo(({ children }: TableFooterProps, props) => {
+  return <Footer {...props}>{children}</Footer>;
+});

@@ -1,11 +1,11 @@
 import { ComponentProps } from "react";
 import { Color, Size } from "../types";
 
-export type Model = "default" | "outline" | "text" | "icon";
+export type Model = "default" | "outline" | "text" | "icon"; // Variant
 
-export type Variant = "square" | "rounded";
+export type Variant = "square" | "rounded"; // Shape
 
-export type Width = "default" | "full";
+export type Width = "default" | "full"; //FullWidth boolean
 
 type ButtonType = {
   children?: React.ReactNode;

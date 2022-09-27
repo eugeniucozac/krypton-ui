@@ -6,7 +6,6 @@ export const TableCol = memo(
   (
     {
       children,
-      className,
       padding,
       size = "medium",
       align = "left",
@@ -16,25 +15,13 @@ export const TableCol = memo(
   ) => {
     if (tag === "td") {
       return (
-        <Coltd
-          className={className}
-          {...props}
-          align={align}
-          padding={padding}
-          size={size}
-        >
+        <Coltd {...props} align={align} padding={padding} size={size}>
           {children}
         </Coltd>
       );
     } else {
       return (
-        <Colth
-          className={className}
-          {...props}
-          align={align}
-          padding={padding}
-          size={size}
-        >
+        <Colth {...props} align={align} padding={padding} size={size}>
           {children}
         </Colth>
       );

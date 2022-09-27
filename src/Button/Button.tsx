@@ -6,7 +6,6 @@ const Button = memo(
   (
     {
       children,
-      className,
       variant = "square",
       color = "primary",
       model = "default",
@@ -22,7 +21,6 @@ const Button = memo(
     return (
       <Wrapper
         {...props}
-        className={className}
         color={color}
         size={size}
         variant={variant}

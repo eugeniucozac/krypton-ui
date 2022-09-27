@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { Color } from "../types";
 
-export type Variant = "horizontal" | "vertical";
+export type Variant = "horizontal" | "vertical"; // Orientation
 
 export type TabsAlign = "left" | "right";
 
@@ -64,6 +64,10 @@ type TabItemType = VariantTabsType &
     /**
      * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
      */
+    tabsAlign?: TabsAlign;
+    /**
+     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+     */
   };
 
 type TabPanelType = TabBaseType & {
@@ -75,7 +79,7 @@ type TabPanelType = TabBaseType & {
 
 export type VariantTabsStyledProps = {
   variant: Variant;
-  tabsAlign: TabsAlign;
+  tabsAlign?: TabsAlign;
 };
 
 export type LinkStyledProps = VariantTabsStyledProps & {

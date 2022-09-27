@@ -5,10 +5,7 @@ import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
 
 const Modal = memo(
-  (
-    { children, className, isOpen, onClose, color = "secondary" }: ModalProps,
-    props
-  ) => {
+  ({ children, isOpen, onClose, color = "secondary" }: ModalProps, props) => {
     const portalRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +32,7 @@ const Modal = memo(
     }, []);
 
     return (
-      <ReactPortal wrapperId="modal-background">
+      <ReactPortal wrapperId="modal-backdrop">
         <CSSTransition
           in={isOpen}
           timeout={500}
@@ -44,7 +41,7 @@ const Modal = memo(
           nodeRef={portalRef}
         >
           <Background isOpen={isOpen}>
-            <Wrapper {...props} className={className} ref={wrapperRef}>
+            <Wrapper {...props} ref={wrapperRef}>
               <section>{children}</section>
             </Wrapper>
           </Background>

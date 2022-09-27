@@ -6,7 +6,6 @@ import Icon from "../Icon";
 export const Pagination = memo(
   (
     {
-      className,
       count,
       currentPage,
       color = "primary",
@@ -41,7 +40,7 @@ export const Pagination = memo(
     const lastPage = pages[pages.length - 1];
 
     return (
-      <Wrapper {...props} className={className}>
+      <Wrapper {...props}>
         <ul>
           {showPreviousIcon && (
             <Item

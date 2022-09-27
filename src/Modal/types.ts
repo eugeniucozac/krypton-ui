@@ -27,7 +27,7 @@ type ModalType = {
 
 export type ReactPortalType = {
   children?: React.ReactNode;
-  backgroundClassName?: string;
+  backdropClassName?: string;
   wrapperId?: string;
 };
 

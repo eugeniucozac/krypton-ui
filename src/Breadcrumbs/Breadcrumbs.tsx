@@ -1,25 +1,24 @@
-import React, { memo, ReactNode } from "react";
+import React, { memo } from "react";
 import { BreadcrumbsProps } from "./types";
-import { Wrapper, Separator, Link } from "./Breadcrumbs.styles";
+import { Wrapper, Separator, ItemWrapper } from "./Breadcrumbs.styles";
 
 const Breadcrumbs = memo(
-  (
-    { children, className, separator = "-", color = "dark" }: BreadcrumbsProps,
-    props
-  ) => {
+  ({ children, separator = "-", color = "dark" }: BreadcrumbsProps, props) => {
     const count = React.Children.count(children);
     return (
-      <Wrapper {...props} className={className}>
+      <Wrapper {...props}>
         <ol>
-          {React.Children.map<ReactNode, ReactNode>(children, (child, iter) => {
+          {React.Children.map(children, (child, iter) => {
             if (React.isValidElement(child)) {
-              const lastItem = count !== iter + 1;
+              const nonLastItem = count !== iter + 1;
               return (
                 <>
-                  <Link color={color} disabled={lastItem}>
+                  <ItemWrapper color={color} disabled={nonLastItem}>
                     {child}
-                  </Link>
-                  {lastItem && <Separator color={color}>{separator}</Separator>}
+                  </ItemWrapper>
+                  {nonLastItem && (
+                    <Separator color={color}>{separator}</Separator>
+                  )}
                 </>
               );
             }

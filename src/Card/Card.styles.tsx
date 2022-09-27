@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { WrapperStyledProps } from "./types";
+import { WrapperStyledProps, HeightStyledProps } from "./types";
 
 export const Wrapper = styled.div<WrapperStyledProps>`
   font-family: "SFProDisplay";
@@ -8,8 +8,8 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   transition: ease 0.2s;
   flex-direction: column;
   box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
-  width: ${(props) => props.maxWidth};
-  max-width: ${(props) => props.maxWidth};
+  width: 100%;
+  max-width: ${(props) => props.maxWidth || "100%"};
 `;
 
 export const Title = styled.h4`
@@ -54,8 +54,8 @@ export const Header = styled.header`
   }
 `;
 
-export const Image = styled.img<any>`
+export const Image = styled.img<HeightStyledProps>`
   width: 100%;
   max-width: 100%;
-  height: ${(props) => props.height};
+  height: ${(props) => props.height || "auto"};
 `;

@@ -1,4 +1,4 @@
-import React, { memo, ReactNode } from "react";
+import React, { memo } from "react";
 import { TransferListHeader } from "./TransferListHeader";
 import Button from "../Button";
 import Icon from "../Icon";
@@ -9,7 +9,7 @@ export const TransferList = memo(
   (
     {
       children,
-      className,
+
       leftItems,
       rightItems,
       setLeftItems,
@@ -50,7 +50,7 @@ export const TransferList = memo(
     };
 
     return (
-      <Wrapper {...props} className={className} color={color}>
+      <Wrapper {...props} color={color}>
         <ItemWrapper>
           {allChoices && (
             <TransferListHeader
@@ -62,7 +62,7 @@ export const TransferList = memo(
             />
           )}
           <ul>
-            {React.Children.map<ReactNode, ReactNode>(left, (child) => {
+            {React.Children.map(left, (child) => {
               if (React.isValidElement(child)) {
                 return React.cloneElement(child, { items: leftItems });
               }
@@ -96,7 +96,7 @@ export const TransferList = memo(
             />
           )}
           <ul>
-            {React.Children.map<ReactNode, ReactNode>(right, (child) => {
+            {React.Children.map(right, (child) => {
               if (React.isValidElement(child)) {
                 return React.cloneElement(child, { items: rightItems });
               }

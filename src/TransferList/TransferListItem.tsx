@@ -4,10 +4,7 @@ import { TransferListItemProps, ItemProps } from "./types";
 import { Item, Label, Checkbox, List } from "./TransferList.styles";
 
 export const TransferListItem = memo(
-  (
-    { className, label, value, items, onChange }: TransferListItemProps,
-    props
-  ) => {
+  ({ label, value, items, onChange }: TransferListItemProps, props) => {
     const handleChange = () => {
       const result = items?.map((item: ItemProps) =>
         item.label === label ? { ...item, value: !value } : item
@@ -16,7 +13,7 @@ export const TransferListItem = memo(
     };
 
     return (
-      <List {...props} className={className}>
+      <List {...props}>
         <Item htmlFor={label}>
           <input
             type="checkbox"

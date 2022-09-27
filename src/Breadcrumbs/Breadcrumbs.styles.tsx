@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colorMetric } from "../utils/theme";
-import { SeparatorStyledProps, LinkStyledProps } from "./types";
+import { SeparatorStyledProps, ItemWrapperStyledProps } from "./types";
 
 export const Wrapper = styled.nav`
   font-family: "SFProDisplay";
@@ -23,7 +23,7 @@ export const Separator = styled.li<SeparatorStyledProps>`
   color: ${(props) => colorMetric[props.color]};
 `;
 
-export const Link = styled.li<LinkStyledProps>`
+export const ItemWrapper = styled.li<ItemWrapperStyledProps>`
   ${(props) => ({
     ...(props.disabled
       ? {

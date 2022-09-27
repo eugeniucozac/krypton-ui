@@ -8,7 +8,7 @@ export const TabItem = memo(
     {
       label,
       disabled = false,
-      className,
+
       onChange,
       active,
       color,
@@ -19,14 +19,14 @@ export const TabItem = memo(
     props
   ) => {
     return (
-      <Item {...props} className={className}>
+      <Item {...props}>
         <Link
           color={color as Color}
           disabled={disabled}
-          tabsAlign={tabsAlign as TabsAlign}
+          tabsAlign={tabsAlign}
           variant={variant as Variant}
           active={active as boolean}
-          onClick={() => !disabled && onChange(value as number)}
+          onClick={!disabled ? () => onChange(value) : undefined}
         >
           {label}
         </Link>

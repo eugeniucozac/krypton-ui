@@ -44,7 +44,7 @@ export const Wrapper = styled.button<WrapperStyledProps>`
     props.model === "text" || props.model === "icon"
       ? "none"
       : `1px solid ${colorMetric[props.color]}`};
-  &: hover {
+  &:hover {
     color: ${(props) =>
       props.model === "icon" ? colorMetric[props.color] : "rgb(255, 255, 255)"};
     box-shadow: ${(props) =>

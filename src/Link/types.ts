@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { Color, Size } from "../types";
 
-type UnderlineType = "none" | "onHover" | "always";
+type UnderlineType = "none" | "hover" | "always";
 
 type LinkType = {
   children: React.ReactNode;

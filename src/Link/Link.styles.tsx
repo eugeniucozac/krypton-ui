@@ -16,7 +16,7 @@ export const Wrapper = styled.a<WrapperStyledProps>`
   font-size: ${(props) => toRem(sizeMetric[props.size] * 0.875)};
   color: ${(props) => colorMetric[props.color]};
   ${(props) => ({
-    ...(props.underline === "onHover" && {
+    ...(props.underline === "hover" && {
       ":hover": {
         textDecoration: "underline",
       },

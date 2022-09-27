@@ -4,7 +4,7 @@ import { TooltipProps } from "./types";
 import { Wrapper, Title, Inner } from "./Tooltip.styles";
 
 const Tooltip = memo(
-  ({ children, className, title, placement = "top" }: TooltipProps, props) => {
+  ({ children, title, placement = "top" }: TooltipProps, props) => {
     const [reference, setReference] = useState<HTMLDivElement | null>(null);
     const [tooltip, setTooltip] = useState<HTMLDivElement | null>(null);
     const [arrow, setArrow] = useState<HTMLDivElement | null>(null);
@@ -14,7 +14,7 @@ const Tooltip = memo(
     });
 
     return (
-      <Wrapper {...props} placement={placement} className={className}>
+      <Wrapper {...props} placement={placement}>
         <div ref={setReference}>{children}</div>
         <Title
           ref={setTooltip}

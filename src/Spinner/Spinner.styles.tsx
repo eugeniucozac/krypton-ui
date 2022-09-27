@@ -4,6 +4,8 @@ import { toRem } from "../utils/string";
 import { toRGBA } from "../utils/colors";
 import { ColorStyledProps, SizeStyledProps } from "./types";
 
+const baseSize = 2.5;
+
 const rotate = keyframes`
   100% { 
     transform: rotate(360deg) 
@@ -29,8 +31,8 @@ export const Wrapper = styled.svg<SizeStyledProps>`
   z-index: 2;
   vertical-align: middle;
   animation: ${rotate} 2s linear infinite;
-  width: ${(props) => toRem(sizeMetric[props.size] * 2.5)};
-  height: ${(props) => toRem(sizeMetric[props.size] * 2.5)};
+  width: ${(props) => toRem(sizeMetric[props.size] * baseSize)};
+  height: ${(props) => toRem(sizeMetric[props.size] * baseSize)};
 `;
 
 export const Background = styled.circle<ColorStyledProps>`

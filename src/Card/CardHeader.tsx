@@ -3,15 +3,14 @@ import { CardHeaderProps } from "./types";
 import { Header } from "./Card.styles";
 
 export const CardHeader = memo(
-  ({ className, title, subtitle, avatar, action }: CardHeaderProps, props) => {
+  ({ title, subtitle, avatar }: CardHeaderProps, props) => {
     return (
-      <Header {...props} className={className}>
+      <Header {...props}>
         {avatar}
         <div>
           <h3>{title}</h3>
           <h6>{subtitle}</h6>
         </div>
-        {action}
       </Header>
     );
   }

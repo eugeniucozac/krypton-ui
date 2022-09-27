@@ -6,7 +6,6 @@ const Badge = memo(
   (
     {
       children,
-      className,
       value,
       maxValue,
       color = "primary",
@@ -17,7 +16,7 @@ const Badge = memo(
   ) => {
     const [alignmentX, alignmentY] = alignment.split("-");
     return (
-      <Wrapper {...props} className={className}>
+      <Wrapper {...props}>
         {children}
         {value ? (
           variant === "default" ? (

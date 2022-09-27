@@ -16,7 +16,6 @@ import {
   AccordionTitle,
 } from "./Accordion";
 import Tooltip from "./Tooltip";
-import Image from "./Image";
 import { List, ListItem } from "./List";
 import {
   Card,
@@ -31,7 +30,6 @@ import Badge from "./Badge";
 import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
 import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
-import { BottomNavigation, BottomNavigationItem } from "./BottomNavigation";
 import { Pagination } from "./Pagination";
 import Modal from "./Modal";
 import { TransferList, TransferListItem } from "./TransferList";
@@ -147,6 +145,8 @@ const Home = () => {
   const handleRowsTablePerPageChnage = (val: any) => {
     setRowsTablePerPage(val);
   };
+
+  const jenea = undefined;
 
   return (
     <div>
@@ -277,28 +277,40 @@ const Home = () => {
             </Tabs>
             <TabContent>
               <TabPanel reference={1}>
-                First Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                A ab asperiores blanditiis commodi consequuntur dicta distinctio
-                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
-                veritatis vero? Corporis inventore quaerat voluptate.
+                <p>
+                  First Lorem ipsum dolor sit amet, consectetur adipisicing
+                  elit. A ab asperiores blanditiis commodi consequuntur dicta
+                  distinctio excepturi fuga nam nostrum omnis quaerat
+                  repellendus, tempora veritatis vero? Corporis inventore
+                  quaerat voluptate.
+                </p>
               </TabPanel>
               <TabPanel reference={2}>
-                Second Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                A ab asperiores blanditiis commodi consequuntur dicta distinctio
-                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
-                veritatis vero? Corporis inventore quaerat voluptate.
+                <p>
+                  Second Lorem ipsum dolor sit amet, consectetur adipisicing
+                  elit. A ab asperiores blanditiis commodi consequuntur dicta
+                  distinctio excepturi fuga nam nostrum omnis quaerat
+                  repellendus, tempora veritatis vero? Corporis inventore
+                  quaerat voluptate.
+                </p>
               </TabPanel>
               <TabPanel reference={3}>
-                Third Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                A ab asperiores blanditiis commodi consequuntur dicta distinctio
-                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
-                veritatis vero? Corporis inventore quaerat voluptate.
+                <p>
+                  Third Lorem ipsum dolor sit amet, consectetur adipisicing
+                  elit. A ab asperiores blanditiis commodi consequuntur dicta
+                  distinctio excepturi fuga nam nostrum omnis quaerat
+                  repellendus, tempora veritatis vero? Corporis inventore
+                  quaerat voluptate.
+                </p>
               </TabPanel>
               <TabPanel reference={4}>
-                Fourth Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                A ab asperiores blanditiis commodi consequuntur dicta distinctio
-                excepturi fuga nam nostrum omnis quaerat repellendus, tempora
-                veritatis vero? Corporis inventore quaerat voluptate.
+                <p>
+                  Fourth Lorem ipsum dolor sit amet, consectetur adipisicing
+                  elit. A ab asperiores blanditiis commodi consequuntur dicta
+                  distinctio excepturi fuga nam nostrum omnis quaerat
+                  repellendus, tempora veritatis vero? Corporis inventore
+                  quaerat voluptate.
+                </p>
               </TabPanel>
             </TabContent>
           </TabContainer>
@@ -315,13 +327,6 @@ const Home = () => {
           <Modal onClose={handleCloseModal} isOpen={showModal}>
             This is Modal Content!
           </Modal>
-        </div>
-        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <BottomNavigation value={bottomNav} onChange={handleChangeBottomNav}>
-            <BottomNavigationItem icon="search" />
-            <BottomNavigationItem icon="person" />
-            <BottomNavigationItem icon="locationPin" />
-          </BottomNavigation>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Breadcrumbs separator={<Icon name="navigateNext" />}>
@@ -370,9 +375,6 @@ const Home = () => {
             </ListItem>
           </List>
         </div>
-        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <Image imgSrc="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_960_720.jpg" />
-        </div>
         <div style={{ width: "25%", margin: "20px 0 20px 30px" }}>
           <Card>
             <CardHeader
@@ -383,11 +385,6 @@ const Home = () => {
                   imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
                   name="Cozac Eugeniu"
                 />
-              }
-              action={
-                <Button model="icon" onClick={onClickButton}>
-                  <Icon name="keyboardControl" />
-                </Button>
               }
             />
             <CardImage imgSrc="https://mui.com/static/images/cards/contemplative-reptile.jpg" />

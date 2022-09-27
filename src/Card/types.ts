@@ -43,10 +43,6 @@ type CardHeaderType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  action: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -55,6 +51,10 @@ type CardHeaderType = {
 
 export type WrapperStyledProps = {
   maxWidth: string;
+};
+
+export type HeightStyledProps = {
+  height: string;
 };
 
 export type CardHeaderProps = ComponentProps<"div"> & CardHeaderType;

@@ -6,7 +6,6 @@ const Chip = memo(
   (
     {
       children,
-      className,
       color = "secondary",
       size = "md",
       variant = "square",
@@ -17,7 +16,6 @@ const Chip = memo(
     return (
       <Wrapper
         {...props}
-        className={className}
         variant={variant}
         size={size}
         disabled={disabled}
