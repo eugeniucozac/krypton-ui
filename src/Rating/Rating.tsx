@@ -19,7 +19,7 @@ const Rating = memo(
     const uuidv4 = uuid();
 
     return (
-      <Wrapper color={color} variant={variant} {...props}>
+      <Wrapper {...props} color={color} variant={variant}>
         {stars.map((_, iter) => {
           const iterator = iter + 1;
           const icons = Array(iterator).fill(0);

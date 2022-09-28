@@ -74,10 +74,10 @@ export const Carousel = memo(
         )}
         {controls && (
           <>
-            <Button model="icon" onClick={toPrev}>
+            <Button variant="icon" onClick={toPrev}>
               <Icon name="navigateBefore" />
             </Button>
-            <Button model="icon" onClick={toNext}>
+            <Button variant="icon" onClick={toNext}>
               <Icon name="navigateNext" />
             </Button>
           </>

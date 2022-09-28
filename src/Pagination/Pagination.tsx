@@ -56,7 +56,6 @@ export const Pagination = memo(
           )}
           {pages.map((number: any, iter: number) => {
             const active = currentPage === number;
-
             return (
               <Item
                 key={iter}

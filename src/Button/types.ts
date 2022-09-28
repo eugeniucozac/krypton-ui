@@ -1,11 +1,9 @@
 import { ComponentProps } from "react";
 import { Color, Size } from "../types";
 
-export type Model = "default" | "outline" | "text" | "icon"; // Variant
+export type Variant = "default" | "outline" | "text" | "icon"; // Variant
 
-export type Variant = "square" | "rounded"; // Shape
-
-export type Width = "default" | "full"; //FullWidth boolean
+export type Shape = "square" | "rounded";
 
 type ButtonType = {
   children?: React.ReactNode;
@@ -16,11 +14,11 @@ type ButtonType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  variant?: Variant;
+  shape?: Shape;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  model?: Model;
+  variant?: Variant;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -29,7 +27,7 @@ type ButtonType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default default
    */
-  width?: Width;
+  fullWidth?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -59,9 +57,9 @@ type ButtonType = {
 export type WrapperStyledProps = {
   color: Color;
   size: Size;
-  model: Model;
   variant: Variant;
-  width: Width;
+  shape: Shape;
+  fullWidth: boolean;
   disabled: boolean;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;

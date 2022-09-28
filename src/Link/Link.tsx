@@ -6,7 +6,6 @@ const Link = memo(
   (
     {
       children,
-
       href,
       color = "primary",
       size = "md",

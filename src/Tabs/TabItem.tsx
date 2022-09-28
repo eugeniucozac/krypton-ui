@@ -8,7 +8,6 @@ export const TabItem = memo(
     {
       label,
       disabled = false,
-
       onChange,
       active,
       color,

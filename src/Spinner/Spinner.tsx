@@ -5,7 +5,7 @@ import { Background, Path, Wrapper } from "./Spinner.styles";
 const Spinner = memo(
   ({ color = "success", size = "md" }: SpinnerProps, props) => {
     return (
-      <Wrapper viewBox="0 0 50 50" {...props} size={size}>
+      <Wrapper {...props} viewBox="0 0 50 50" size={size}>
         <Background
           cx="25"
           cy="25"

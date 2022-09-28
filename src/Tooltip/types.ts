@@ -11,6 +11,10 @@ type TooltipType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
+  arrow?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
   placement?: Placement;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

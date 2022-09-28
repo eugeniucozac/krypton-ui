@@ -9,7 +9,6 @@ export const TransferList = memo(
   (
     {
       children,
-
       leftItems,
       rightItems,
       setLeftItems,
@@ -71,14 +70,14 @@ export const TransferList = memo(
         </ItemWrapper>
         <Controls>
           <Button
-            model="icon"
+            variant="icon"
             onClick={onMoveToRight}
             disabled={!leftCheckedItems.length}
           >
             <Icon name="navigateNext" />
           </Button>
           <Button
-            model="icon"
+            variant="icon"
             onClick={onMoveToLeft}
             disabled={!rightCheckedItems.length}
           >

@@ -192,7 +192,7 @@ const Home = () => {
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Button
             color="secondary"
-            model="outline"
+            variant="outline"
             onClick={onClickButton}
             endIcon={<Icon name="send" />}
           >
@@ -202,10 +202,10 @@ const Home = () => {
         <div style={{ width: "50%", marginTop: "20px" }}>
           <ButtonGroup>
             <Button onClick={onClickButton}>Button</Button>
-            <Button model="outline" onClick={onClickButton}>
+            <Button variant="outline" onClick={onClickButton}>
               Button
             </Button>
-            <Button model="outline" onClick={onClickButton}>
+            <Button variant="outline" onClick={onClickButton}>
               Button
             </Button>
           </ButtonGroup>

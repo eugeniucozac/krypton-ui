@@ -6,7 +6,7 @@ import { Wrapper, Button } from "./AdvancedAlert.styles";
 const AdvancedAlert = memo(
   ({ children, color = "info", onClose }: AdvancedAlertProps, props) => {
     return (
-      <Wrapper color={color} onClose={onClose} {...props}>
+      <Wrapper {...props} color={color} onClose={onClose}>
         <div>{children}</div>
         {onClose && (
           <Button onClick={onClose} color={color}>

@@ -58,16 +58,16 @@ export const TablePagination = memo(
           <span>{count}</span>
         </RowsPerPageOptions>
         <PageControls>
-          <Button model="icon" onClick={toFirst} disabled>
+          <Button variant="icon" onClick={toFirst} disabled>
             <Icon name="firstPage" />
           </Button>
-          <Button model="icon" onClick={toPrev}>
+          <Button variant="icon" onClick={toPrev}>
             <Icon name="navigateBefore" />
           </Button>
-          <Button model="icon" onClick={toNext}>
+          <Button variant="icon" onClick={toNext}>
             <Icon name="navigateNext" />
           </Button>
-          <Button model="icon" onClick={toLast}>
+          <Button variant="icon" onClick={toLast}>
             <Icon name="lastPage" />
           </Button>
         </PageControls>

@@ -7,7 +7,6 @@ export const TransferListHeader = memo(
   (
     {
       children,
-
       label,
       items,
       checkedItemsLength,

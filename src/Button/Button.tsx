@@ -6,11 +6,11 @@ const Button = memo(
   (
     {
       children,
-      variant = "square",
+      shape = "square",
       color = "primary",
-      model = "default",
+      variant = "default",
       size = "md",
-      width = "default",
+      fullWidth = false,
       disabled = false,
       beginIcon,
       endIcon,
@@ -23,10 +23,10 @@ const Button = memo(
         {...props}
         color={color}
         size={size}
+        shape={shape}
         variant={variant}
-        model={model}
         onClick={onClick}
-        width={width}
+        fullWidth={fullWidth}
         disabled={disabled}
         beginIcon={beginIcon}
         endIcon={endIcon}

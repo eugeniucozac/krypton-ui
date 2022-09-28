@@ -20,39 +20,41 @@ export const Wrapper = styled.button<WrapperStyledProps>`
   opacity: ${(props) => (props.disabled ? 0.3 : 1)};
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
   cursor: ${(props) => (props.disabled ? "default" : "pointer")};
-  width: ${(props) => (props.width === "full" ? "100%" : "auto")};
+  width: ${(props) => (props.fullWidth ? "100%" : "auto")};
   padding: ${(props) =>
-    props.model === "icon"
+    props.variant === "icon"
       ? ".25rem"
       : `${toRem(sizeMetric[props.size] * 0.625)} ${toRem(
           sizeMetric[props.size] * 1.25
         )}`};
-  border-radius: ${(props) => (props.variant === "square" ? "0" : "3.125rem")};
+  border-radius: ${(props) => (props.shape === "square" ? "0" : "3.125rem")};
   background: ${(props) =>
-    props.model === "text" || props.model === "icon"
+    props.variant === "text" || props.variant === "icon"
       ? "transparent"
-      : props.model === "outline"
+      : props.variant === "outline"
       ? "rgb(255, 255, 255)"
       : colorMetric[props.color]};
   color: ${(props) =>
-    props.model === "outline" ||
-    props.model === "text" ||
-    props.model === "icon"
+    props.variant === "outline" ||
+    props.variant === "text" ||
+    props.variant === "icon"
       ? colorMetric[props.color]
       : "rgb(255, 255, 255)"};
   border: ${(props) =>
-    props.model === "text" || props.model === "icon"
+    props.variant === "text" || props.variant === "icon"
       ? "none"
       : `1px solid ${colorMetric[props.color]}`};
   &:hover {
     color: ${(props) =>
-      props.model === "icon" ? colorMetric[props.color] : "rgb(255, 255, 255)"};
+      props.variant === "icon"
+        ? colorMetric[props.color]
+        : "rgb(255, 255, 255)"};
     box-shadow: ${(props) =>
-      props.model === "outline" && "0 3px 7px rgb(0 0 0 / 10%)"};
+      props.variant === "outline" && "0 3px 7px rgb(0 0 0 / 10%)"};
     background: ${(props) =>
-      props.model === "icon"
+      props.variant === "icon"
         ? "transparent"
-        : props.model === "outline"
+        : props.variant === "outline"
         ? colorMetric[props.color]
         : `linear-gradient(
       rgba(0, 0, 0, 0.25),
