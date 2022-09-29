@@ -25,9 +25,9 @@ const Button = memo(
         size={size}
         shape={shape}
         variant={variant}
-        onClick={onClick}
         fullWidth={fullWidth}
         disabled={disabled}
+        onClick={onClick}
         beginIcon={beginIcon}
         endIcon={endIcon}
       >

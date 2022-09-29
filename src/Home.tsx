@@ -29,7 +29,7 @@ import {
 import Badge from "./Badge";
 import Link from "./Link";
 import Breadcrumbs from "./Breadcrumbs";
-import { Tabs, TabItem, TabContent, TabPanel, TabContainer } from "./Tabs";
+import { TabList, Tab, TabPanels, TabPanel, Tabs } from "./Tabs";
 import { Pagination } from "./Pagination";
 import Modal from "./Modal";
 import { TransferList, TransferListItem } from "./TransferList";
@@ -268,15 +268,15 @@ const Home = () => {
           <Link href="#">Hello sir</Link>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <TabContainer value={tabs}>
-            <Tabs onChange={handleChangeTabs}>
-              <TabItem label="Item 1" value={1} />
-              <TabItem label="Item 2" value={2} />
-              <TabItem label="Item 3" value={3} />
-              <TabItem label="Item 4" value={4} disabled />
-            </Tabs>
-            <TabContent>
-              <TabPanel reference={1}>
+          <Tabs activeTab={tabs}>
+            <TabList onChange={handleChangeTabs}>
+              <Tab label="Item 1" value={1} />
+              <Tab label="Item 2" value={2} />
+              <Tab label="Item 3" value={3} />
+              <Tab label="Item 4" value={4} disabled />
+            </TabList>
+            <TabPanels>
+              <TabPanel index={1}>
                 <p>
                   First Lorem ipsum dolor sit amet, consectetur adipisicing
                   elit. A ab asperiores blanditiis commodi consequuntur dicta
@@ -285,7 +285,7 @@ const Home = () => {
                   quaerat voluptate.
                 </p>
               </TabPanel>
-              <TabPanel reference={2}>
+              <TabPanel index={2}>
                 <p>
                   Second Lorem ipsum dolor sit amet, consectetur adipisicing
                   elit. A ab asperiores blanditiis commodi consequuntur dicta
@@ -294,7 +294,7 @@ const Home = () => {
                   quaerat voluptate.
                 </p>
               </TabPanel>
-              <TabPanel reference={3}>
+              <TabPanel index={3}>
                 <p>
                   Third Lorem ipsum dolor sit amet, consectetur adipisicing
                   elit. A ab asperiores blanditiis commodi consequuntur dicta
@@ -303,7 +303,7 @@ const Home = () => {
                   quaerat voluptate.
                 </p>
               </TabPanel>
-              <TabPanel reference={4}>
+              <TabPanel index={4}>
                 <p>
                   Fourth Lorem ipsum dolor sit amet, consectetur adipisicing
                   elit. A ab asperiores blanditiis commodi consequuntur dicta
@@ -312,8 +312,8 @@ const Home = () => {
                   quaerat voluptate.
                 </p>
               </TabPanel>
-            </TabContent>
-          </TabContainer>
+            </TabPanels>
+          </Tabs>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Pagination

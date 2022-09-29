@@ -35,6 +35,4 @@ export type WrapperStyledProps = Pick<AlertType, "heading" | "onClose"> & {
   color: Color;
 };
 
-export type IconProps = Record<IconType, string>;
-
 export type AlertProps = ComponentProps<"div"> & AlertType;

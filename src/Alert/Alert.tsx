@@ -23,7 +23,7 @@ const Alert = memo(
     props
   ) => {
     return (
-      <Wrapper {...props} color={color} heading={heading} onClose={onClose}>
+      <Wrapper {...props}>
         <IconWrapper>
           <Icon name={iconType[color]} size="md" />
         </IconWrapper>

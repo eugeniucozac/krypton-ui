@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { indexModal } from "../utils/theme";
 import { WrapperStyledProps, BackgroundStyledProps } from "./types";
 
 export const Wrapper = styled.div<WrapperStyledProps>`
@@ -22,7 +23,7 @@ export const Background = styled.div<BackgroundStyledProps>`
   justify-content: center;
   transition: all 400ms;
   overflow: hidden;
-  z-index: 999;
+  z-index: ${indexModal};
   padding: 2.5rem 1.25rem 1.25rem;
   display: ${(props) => (props.isOpen ? "flex" : "none")};
   pointer-events: ${(props) => (props.isOpen ? "auto" : "none")};

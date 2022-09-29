@@ -1,9 +1,9 @@
 import { memo } from "react";
-import { TabItemProps, TabsAlign, Variant } from "./types";
+import { TabProps } from "./types";
 import { Color } from "../types";
-import { Item, Link } from "./Tabs.styles";
+import { Link } from "./Tabs.styles";
 
-export const TabItem = memo(
+export const Tab = memo(
   (
     {
       label,
@@ -12,24 +12,24 @@ export const TabItem = memo(
       active,
       color,
       value,
-      variant,
-      tabsAlign,
-    }: TabItemProps,
+      orientation,
+      alignment,
+    }: TabProps,
     props
   ) => {
     return (
-      <Item {...props}>
+      <li {...props}>
         <Link
           color={color as Color}
           disabled={disabled}
-          tabsAlign={tabsAlign}
-          variant={variant as Variant}
-          active={active as boolean}
+          alignment={alignment}
+          orientation={orientation}
+          active={active}
           onClick={!disabled ? () => onChange(value) : undefined}
         >
           {label}
         </Link>
-      </Item>
+      </li>
     );
   }
 );

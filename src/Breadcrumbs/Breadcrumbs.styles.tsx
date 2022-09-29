@@ -20,6 +20,7 @@ export const Separator = styled.li<SeparatorStyledProps>`
   user-select: none;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  margin-bottom: -0.15rem;
   color: ${(props) => colorMetric[props.color]};
 `;
 

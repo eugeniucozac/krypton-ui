@@ -1,11 +1,11 @@
 import { ComponentProps } from "react";
 import { Color } from "../types";
 
-export type Variant = "horizontal" | "vertical"; // Orientation
+export type Orientation = "horizontal" | "vertical";
 
-export type TabsAlign = "left" | "right";
+export type Alignment = "left" | "right";
 
-type TabBaseType = {
+type TabCommonType = {
   children: React.ReactNode;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -14,25 +14,25 @@ type TabBaseType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  value?: number;
+  activeTab?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
 };
 
 type VariantTabsType = {
-  variant?: Variant;
+  orientation?: Orientation;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  tabsAlign?: TabsAlign;
+  alignment?: Alignment;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
 };
 
 type OnChangeColorType = {
-  onChange?: any; // ??
+  onChange?: any;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -42,7 +42,7 @@ type OnChangeColorType = {
    */
 };
 
-type TabItemType = VariantTabsType &
+type TabType = VariantTabsType &
   OnChangeColorType & {
     label: string | React.ReactNode;
     /**
@@ -64,51 +64,51 @@ type TabItemType = VariantTabsType &
     /**
      * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
      */
-    tabsAlign?: TabsAlign;
+    alignment?: Alignment;
     /**
      * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
      */
   };
 
-type TabPanelType = TabBaseType & {
-  reference?: number;
+type TabPanelType = TabCommonType & {
+  index?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
 };
 
 export type VariantTabsStyledProps = {
-  variant: Variant;
-  tabsAlign?: TabsAlign;
+  orientation?: Orientation;
+  alignment?: Alignment;
 };
 
 export type LinkStyledProps = VariantTabsStyledProps & {
-  color: Color;
-  active: boolean;
   disabled: boolean;
-  onClick: any; //???
+  onClick: any;
+  color: Color;
+  active?: boolean;
 };
 
 export type PanelStyledProps = {
-  value: number;
-  reference: number;
+  activeTab: number;
+  index: number;
 };
 
 export type ContentStyledProps = {
-  variant: Variant;
+  orientation: Orientation;
 };
 
-export type TabsProps = ComponentProps<"ul"> &
-  TabBaseType &
+export type TabListProps = ComponentProps<"ul"> &
+  TabCommonType &
   VariantTabsType &
   OnChangeColorType;
 
-export type TabsContainerProps = ComponentProps<"ul"> &
-  TabBaseType &
+export type TabPanelsProps = ComponentProps<"ul"> &
+  TabCommonType &
   VariantTabsType;
 
-export type TabItemProps = ComponentProps<"li"> & TabItemType;
+export type TabProps = ComponentProps<"li"> & TabType;
 
 export type TabPanelProps = ComponentProps<"div"> & TabPanelType;
 
-export type TabContentProps = ComponentProps<"div"> & TabBaseType;
+export type TabContentProps = ComponentProps<"div"> & TabCommonType;

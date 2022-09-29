@@ -29,3 +29,6 @@ export const device = {
   tablet: `(min-width: ${screenSize.tablet})`,
   desktop: `(min-width: ${screenSize.desktop})`,
 };
+
+export const indexTooltip = 10;
+export const indexModal = 20;

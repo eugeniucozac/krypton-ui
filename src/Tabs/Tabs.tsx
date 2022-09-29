@@ -1,35 +1,21 @@
 import React, { memo } from "react";
-import { TabsProps } from "./types";
-import { Wrapper } from "./Tabs.styles";
+import { TabPanelsProps } from "./types";
+import { Container } from "./Tabs.styles";
 
 export const Tabs = memo(
-  (
-    {
-      children,
-      value,
-      onChange,
-      variant = "horizontal",
-      tabsAlign = "left",
-      color = "primary",
-    }: TabsProps,
-    props
-  ) => {
+  ({ children, activeTab, orientation, alignment }: TabPanelsProps, props) => {
     return (
-      <Wrapper {...props} tabsAlign={tabsAlign} variant={variant}>
-        {React.Children.map(children, (child, iter) => {
+      <Container {...props} orientation={orientation} alignment={alignment}>
+        {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            const index = iter + 1;
             return React.cloneElement(child, {
-              active: value === index,
-              color,
-              variant,
-              onChange,
-              value: index,
-              tabsAlign,
+              activeTab,
+              orientation,
+              alignment,
             });
           }
         })}
-      </Wrapper>
+      </Container>
     );
   }
 );

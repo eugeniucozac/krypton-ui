@@ -3,9 +3,9 @@ import { TabPanelProps } from "./types";
 import { Panel } from "./Tabs.styles";
 
 export const TabPanel = memo(
-  ({ children, value, reference }: TabPanelProps, props) => {
+  ({ children, activeTab, index }: TabPanelProps, props) => {
     return (
-      <Panel {...props} value={value} reference={reference}>
+      <Panel {...props} activeTab={activeTab} index={index}>
         {children}
       </Panel>
     );

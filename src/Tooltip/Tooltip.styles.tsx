@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { indexTooltip } from "../utils/theme";
 import { PlacementStyledProps } from "./types";
 
 export const Wrapper = styled.div`
@@ -16,7 +17,7 @@ export const Title = styled.div`
   font-weight: 200;
   opacity: 0;
   position: absolute;
-  z-index: 100;
+  z-index: ${indexTooltip};
   padding: 0.625rem;
   transform: translateX(-50%);
   transition: opacity linear 0.2s;

@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { Color, Size } from "../types";
 
-export type Variant = "default" | "outline" | "text" | "icon"; // Variant
+export type Variant = "default" | "outline" | "text" | "icon";
 
 export type Shape = "square" | "rounded";
 

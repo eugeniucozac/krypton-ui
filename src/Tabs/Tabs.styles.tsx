@@ -15,9 +15,9 @@ export const Wrapper = styled.ul<VariantTabsStyledProps>`
   display: flex;
   list-style: none;
   position: relative;
-  text-align: ${(props) => props.tabsAlign};
+  text-align: ${(props) => props.alignment};
   ${(props) => ({
-    ...(props.variant === "vertical" && {
+    ...(props.orientation === "vertical" && {
       minWidth: "8rem",
       width: "20%",
       flexDirection: "column",
@@ -25,9 +25,7 @@ export const Wrapper = styled.ul<VariantTabsStyledProps>`
   })}
 `;
 
-export const Item = styled.li``;
-
-export const Link = styled.a<LinkStyledProps>`
+export const Link = styled.button<LinkStyledProps>`
   display: block;
   font-family: "SFProDisplay";
   font-size: 0.875rem;
@@ -35,15 +33,17 @@ export const Link = styled.a<LinkStyledProps>`
   padding: 0.625rem 0.75rem;
   text-transform: uppercase;
   text-decoration: none;
+  background: transparent;
+  border: none;
   color: ${(props) =>
     props.disabled ? "rgb(229,229,229)" : "rgb(34, 34, 34)"};
   ${(props) => ({
     ...(!props.disabled && {
       cursor: "pointer",
     }),
-    ...(props.variant === "vertical"
+    ...(props.orientation === "vertical"
       ? {
-          ...(props.tabsAlign === "right"
+          ...(props.alignment === "right"
             ? {
                 textAlign: "right",
                 borderLeft: "2px solid rgb(229, 229, 229)",
@@ -64,20 +64,21 @@ export const Link = styled.a<LinkStyledProps>`
 export const Content = styled.div<ContentStyledProps>`
   margin-bottom: 1rem;
   padding: ${(props) =>
-    props.variant === "vertical" ? "1rem 1.5rem" : "0 0.625rem"};
+    props.orientation === "vertical" ? "1rem 1.5rem" : "0 0.625rem"};
 `;
 
 export const Panel = styled.div<PanelStyledProps>`
   font-family: "SFProDisplay";
   font-size: 0.875rem;
-  display: ${(props) => (props.value === props.reference ? "block" : "none")};
+  display: ${(props) => (props.activeTab === props.index ? "block" : "none")};
 `;
 
 export const Container = styled.div<VariantTabsStyledProps>`
   display: flex;
-  flex-wrap: ${(props) => (props.variant === "vertical" ? "nowrap" : "wrap")};
+  flex-wrap: ${(props) =>
+    props.orientation === "vertical" ? "nowrap" : "wrap"};
   ${(props) => ({
-    ...(props.tabsAlign === "right" && {
+    ...(props.alignment === "right" && {
       flexDirection: "row-reverse",
     }),
   })}
