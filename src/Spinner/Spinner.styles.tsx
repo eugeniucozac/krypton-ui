@@ -31,16 +31,16 @@ export const Wrapper = styled.svg<SizeStyledProps>`
   z-index: 2;
   vertical-align: middle;
   animation: ${rotate} 2s linear infinite;
-  width: ${(props) => toRem(sizeMetric[props.size] * baseSize)};
-  height: ${(props) => toRem(sizeMetric[props.size] * baseSize)};
+  width: ${(props) => toRem(sizeMetric[props.size || "md"] * baseSize)};
+  height: ${(props) => toRem(sizeMetric[props.size || "md"] * baseSize)};
 `;
 
 export const Background = styled.circle<ColorStyledProps>`
-  stroke: ${(props) => toRGBA(colorMetric[props.color])};
+  stroke: ${(props) => toRGBA(colorMetric[props.color || "success"])};
 `;
 
 export const Path = styled.circle<ColorStyledProps>`
   stroke-linecap: round;
   animation: ${dash} 1.5s ease-in-out infinite;
-  stroke: ${(props) => colorMetric[props.color]};
+  stroke: ${(props) => colorMetric[props.color || "success"]};
 `;

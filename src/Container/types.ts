@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 
 type Size = "sm" | "md" | "lg";
 
@@ -23,10 +23,10 @@ type ContainerType = {
 };
 
 export type WrapperStyledProps = {
-  size: Size;
-  fluid: boolean;
+  size?: Size;
+  fluid?: boolean;
 };
 
 export type BreakpointProps = Record<Size, string>;
 
-export type ContainerProps = ComponentProps<"div"> & ContainerType;
+export type ContainerProps = ComponentPropsWithRef<"div"> & ContainerType;

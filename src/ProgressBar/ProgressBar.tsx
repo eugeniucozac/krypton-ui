@@ -3,10 +3,12 @@ import { ProgressBarProps } from "./types";
 import { Wrapper, Line, Label } from "./ProgressBar.styles";
 
 const ProgressBar = memo(
-  (
-    { color = "success", showValue = false, value }: ProgressBarProps,
-    props
-  ) => {
+  ({
+    color = "success",
+    showValue = false,
+    value,
+    ...props
+  }: ProgressBarProps) => {
     const progress = Math.max(0, Math.min(value, 100));
 
     return (

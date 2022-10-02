@@ -3,18 +3,16 @@ import { BadgeProps } from "./types";
 import { Wrapper, Value, Dot } from "./Badge.styles";
 
 const Badge = memo(
-  (
-    {
-      children,
-      value,
-      maxValue,
-      color = "primary",
-      variant = "default",
-      alignment = "top-right",
-    }: BadgeProps,
-    props
-  ) => {
-    const [alignmentX, alignmentY] = alignment.split("-");
+  ({
+    children,
+    value,
+    maxValue,
+    color = "primary",
+    variant = "default",
+    alignment = "top-right",
+    ...props
+  }: BadgeProps) => {
+    const [alignX, alignY] = alignment.split("-");
     return (
       <Wrapper {...props}>
         {children}
@@ -23,8 +21,8 @@ const Badge = memo(
             <Value
               variant={variant}
               color={color}
-              alignmentX={alignmentX}
-              alignmentY={alignmentY}
+              alignX={alignX}
+              alignY={alignY}
             >
               {maxValue ? `${maxValue}+` : value}
             </Value>

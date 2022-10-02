@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type ModalType = {
@@ -37,4 +37,4 @@ export type BackgroundStyledProps = {
   isOpen: boolean;
 };
 
-export type ModalProps = ComponentProps<"div"> & ModalType;
+export type ModalProps = ComponentPropsWithRef<"div"> & ModalType;

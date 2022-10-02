@@ -2,20 +2,17 @@ import { memo } from "react";
 import { ContainerProps } from "./types";
 import { Wrapper } from "./Container.styles";
 
-const Container = memo(
-  ({ children, size = "md", fluid = false }: ContainerProps, props) => {
-    const defaultProps = {
-      ...props,
-      size: "md",
-      color: "success",
-    };
+const defaultProps: Partial<ContainerProps> = {
+  size: "md",
+  fluid: false,
+};
 
-    return (
-      <Wrapper {...props} size={size} fluid={fluid}>
-        {children}
-      </Wrapper>
-    );
-  }
-);
+const Container = memo(({ children, ...props }: ContainerProps) => {
+  const componentProps: ContainerProps = {
+    ...defaultProps,
+    ...props,
+  };
+  return <Wrapper {...componentProps}>{children}</Wrapper>;
+});
 
 export default Container;

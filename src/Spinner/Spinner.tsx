@@ -2,29 +2,29 @@ import { memo } from "react";
 import { SpinnerProps } from "./types";
 import { Background, Path, Wrapper } from "./Spinner.styles";
 
-const Spinner = memo(
-  ({ color = "success", size = "md" }: SpinnerProps, props) => {
-    return (
-      <Wrapper {...props} viewBox="0 0 50 50" size={size}>
-        <Background
-          cx="25"
-          cy="25"
-          r="20"
-          fill="none"
-          strokeWidth="5"
-          color={color}
-        />
-        <Path
-          cx="25"
-          cy="25"
-          r="20"
-          fill="none"
-          strokeWidth="5"
-          color={color}
-        />
-      </Wrapper>
-    );
-  }
-);
+const defaultProps: Partial<SpinnerProps> = {
+  size: "md",
+};
+
+const Spinner = memo(({ color = "success", ...props }: SpinnerProps) => {
+  const componentProps: SpinnerProps = {
+    ...defaultProps,
+    ...props,
+  };
+
+  return (
+    <Wrapper {...componentProps} viewBox="0 0 50 50">
+      <Background
+        cx="25"
+        cy="25"
+        r="20"
+        fill="none"
+        strokeWidth="5"
+        color={color}
+      />
+      <Path cx="25" cy="25" r="20" fill="none" strokeWidth="5" color={color} />
+    </Wrapper>
+  );
+});
 
 export default Spinner;

@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Size, Color } from "../types";
 
 export type Variant = "controlled" | "readOnly" | "disabled";
@@ -41,4 +41,4 @@ export type WrapperStyledProps = VariantStyledProps & {
   color: Color;
 };
 
-export type RatingProps = ComponentProps<"div"> & RatingType;
+export type RatingProps = ComponentPropsWithRef<"div"> & RatingType;

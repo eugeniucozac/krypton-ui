@@ -3,7 +3,7 @@ import { RangeProps } from "./types";
 import { Input, Label } from "./Range.styles";
 
 const Range = memo(
-  ({ label, color = "success", onChange }: RangeProps, props) => {
+  ({ label, color = "success", onChange, ...props }: RangeProps) => {
     return (
       <div>
         {label && <Label>{label}</Label>}

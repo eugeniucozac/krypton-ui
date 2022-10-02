@@ -2,29 +2,18 @@ import { memo } from "react";
 import { LinkProps } from "./types";
 import { Wrapper } from "./Link.styles";
 
-const Link = memo(
-  (
-    {
-      children,
-      href,
-      color = "primary",
-      size = "md",
-      underline = "hover",
-    }: LinkProps,
-    props
-  ) => {
-    return (
-      <Wrapper
-        {...props}
-        size={size}
-        color={color}
-        underline={underline}
-        href={href}
-      >
-        {children}
-      </Wrapper>
-    );
-  }
-);
+const defaultProps: Partial<LinkProps> = {
+  color: "primary",
+  size: "md",
+  underline: "hover",
+};
+
+const Link = memo(({ children, ...props }: LinkProps) => {
+  const componentProps: LinkProps = {
+    ...defaultProps,
+    ...props,
+  };
+  return <Wrapper {...componentProps}>{children}</Wrapper>;
+});
 
 export default Link;

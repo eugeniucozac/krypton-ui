@@ -3,7 +3,7 @@ import { CarouselCaptionProps } from "./types";
 import { Caption } from "./Carousel.styles";
 
 export const CarouselCaption = memo(
-  ({ children }: CarouselCaptionProps, props) => {
+  ({ children, ...props }: CarouselCaptionProps) => {
     return <Caption {...props}>{children}</Caption>;
   }
 );

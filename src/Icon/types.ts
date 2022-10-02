@@ -1,7 +1,7 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Size, ColorCodes } from "../types";
 
-export type Name =
+export type IconName =
   | "file"
   | "upload"
   | "heart"
@@ -47,7 +47,7 @@ export type Name =
   | "locationPin";
 
 type NameType = {
-  name: Name;
+  name: IconName;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -73,4 +73,4 @@ export type IconStyledProps = NameType & {
   size: Size;
 };
 
-export type IconProps = ComponentProps<"span"> & IconType;
+export type IconProps = ComponentPropsWithRef<"span"> & IconType;

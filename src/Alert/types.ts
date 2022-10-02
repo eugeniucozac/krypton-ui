@@ -1,14 +1,13 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
+import { IconName } from "../Icon/types";
 import { Color } from "../types";
-
-type IconType = "error" | "warning" | "success" | "info";
 
 type AlertType = {
   children?: React.ReactNode;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  onClose: () => void;
+  onClose?: () => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -25,14 +24,15 @@ type AlertType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  closeIcon?: string;
+  closeIcon?: IconName;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
 };
 
-export type WrapperStyledProps = Pick<AlertType, "heading" | "onClose"> & {
-  color: Color;
+export type WrapperStyledProps = {
+  color?: Color;
+  heading?: string;
 };
 
-export type AlertProps = ComponentProps<"div"> & AlertType;
+export type AlertProps = ComponentPropsWithRef<"div"> & AlertType;

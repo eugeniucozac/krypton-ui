@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type AdvancedAlertType = {
@@ -29,4 +29,5 @@ export type AdvancedAlertStyledProps = ColorStyledProps & {
   onClose?: () => void;
 };
 
-export type AdvancedAlertProps = ComponentProps<"div"> & AdvancedAlertType;
+export type AdvancedAlertProps = ComponentPropsWithRef<"div"> &
+  AdvancedAlertType;

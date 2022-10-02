@@ -24,8 +24,8 @@ export const Value = styled.div<ValueStyledProps>`
   border-radius: 1.25rem;
   background-color: ${(props) => colorMetric[props.color]};
   ${(props) => ({
-    [props.alignmentX]: " -0.625rem;",
-    [props.alignmentY]: " -0.625rem;",
+    [props.alignX]: " -0.625rem;",
+    [props.alignY]: " -0.625rem;",
   })}
 `;
 

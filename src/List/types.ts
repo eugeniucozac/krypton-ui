@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 
 type ListType = {
   children: React.ReactNode;
@@ -11,4 +11,6 @@ type ListType = {
    */
 };
 
-export type ListProps = ComponentProps<"ul"> & ListType;
+export type ListProps = ComponentPropsWithRef<"ul"> & ListType;
+
+export type ListItemProps = ComponentPropsWithRef<"li"> & ListType;

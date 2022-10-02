@@ -228,7 +228,7 @@ const Home = () => {
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Accordion
             variant="toggle"
-            expandedPanel={panel}
+            value={panel}
             onChange={handleChangeAccordion}
           >
             <AccordionItem>

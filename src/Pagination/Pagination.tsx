@@ -4,21 +4,19 @@ import { Wrapper, Item } from "./Pagination.styles";
 import Icon from "../Icon";
 
 export const Pagination = memo(
-  (
-    {
-      count,
-      currentPage,
-      color = "primary",
-      onChange,
-      disabled = false,
-      size = "md",
-      showPreviousIcon = true,
-      showNextIcon = true,
-      previousIcon = "navigateBefore",
-      nextIcon = "navigateNext",
-    }: PaginationProps,
-    props
-  ) => {
+  ({
+    count,
+    currentPage,
+    color = "primary",
+    onChange,
+    disabled = false,
+    size = "md",
+    showPreviousIcon = true,
+    showNextIcon = true,
+    previousIcon = "navigateBefore",
+    nextIcon = "navigateNext",
+    ...props
+  }: PaginationProps) => {
     let pageNew = currentPage - 2 > 0 ? currentPage - 2 : 1;
     let pages = [] as any;
 

@@ -3,15 +3,23 @@ import { AvatarProps } from "./types";
 import { initials } from "../utils/string";
 import { Wrapper } from "./Avatar.styles";
 
-const Avatar = memo(
-  ({ name, imgSrc, size = "md", color = "success" }: AvatarProps, props) => {
-    const init = initials(name);
-    return (
-      <Wrapper {...props} size={size} color={color}>
-        {imgSrc ? <img src={imgSrc} alt={init} /> : init}
-      </Wrapper>
-    );
-  }
-);
+const defaultProps: Partial<AvatarProps> = {
+  size: "md",
+  color: "success",
+};
+
+const Avatar = memo(({ name, imgSrc, ...props }: AvatarProps) => {
+  const componentProps: AvatarProps = {
+    ...defaultProps,
+    ...props,
+  };
+
+  const init = initials(name);
+  return (
+    <Wrapper {...componentProps}>
+      {imgSrc ? <img src={imgSrc} alt={init} /> : init}
+    </Wrapper>
+  );
+});
 
 export default Avatar;

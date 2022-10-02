@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type BreadcrumbsType = {
@@ -29,4 +29,4 @@ export type ItemWrapperStyledProps = {
   disabled: boolean;
 };
 
-export type BreadcrumbsProps = ComponentProps<"nav"> & BreadcrumbsType;
+export type BreadcrumbsProps = ComponentPropsWithRef<"nav"> & BreadcrumbsType;

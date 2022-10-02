@@ -1,7 +1,6 @@
 import { memo } from "react";
 import Icon from "../Icon";
 import { AlertProps } from "./types";
-import { Name } from "../Icon/types";
 import { Wrapper, Button, IconWrapper, Heading } from "./Alert.styles";
 
 const iconType: any = {
@@ -12,16 +11,14 @@ const iconType: any = {
 };
 
 const Alert = memo(
-  (
-    {
-      children,
-      heading,
-      color = "info",
-      closeIcon = "close",
-      onClose,
-    }: AlertProps,
-    props
-  ) => {
+  ({
+    children,
+    heading,
+    color = "info",
+    closeIcon = "close",
+    onClose,
+    ...props
+  }: AlertProps) => {
     return (
       <Wrapper {...props}>
         <IconWrapper>
@@ -32,7 +29,7 @@ const Alert = memo(
           {children}
         </div>
         <Button onClick={onClose}>
-          <Icon name={closeIcon as Name} color="rgb(193, 193, 193)" />
+          <Icon name={closeIcon} color="rgb(193, 193, 193)" />
         </Button>
       </Wrapper>
     );

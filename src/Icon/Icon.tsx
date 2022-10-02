@@ -2,10 +2,8 @@ import { memo } from "react";
 import { IconProps } from "./types";
 import { Wrapper } from "./Icon.styles";
 
-const Icon = memo(({ className, color, name, size = "md" }: IconProps) => {
-  return (
-    <Wrapper className={className} size={size} name={name} color={color} />
-  );
+const Icon = memo(({ size = "md", ...props }: IconProps) => {
+  return <Wrapper size={size} {...props} />;
 });
 
 export default Icon;

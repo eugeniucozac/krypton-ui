@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
 
 export type Variant = "square" | "rounded";
@@ -39,9 +39,9 @@ export type ColorStyledProps = {
 };
 
 export type WrapperStyledProps = ColorStyledProps & {
-  size: Size;
-  variant: Variant;
-  disabled: boolean;
+  size?: Size;
+  variant?: Variant;
+  disabled?: boolean;
 };
 
-export type ChipProps = ComponentProps<"div"> & ChipType;
+export type ChipProps = ComponentPropsWithRef<"div"> & ChipType;

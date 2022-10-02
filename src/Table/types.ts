@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 
 export type Padding = "default" | "none";
 
@@ -89,16 +89,16 @@ type TablePaginationType = {
    */
 };
 
-export type TableHeadProps = ComponentProps<"thead"> & TableCommonType;
+export type TableHeadProps = ComponentPropsWithRef<"thead"> & TableCommonType;
 
-export type TableBodyProps = ComponentProps<"tbody"> & TableCommonType;
+export type TableBodyProps = ComponentPropsWithRef<"tbody"> & TableCommonType;
 
-export type TableFooterProps = ComponentProps<"tfoot"> & TableCommonType;
+export type TableFooterProps = ComponentPropsWithRef<"tfoot"> & TableCommonType;
 
 export type TableProps = ComponentProps<"table"> & TableType;
 
-export type TableRowProps = ComponentProps<"tr"> & TableRowType;
+export type TableRowProps = ComponentPropsWithRef<"tr"> & TableRowType;
 
-export type TableColProps = ComponentProps<"td"> & TableColType;
+export type TableColProps = ComponentPropsWithRef<"td"> & TableColType;
 
 export type TablePaginationProps = ComponentProps<"div"> & TablePaginationType;

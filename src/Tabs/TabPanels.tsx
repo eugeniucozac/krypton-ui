@@ -3,9 +3,9 @@ import { TabPanelsProps } from "./types";
 import { Content } from "./Tabs.styles";
 
 export const TabPanels = memo(
-  ({ children, activeTab, orientation }: TabPanelsProps, props) => {
+  ({ children, activeTab, ...props }: TabPanelsProps) => {
     return (
-      <Content {...props} orientation={orientation}>
+      <Content {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child, { activeTab });

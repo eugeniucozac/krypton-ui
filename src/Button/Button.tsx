@@ -2,7 +2,7 @@ import { memo } from "react";
 import { ButtonProps } from "./types";
 import { Wrapper } from "./Button.styles";
 
-export const defaultProps: Partial<ButtonProps> = {
+const defaultProps: Partial<ButtonProps> = {
   shape: "square",
   color: "primary",
   variant: "default",

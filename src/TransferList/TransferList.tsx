@@ -6,20 +6,18 @@ import { TransferListProps, ItemProps } from "./types";
 import { Wrapper, Controls, ItemWrapper } from "./TransferList.styles";
 
 export const TransferList = memo(
-  (
-    {
-      children,
-      leftItems,
-      rightItems,
-      setLeftItems,
-      setRightItems,
-      color = "secondary",
-      leftChoicesLabel = "Choices",
-      rightChoicesLabel = "Chosen",
-      allChoices = false,
-    }: TransferListProps,
-    props
-  ) => {
+  ({
+    children,
+    leftItems,
+    rightItems,
+    setLeftItems,
+    setRightItems,
+    color = "secondary",
+    leftChoicesLabel = "Choices",
+    rightChoicesLabel = "Chosen",
+    allChoices = false,
+    ...props
+  }: TransferListProps) => {
     const [left, right] = children;
     const leftCheckedItems = leftItems?.filter((item: ItemProps) => item.value);
     const rightCheckedItems = rightItems?.filter(

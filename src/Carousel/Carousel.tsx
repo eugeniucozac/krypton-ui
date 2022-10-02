@@ -5,17 +5,15 @@ import { CarouselProps } from "./types";
 import { Wrapper, Indicators, Indicator, Inner } from "./Carousel.styles";
 
 export const Carousel = memo(
-  (
-    {
-      children,
-      controls = true,
-      indicators = false,
-      activeIndex = 0,
-      autoPlay = false,
-      interval = 5000,
-    }: CarouselProps,
-    props
-  ) => {
+  ({
+    children,
+    controls = true,
+    indicators = false,
+    activeIndex = 0,
+    autoPlay = false,
+    interval = 5000,
+    ...props
+  }: CarouselProps) => {
     const [index, setIndex] = useState(activeIndex);
     const childrenLength = React.Children.count(children);
 

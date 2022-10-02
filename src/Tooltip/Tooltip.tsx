@@ -4,10 +4,13 @@ import { TooltipProps } from "./types";
 import { Wrapper, Title, Inner } from "./Tooltip.styles";
 
 const Tooltip = memo(
-  (
-    { children, title, arrow = true, placement = "top" }: TooltipProps,
-    props
-  ) => {
+  ({
+    children,
+    title,
+    arrow = true,
+    placement = "top",
+    ...props
+  }: TooltipProps) => {
     const [reference, setReference] = useState<HTMLDivElement | null>(null);
     const [tooltip, setTooltip] = useState<HTMLDivElement | null>(null);
     const [arrowIcon, setArrowIcon] = useState<HTMLDivElement | null>(null);

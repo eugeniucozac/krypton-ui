@@ -1,4 +1,4 @@
-import React, { ComponentProps } from "react";
+import React, { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type ItemType = {
@@ -69,7 +69,7 @@ export type CheckboxStyledProps = {
   checked: boolean;
 };
 
-export type TransferListProps = ComponentProps<"div"> & TransferListType;
+export type TransferListProps = ComponentPropsWithRef<"div"> & TransferListType;
 
 export type TransferListItemProps = TransferListCommonType & {
   value: any;
@@ -82,4 +82,4 @@ export type TransferListHeaderProps = TransferListCommonType & {
   items: ItemType[];
 };
 
-export type ItemProps = ComponentProps<"div"> & ItemType;
+export type ItemProps = ComponentPropsWithRef<"div"> & ItemType;

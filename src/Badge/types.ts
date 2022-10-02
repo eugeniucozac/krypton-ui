@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 export type Variant = "default" | "dot";
@@ -48,10 +48,10 @@ type BasicStyledProps = {
 };
 
 export type ValueStyledProps = BasicStyledProps & {
-  alignmentX: string;
-  alignmentY: string;
+  alignX: string;
+  alignY: string;
 };
 
 export type DotStyledProps = BasicStyledProps;
 
-export type BadgeProps = ComponentProps<"div"> & BadgeType;
+export type BadgeProps = ComponentPropsWithRef<"div"> & BadgeType;

@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
 
 type AvatarType = {
@@ -27,8 +27,8 @@ type AvatarType = {
 };
 
 export type AvatarStyledProps = {
-  color: Color;
-  size: Size;
+  color?: Color;
+  size?: Size;
 };
 
-export type AvatarProps = ComponentProps<"div"> & AvatarType;
+export type AvatarProps = ComponentPropsWithRef<"div"> & AvatarType;

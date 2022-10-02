@@ -56,7 +56,7 @@ export const Link = styled.button<LinkStyledProps>`
           borderBottom: "2px solid rgb(229, 229, 229)",
         }),
     ...(props.active && {
-      borderColor: colorMetric[props.color],
+      borderColor: colorMetric[props.color || "primary"],
     }),
   })}
 `;

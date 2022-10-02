@@ -3,7 +3,12 @@ import { BreadcrumbsProps } from "./types";
 import { Wrapper, Separator, ItemWrapper } from "./Breadcrumbs.styles";
 
 const Breadcrumbs = memo(
-  ({ children, separator = "-", color = "dark" }: BreadcrumbsProps, props) => {
+  ({
+    children,
+    separator = "-",
+    color = "dark",
+    ...props
+  }: BreadcrumbsProps) => {
     const count = React.Children.count(children);
     return (
       <Wrapper {...props}>

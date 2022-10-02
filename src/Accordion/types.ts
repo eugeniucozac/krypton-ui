@@ -1,5 +1,9 @@
-import React, { ComponentProps } from "react";
-import { Name } from "../Icon/types";
+import React, {
+  ComponentProps,
+  ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
+} from "react";
+import { IconName } from "../Icon/types";
 import { ColorCodes } from "../types";
 
 export type Variant = "toggle" | "stayOpen";
@@ -9,7 +13,7 @@ type ContentType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  expandedPanel?: number;
+  value?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -40,11 +44,11 @@ type AccordionTitleType = ContentType & {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  closeIcon?: Name;
+  closeIcon?: IconName;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  openIcon?: Name;
+  openIcon?: IconName;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -58,11 +62,11 @@ export type MaxHeightStyledProps = {
   maxHeight: number;
 };
 
-export type AccordionProps = ComponentProps<"div"> &
+export type AccordionProps = ComponentPropsWithRef<"div"> &
   ContentType &
   AccordionType;
 
-export type AccordionPanelProps = ComponentProps<"div"> &
+export type AccordionPanelProps = ComponentPropsWithRef<"div"> &
   ContentType & { panelId?: number };
 
 export type AccordionTitleProps = ComponentProps<"div"> & AccordionTitleType;

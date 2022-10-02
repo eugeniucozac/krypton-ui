@@ -4,16 +4,14 @@ import { TransferListHeaderProps, ItemProps } from "./types";
 import { Item, Label, Checkbox, Header } from "./TransferList.styles";
 
 export const TransferListHeader = memo(
-  (
-    {
-      children,
-      label,
-      items,
-      checkedItemsLength,
-      onChange,
-    }: TransferListHeaderProps,
-    props
-  ) => {
+  ({
+    children,
+    label,
+    items,
+    checkedItemsLength,
+    onChange,
+    ...props
+  }: TransferListHeaderProps) => {
     const [checked, setChecked] = useState("empty");
 
     useEffect(() => {

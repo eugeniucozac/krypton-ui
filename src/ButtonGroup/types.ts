@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 
 type ButtonGroupType = {
   children?: React.ReactNode;
@@ -11,4 +11,4 @@ type ButtonGroupType = {
    */
 };
 
-export type ButtonGroupProps = ComponentProps<"div"> & ButtonGroupType;
+export type ButtonGroupProps = ComponentPropsWithRef<"div"> & ButtonGroupType;

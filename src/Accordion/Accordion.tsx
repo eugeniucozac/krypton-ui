@@ -3,12 +3,12 @@ import { AccordionProps } from "./types";
 import { Wrapper } from "./Accordion.styles";
 
 export const Accordion = memo(
-  ({ children, expandedPanel, onChange }: AccordionProps, props) => {
+  ({ children, value, onChange, ...props }: AccordionProps) => {
     return (
       <Wrapper {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, { expandedPanel, onChange });
+            return React.cloneElement(child, { value, onChange });
           }
         })}
       </Wrapper>

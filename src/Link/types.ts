@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
 
 type UnderlineType = "none" | "hover" | "always";
@@ -33,9 +33,9 @@ type LinkType = {
 };
 
 export type WrapperStyledProps = {
-  color: Color;
-  size: Size;
-  underline: UnderlineType;
+  color?: Color;
+  size?: Size;
+  underline?: UnderlineType;
 };
 
-export type LinkProps = ComponentProps<"a"> & LinkType;
+export type LinkProps = ComponentPropsWithRef<"a"> & LinkType;

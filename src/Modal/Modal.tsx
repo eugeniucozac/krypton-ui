@@ -5,7 +5,13 @@ import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
 
 const Modal = memo(
-  ({ children, isOpen, onClose, color = "secondary" }: ModalProps, props) => {
+  ({
+    children,
+    isOpen,
+    onClose,
+    color = "secondary",
+    ...props
+  }: ModalProps) => {
     const portalRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
 

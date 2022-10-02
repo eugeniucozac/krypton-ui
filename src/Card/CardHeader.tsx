@@ -3,7 +3,7 @@ import { CardHeaderProps } from "./types";
 import { Header } from "./Card.styles";
 
 export const CardHeader = memo(
-  ({ title, subtitle, avatar }: CardHeaderProps, props) => {
+  ({ title, subtitle, avatar, ...props }: CardHeaderProps) => {
     return (
       <Header {...props}>
         {avatar}

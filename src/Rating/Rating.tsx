@@ -5,16 +5,14 @@ import { RatingProps } from "./types";
 import { Wrapper, Star, Input } from "./Rating.styles";
 
 const Rating = memo(
-  (
-    {
-      variant = "controlled",
-      size = "md",
-      color = "success",
-      value,
-      onChangeValue,
-    }: RatingProps,
-    props
-  ) => {
+  ({
+    variant = "controlled",
+    size = "md",
+    color = "success",
+    value,
+    onChangeValue,
+    ...props
+  }: RatingProps) => {
     const stars = Array(5).fill(0);
     const uuidv4 = uuid();
 

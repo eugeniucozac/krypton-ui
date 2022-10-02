@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type RangeType = {
@@ -29,4 +29,4 @@ export type ColorStyledProps = {
   color: Color;
 };
 
-export type RangeProps = ComponentProps<"input"> & RangeType;
+export type RangeProps = ComponentPropsWithRef<"input"> & RangeType;

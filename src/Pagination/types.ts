@@ -1,6 +1,6 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
-import { Name } from "../Icon/types";
+import { IconName } from "../Icon/types";
 
 type PaginationType = {
   count: number;
@@ -39,11 +39,11 @@ type PaginationType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  previousIcon?: Name;
+  previousIcon?: IconName;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  nextIcon?: Name;
+  nextIcon?: IconName;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -62,4 +62,4 @@ export type ItemStyledProps = {
   size: Size;
 };
 
-export type PaginationProps = ComponentProps<"div"> & PaginationType;
+export type PaginationProps = ComponentPropsWithRef<"div"> & PaginationType;

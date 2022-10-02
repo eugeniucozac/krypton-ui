@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 export type Orientation = "horizontal" | "vertical";
@@ -85,30 +85,34 @@ export type VariantTabsStyledProps = {
 export type LinkStyledProps = VariantTabsStyledProps & {
   disabled: boolean;
   onClick: any;
-  color: Color;
+  color?: Color;
   active?: boolean;
 };
 
 export type PanelStyledProps = {
-  activeTab: number;
-  index: number;
+  activeTab?: number;
+  index?: number;
 };
 
 export type ContentStyledProps = {
-  orientation: Orientation;
+  orientation?: Orientation;
 };
 
-export type TabListProps = ComponentProps<"ul"> &
+export type TabListProps = ComponentPropsWithRef<"ul"> &
   TabCommonType &
   VariantTabsType &
   OnChangeColorType;
 
-export type TabPanelsProps = ComponentProps<"ul"> &
+export type TabPanelsProps = ComponentPropsWithRef<"div"> &
   TabCommonType &
   VariantTabsType;
 
-export type TabProps = ComponentProps<"li"> & TabType;
+export type TabsProps = ComponentPropsWithRef<"div"> &
+  TabCommonType &
+  VariantTabsType;
 
-export type TabPanelProps = ComponentProps<"div"> & TabPanelType;
+export type TabProps = ComponentPropsWithRef<"li"> & TabType;
 
-export type TabContentProps = ComponentProps<"div"> & TabCommonType;
+export type TabPanelProps = ComponentPropsWithRef<"div"> & TabPanelType;
+
+export type TabContentProps = ComponentPropsWithRef<"div"> & TabCommonType;

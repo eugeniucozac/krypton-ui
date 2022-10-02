@@ -3,7 +3,7 @@ import { TableHeadProps } from "./types";
 import { Head } from "./Table.styles";
 
 export const TableHead = memo(
-  ({ children, size, stripped }: TableHeadProps, props) => {
+  ({ children, size, stripped, ...props }: TableHeadProps) => {
     return (
       <Head {...props}>
         {React.Children.map(children, (child) => {
