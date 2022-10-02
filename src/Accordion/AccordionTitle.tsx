@@ -21,7 +21,7 @@ export const AccordionTitle = memo(
     return (
       <Title {...props} type="button" onClick={() => onChange(targetId)}>
         <Header>{children}</Header>
-        <Icon name={toggleIcon as Name} color={color} />
+        <Icon name={toggleIcon} color={color} />
       </Title>
     );
   }

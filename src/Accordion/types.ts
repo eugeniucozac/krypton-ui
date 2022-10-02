@@ -1,4 +1,5 @@
 import React, { ComponentProps } from "react";
+import { Name } from "../Icon/types";
 import { ColorCodes } from "../types";
 
 export type Variant = "toggle" | "stayOpen";
@@ -8,7 +9,7 @@ type ContentType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  expandedPanel?: number | null;
+  expandedPanel?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -39,11 +40,11 @@ type AccordionTitleType = ContentType & {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  closeIcon?: string;
+  closeIcon?: Name;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  openIcon?: string;
+  openIcon?: Name;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

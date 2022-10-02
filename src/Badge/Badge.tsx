@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { BadgeProps, AlignmentPosition } from "./types";
+import { BadgeProps } from "./types";
 import { Wrapper, Value, Dot } from "./Badge.styles";
 
 const Badge = memo(
@@ -23,8 +23,8 @@ const Badge = memo(
             <Value
               variant={variant}
               color={color}
-              alignmentX={alignmentX as AlignmentPosition}
-              alignmentY={alignmentY as AlignmentPosition}
+              alignmentX={alignmentX}
+              alignmentY={alignmentY}
             >
               {maxValue ? `${maxValue}+` : value}
             </Value>

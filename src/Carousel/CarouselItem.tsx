@@ -3,11 +3,7 @@ import { CarouselItemProps } from "./types";
 import { Item } from "./Carousel.styles";
 
 export const CarouselItem = memo(
-  ({ children, active }: CarouselItemProps, props) => {
-    return (
-      <Item {...props} active={active}>
-        {children}
-      </Item>
-    );
+  ({ children, ...props }: CarouselItemProps) => {
+    return <Item {...props}>{children}</Item>;
   }
 );

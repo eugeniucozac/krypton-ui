@@ -48,7 +48,7 @@ const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
   const [rating, setRating] = useState(4);
-  const [panel, setPanel] = useState<number | null>(null);
+  const [panel, setPanel] = useState<number | undefined>(undefined);
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);

@@ -24,8 +24,8 @@ export const Wrapper = styled.button<WrapperStyledProps>`
   padding: ${(props) =>
     props.variant === "icon"
       ? ".25rem"
-      : `${toRem(sizeMetric[props.size] * 0.625)} ${toRem(
-          sizeMetric[props.size] * 1.25
+      : `${toRem(sizeMetric[props.size || "md"] * 0.625)} ${toRem(
+          sizeMetric[props.size || "md"] * 1.25
         )}`};
   border-radius: ${(props) => (props.shape === "square" ? "0" : "3.125rem")};
   background: ${(props) =>
@@ -33,21 +33,21 @@ export const Wrapper = styled.button<WrapperStyledProps>`
       ? "transparent"
       : props.variant === "outline"
       ? "rgb(255, 255, 255)"
-      : colorMetric[props.color]};
+      : colorMetric[props.color || "primary"]};
   color: ${(props) =>
     props.variant === "outline" ||
     props.variant === "text" ||
     props.variant === "icon"
-      ? colorMetric[props.color]
+      ? colorMetric[props.color || "primary"]
       : "rgb(255, 255, 255)"};
   border: ${(props) =>
     props.variant === "text" || props.variant === "icon"
       ? "none"
-      : `1px solid ${colorMetric[props.color]}`};
+      : `1px solid ${colorMetric[props.color || "primary"]}`};
   &:hover {
     color: ${(props) =>
       props.variant === "icon"
-        ? colorMetric[props.color]
+        ? colorMetric[props.color || "primary"]
         : "rgb(255, 255, 255)"};
     box-shadow: ${(props) =>
       props.variant === "outline" && "0 3px 7px rgb(0 0 0 / 10%)"};
@@ -55,10 +55,10 @@ export const Wrapper = styled.button<WrapperStyledProps>`
       props.variant === "icon"
         ? "transparent"
         : props.variant === "outline"
-        ? colorMetric[props.color]
+        ? colorMetric[props.color || "primary"]
         : `linear-gradient(
       rgba(0, 0, 0, 0.25),
       rgba(0, 0, 0, 0.25)
-    ) ${colorMetric[props.color]}`};
+    ) ${colorMetric[props.color || "primary"]}`};
   }
 `;

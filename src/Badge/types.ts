@@ -9,8 +9,6 @@ export type Alignment =
   | "top-left"
   | "bottom-left";
 
-export type AlignmentPosition = "top" | "bottom" | "left" | "right";
-
 type BadgeType = {
   children: React.ReactNode;
   /**
@@ -50,8 +48,8 @@ type BasicStyledProps = {
 };
 
 export type ValueStyledProps = BasicStyledProps & {
-  alignmentX: AlignmentPosition;
-  alignmentY: AlignmentPosition;
+  alignmentX: string;
+  alignmentY: string;
 };
 
 export type DotStyledProps = BasicStyledProps;

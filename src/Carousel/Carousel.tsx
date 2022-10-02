@@ -17,18 +17,18 @@ export const Carousel = memo(
     props
   ) => {
     const [index, setIndex] = useState(activeIndex);
-    const timer = () => setIndex(index + 1);
+    const childrenLength = React.Children.count(children);
 
     const toPrev = () => {
       if (index === 0) {
-        setIndex(children.length - 1);
+        setIndex(childrenLength - 1);
       } else {
         setIndex((prevState) => prevState - 1);
       }
     };
 
     const toNext = () => {
-      if (index === children.length - 1) {
+      if (index === childrenLength - 1) {
         setIndex(0);
       } else {
         setIndex((prevState) => prevState + 1);
@@ -37,13 +37,16 @@ export const Carousel = memo(
 
     useEffect(() => {
       if (autoPlay) {
-        if (index > children.length - 1) {
+        if (index > childrenLength - 1) {
           setIndex(0);
         }
-        const id = setInterval(timer, interval);
+        const id = setInterval(
+          () => setIndex((prevState) => prevState + 1),
+          interval
+        );
         return () => clearInterval(id);
       }
-    }, [index]);
+    }, [index, autoPlay, childrenLength, interval]);
 
     const toSlide = (index: number) => {
       setIndex(index);

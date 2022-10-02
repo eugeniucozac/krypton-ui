@@ -2,35 +2,24 @@ import { memo } from "react";
 import { ButtonProps } from "./types";
 import { Wrapper } from "./Button.styles";
 
+export const defaultProps: Partial<ButtonProps> = {
+  shape: "square",
+  color: "primary",
+  variant: "default",
+  size: "md",
+  fullWidth: false,
+  disabled: false,
+};
+
 const Button = memo(
-  (
-    {
-      children,
-      shape = "square",
-      color = "primary",
-      variant = "default",
-      size = "md",
-      fullWidth = false,
-      disabled = false,
-      beginIcon,
-      endIcon,
-      onClick,
-    }: ButtonProps,
-    props
-  ) => {
+  ({ children, beginIcon, endIcon, ...props }: ButtonProps) => {
+    const componentProps: ButtonProps = {
+      ...defaultProps,
+      ...props,
+    };
+
     return (
-      <Wrapper
-        {...props}
-        color={color}
-        size={size}
-        shape={shape}
-        variant={variant}
-        fullWidth={fullWidth}
-        disabled={disabled}
-        onClick={onClick}
-        beginIcon={beginIcon}
-        endIcon={endIcon}
-      >
+      <Wrapper {...componentProps} beginIcon={beginIcon} endIcon={endIcon}>
         {beginIcon}
         {children}
         {endIcon}

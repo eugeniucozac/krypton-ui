@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
 
 export type Variant = "default" | "outline" | "text" | "icon";
@@ -55,14 +55,14 @@ type ButtonType = {
 };
 
 export type WrapperStyledProps = {
-  color: Color;
-  size: Size;
-  variant: Variant;
-  shape: Shape;
-  fullWidth: boolean;
-  disabled: boolean;
+  color?: Color;
+  size?: Size;
+  variant?: Variant;
+  shape?: Shape;
+  fullWidth?: boolean;
+  disabled?: boolean;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
 };
 
-export type ButtonProps = ComponentProps<"div"> & ButtonType;
+export type ButtonProps = ComponentPropsWithRef<"button"> & ButtonType;
