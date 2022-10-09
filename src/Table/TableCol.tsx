@@ -9,7 +9,7 @@ const defaultProps: Partial<TableColProps> = {
 
 export const TableCol = memo(
   ({ children, tag = "td", ...props }: TableColProps) => {
-    const componentProps: TableColProps = {
+    const componentProps: Omit<TableColProps, "children"> = {
       ...defaultProps,
       ...props,
     };

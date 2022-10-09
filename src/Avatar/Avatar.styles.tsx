@@ -17,10 +17,10 @@ export const Wrapper = styled.div<AvatarStyledProps>`
   color: rgb(255, 255, 255);
   font-weight: bold;
   text-transform: uppercase;
-  font-size: ${(props) => toRem(sizeMetric[props.size])};
-  width: ${(props) => toRem(sizeMetric[props.size] * 2.5)};
-  height: ${(props) => toRem(sizeMetric[props.size] * 2.5)};
-  background-color: ${(props) => colorMetric[props.color]};
+  font-size: ${(props) => toRem(sizeMetric[props.size || "md"])};
+  width: ${(props) => toRem(sizeMetric[props.size || "md"] * 2.5)};
+  height: ${(props) => toRem(sizeMetric[props.size || "md"] * 2.5)};
+  background-color: ${(props) => colorMetric[props.color || "success"]};
   & > img {
     width: 100%;
     height: 100%;
@@ -36,6 +36,6 @@ export const Wrapper = styled.div<AvatarStyledProps>`
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: ${(props) => colorMetric[props.color]};
+      background-color: ${(props) => colorMetric[props.color || "success"]};
     }
 `;

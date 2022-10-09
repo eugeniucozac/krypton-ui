@@ -18,6 +18,10 @@ type BadgeType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
+  showZero?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
   alignment?: Alignment;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

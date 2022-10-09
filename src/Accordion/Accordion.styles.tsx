@@ -35,7 +35,7 @@ export const Header = styled.div`
 export const Description = styled.div<MaxHeightStyledProps>`
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  max-height: ${(props) => `${toPx(props.maxHeight)}`};
+  max-height: ${(props) => `${toPx(props.maxHeight || 0)}`};
 `;
 
 export const Body = styled.div`

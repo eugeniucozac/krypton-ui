@@ -10,13 +10,14 @@ const Badge = memo(
     color = "primary",
     variant = "default",
     alignment = "top-right",
+    showZero = false,
     ...props
   }: BadgeProps) => {
     const [alignX, alignY] = alignment.split("-");
     return (
       <Wrapper {...props}>
         {children}
-        {value ? (
+        {value || showZero ? (
           variant === "default" ? (
             <Value
               variant={variant}

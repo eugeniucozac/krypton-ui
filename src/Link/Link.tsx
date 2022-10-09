@@ -9,7 +9,7 @@ const defaultProps: Partial<LinkProps> = {
 };
 
 const Link = memo(({ children, ...props }: LinkProps) => {
-  const componentProps: LinkProps = {
+  const componentProps: Omit<LinkProps, "children"> = {
     ...defaultProps,
     ...props,
   };

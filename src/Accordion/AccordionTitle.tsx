@@ -11,12 +11,25 @@ export const AccordionTitle = memo(
     color = "rgb(0, 0, 0)",
     onChange,
     value,
-    targetId,
+    index,
+    allowMultiple,
+    show,
+    setShow,
     ...props
-  }: AccordionTitleProps) => {
-    const toggleIcon = value === targetId ? openIcon : closeIcon;
+  }: any) => {
+    /// AccordionTitleProps
+    const toggleIcon = value === index ? openIcon : closeIcon;
+
+    const handleChange = () => {
+      if (allowMultiple) {
+        setShow(!show);
+      } else {
+        onChange(index);
+      }
+    };
+
     return (
-      <Title {...props} type="button" onClick={() => onChange(targetId)}>
+      <Title {...props} type="button" onClick={handleChange}>
         <Header>{children}</Header>
         <Icon name={toggleIcon} color={color} />
       </Title>

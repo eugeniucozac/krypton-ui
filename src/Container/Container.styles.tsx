@@ -12,5 +12,6 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   padding-left: 0.625rem;
   padding-right: 0.625rem;
   width: 100%;
-  max-width: ${(props) => (props.fluid ? "100%" : breakpoint[props.size])};
+  max-width: ${(props) =>
+    props.fluid ? "100%" : breakpoint[props.size || "md"]};
 `;

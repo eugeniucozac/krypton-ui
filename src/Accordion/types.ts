@@ -1,12 +1,6 @@
-import React, {
-  ComponentProps,
-  ComponentPropsWithoutRef,
-  ComponentPropsWithRef,
-} from "react";
+import React, { ComponentPropsWithRef } from "react";
 import { IconName } from "../Icon/types";
 import { ColorCodes } from "../types";
-
-export type Variant = "toggle" | "stayOpen";
 
 type ContentType = {
   children?: React.ReactNode;
@@ -28,15 +22,14 @@ type AccordionType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  variant?: Variant;
+  allowMultiple?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default default
    */
 };
 
 type AccordionTitleType = ContentType & {
-  targetId: number;
+  index?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -59,7 +52,7 @@ type AccordionTitleType = ContentType & {
 };
 
 export type MaxHeightStyledProps = {
-  maxHeight: number;
+  maxHeight?: number;
 };
 
 export type AccordionProps = ComponentPropsWithRef<"div"> &
@@ -67,6 +60,7 @@ export type AccordionProps = ComponentPropsWithRef<"div"> &
   AccordionType;
 
 export type AccordionPanelProps = ComponentPropsWithRef<"div"> &
-  ContentType & { panelId?: number };
+  ContentType & { index?: number };
 
-export type AccordionTitleProps = ComponentProps<"div"> & AccordionTitleType;
+export type AccordionTitleProps = ComponentPropsWithRef<"button"> &
+  AccordionTitleType;

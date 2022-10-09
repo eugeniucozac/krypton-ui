@@ -227,21 +227,21 @@ const Home = () => {
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Accordion
-            variant="toggle"
+            allowMultiple={true}
             value={panel}
             onChange={handleChangeAccordion}
           >
-            <AccordionItem>
-              <AccordionTitle targetId={1}>Accordion Header 1</AccordionTitle>
-              <AccordionDescription panelId={1}>
+            <AccordionItem index={1}>
+              <AccordionTitle>Accordion Header 1</AccordionTitle>
+              <AccordionDescription>
                 You can modify any of this with custom CSS or overriding our
                 default variables. It's also worth noting that just about any
                 HTML can go within th
               </AccordionDescription>
             </AccordionItem>
-            <AccordionItem>
-              <AccordionTitle targetId={2}>Accordion Header 2</AccordionTitle>
-              <AccordionDescription panelId={2}>
+            <AccordionItem index={2}>
+              <AccordionTitle>Accordion Header 2</AccordionTitle>
+              <AccordionDescription>
                 <strong>
                   You can modify any of this with custom CSS or overriding our
                   default variables. It's also worth noting that
@@ -249,9 +249,9 @@ const Home = () => {
                 just about any HTML can go within th
               </AccordionDescription>
             </AccordionItem>
-            <AccordionItem>
-              <AccordionTitle targetId={3}>Accordion Header 3</AccordionTitle>
-              <AccordionDescription panelId={3}>
+            <AccordionItem index={3}>
+              <AccordionTitle>Accordion Header 3</AccordionTitle>
+              <AccordionDescription>
                 You can modify any of this with custom CSS or overriding our
                 default variables. It's also worth noting that just about any
                 HTML can go within th
@@ -316,11 +316,7 @@ const Home = () => {
           </Tabs>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <Pagination
-            count={14}
-            currentPage={page}
-            onChange={handleChangePage}
-          />
+          <Pagination total={14} current={page} onChange={handleChangePage} />
         </div>
         <div style={{ width: "35%", margin: "40px 0 40px 30px" }}>
           <Button onClick={handleShowModal}>Open Modal</Button>

@@ -9,8 +9,8 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   display: inline-flex;
   transition: ease 0.3s;
   padding: ${(props) =>
-    ` 0.45rem ${toRem(sizeMetric[props.size])} 0.6rem ${toRem(
-      sizeMetric[props.size]
+    ` 0.45rem ${toRem(sizeMetric[props.size || "md"])} 0.6rem ${toRem(
+      sizeMetric[props.size || "md"]
     )}`};
   background: ${(props) => colorMetric[props.color]};
   ${(props) =>
@@ -20,7 +20,7 @@ export const Wrapper = styled.div<WrapperStyledProps>`
     }}
   border-radius: ${(props) =>
     props.variant === "square" ? " 0.375rem" : "3.125rem"};
-  height: ${(props) => toRem(sizeMetric[props.size])};
+  height: ${(props) => toRem(sizeMetric[props.size || "md"])};
 `;
 
 export const Title = styled.span<ColorStyledProps>`

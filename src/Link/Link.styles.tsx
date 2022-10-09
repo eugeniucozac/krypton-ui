@@ -13,8 +13,8 @@ export const Wrapper = styled.a<WrapperStyledProps>`
       : props.underline === "none"
       ? "none"
       : "none"};
-  font-size: ${(props) => toRem(sizeMetric[props.size] * 0.875)};
-  color: ${(props) => colorMetric[props.color]};
+  font-size: ${(props) => toRem(sizeMetric[props.size || "md"] * 0.875)};
+  color: ${(props) => colorMetric[props.color || "primary"]};
   ${(props) => ({
     ...(props.underline === "hover" && {
       ":hover": {

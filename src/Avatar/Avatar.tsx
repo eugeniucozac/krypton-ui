@@ -9,7 +9,7 @@ const defaultProps: Partial<AvatarProps> = {
 };
 
 const Avatar = memo(({ name, imgSrc, ...props }: AvatarProps) => {
-  const componentProps: AvatarProps = {
+  const componentProps: Omit<AvatarProps, "name"> = {
     ...defaultProps,
     ...props,
   };

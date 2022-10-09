@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { indexTooltip } from "../utils/theme";
 import { PlacementStyledProps } from "./types";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<PlacementStyledProps>`
   position: relative;
   &:hover {
     [role="tooltip"] {

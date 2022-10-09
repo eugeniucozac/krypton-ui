@@ -1,13 +1,13 @@
-import { ComponentProps, ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
 import { IconName } from "../Icon/types";
 
 type PaginationType = {
-  count: number;
+  total: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  currentPage: number;
+  current: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -31,11 +31,11 @@ type PaginationType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  showPreviousIcon?: boolean;
+  showPrevious?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  showNextIcon?: boolean;
+  showNext?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

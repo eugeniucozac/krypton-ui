@@ -5,34 +5,34 @@ import Icon from "../Icon";
 
 export const Pagination = memo(
   ({
-    count,
-    currentPage,
+    total,
+    current,
     color = "primary",
     onChange,
     disabled = false,
     size = "md",
-    showPreviousIcon = true,
-    showNextIcon = true,
+    showPrevious = true,
+    showNext = true,
     previousIcon = "navigateBefore",
     nextIcon = "navigateNext",
     ...props
   }: PaginationProps) => {
-    let pageNew = currentPage - 2 > 0 ? currentPage - 2 : 1;
+    let pageNew = current - 2 > 0 ? current - 2 : 1;
     let pages = [] as any;
 
-    for (let i = 0; i < 3 && pageNew < count; i++) {
+    for (let i = 0; i < 3 && pageNew < total; i++) {
       pages = [...pages, pageNew];
       pageNew++;
     }
 
-    if (currentPage > 3) {
-      if (currentPage > 4) pages = ["...", ...pages];
+    if (current > 3) {
+      if (current > 4) pages = ["...", ...pages];
       pages = [1, ...pages];
     }
 
-    if (count > 1) {
-      if (count - 1 > currentPage) pages = [...pages, "..."];
-      pages = [...pages, count];
+    if (total > 1) {
+      if (total - 1 > current) pages = [...pages, "..."];
+      pages = [...pages, total];
     }
 
     const lastPage = pages[pages.length - 1];
@@ -40,20 +40,20 @@ export const Pagination = memo(
     return (
       <Wrapper {...props}>
         <ul>
-          {showPreviousIcon && (
+          {showPrevious && (
             <Item
               color={color}
-              disabled={disabled || currentPage === 1}
+              disabled={disabled || current === 1}
               size={size}
               onClick={() =>
-                !disabled && currentPage !== 1 && onChange(currentPage - 1)
+                !disabled && current !== 1 && onChange(current - 1)
               }
             >
               <Icon name={previousIcon} />
             </Item>
           )}
           {pages.map((number: any, iter: number) => {
-            const active = currentPage === number;
+            const active = current === number;
             return (
               <Item
                 key={iter}
@@ -67,15 +67,13 @@ export const Pagination = memo(
               </Item>
             );
           })}
-          {showNextIcon && (
+          {showNext && (
             <Item
               color={color}
-              disabled={disabled || currentPage === lastPage}
+              disabled={disabled || current === lastPage}
               size={size}
               onClick={() =>
-                !disabled &&
-                currentPage !== lastPage &&
-                onChange(currentPage + 1)
+                !disabled && current !== lastPage && onChange(current + 1)
               }
             >
               <Icon name={nextIcon} />

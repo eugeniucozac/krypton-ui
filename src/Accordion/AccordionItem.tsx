@@ -1,14 +1,24 @@
 import React, { memo } from "react";
 import { AccordionPanelProps } from "./types";
 import { Item } from "./Accordion.styles";
+import { AccordionAction } from "./AccordionAction";
 
 export const AccordionItem = memo(
-  ({ children, value, onChange, ...props }: AccordionPanelProps) => {
+  ({ children, value, index, onChange, allowMultiple, ...props }: any) => {
+    //AccordionPanelProps
     return (
       <Item {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, { value, onChange });
+            return (
+              <AccordionAction
+                child={child}
+                value={value}
+                index={index}
+                allowMultiple={allowMultiple}
+                onChange={onChange}
+              />
+            );
           }
         })}
       </Item>
