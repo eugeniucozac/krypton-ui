@@ -1,10 +1,10 @@
-import { useEffect, useRef, memo } from "react";
+import React, { useEffect, useRef, memo } from "react";
 import { CSSTransition } from "react-transition-group";
 import { ModalProps } from "./types";
 import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
 
-const Modal = memo(
+export const Modal = memo(
   ({
     children,
     isOpen,
@@ -48,7 +48,11 @@ const Modal = memo(
         >
           <Background isOpen={isOpen}>
             <Wrapper {...props} ref={wrapperRef}>
-              <section>{children}</section>
+              {React.Children.map(children, (child) => {
+                if (React.isValidElement(child)) {
+                  return React.cloneElement(child, { onClose });
+                }
+              })}
             </Wrapper>
           </Background>
         </CSSTransition>
@@ -56,5 +60,3 @@ const Modal = memo(
     );
   }
 );
-
-export default Modal;
