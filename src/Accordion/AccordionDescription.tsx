@@ -4,10 +4,7 @@ import { AccordionPanelProps } from "./types";
 
 export const AccordionDescription = memo(
   ({ children, value, index, show, allowMultiple, ...props }: any) => {
-    // AccordionPanelProps
     const bodyRef = useRef<HTMLDivElement | null>(null);
-
-    // console.log("allowMultiple ", allowMultiple);
 
     var maxHeight = value === index ? bodyRef.current?.scrollHeight : 0;
 

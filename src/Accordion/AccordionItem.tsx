@@ -5,7 +5,6 @@ import { AccordionAction } from "./AccordionAction";
 
 export const AccordionItem = memo(
   ({ children, value, index, onChange, allowMultiple, ...props }: any) => {
-    //AccordionPanelProps
     return (
       <Item {...props}>
         {React.Children.map(children, (child) => {

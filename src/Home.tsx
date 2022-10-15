@@ -52,6 +52,7 @@ const Home = () => {
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const [tablePage, setTablePage] = useState(1);
   const [rowsTablePerPage, setRowsTablePerPage] = useState(5);
   const [showModal, setShowModal] = useState(false);
@@ -146,8 +147,6 @@ const Home = () => {
     setRowsTablePerPage(val);
   };
 
-  const jenea = undefined;
-
   return (
     <div>
       <>
@@ -227,7 +226,7 @@ const Home = () => {
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Accordion
-            allowMultiple={true}
+            allowMultiple={false}
             value={panel}
             onChange={handleChangeAccordion}
           >
@@ -316,7 +315,12 @@ const Home = () => {
           </Tabs>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <Pagination total={14} current={page} onChange={handleChangePage} />
+          <Pagination
+            total={12}
+            current={page}
+            closestPages={1}
+            onChange={handleChangePage}
+          />
         </div>
         <div style={{ width: "35%", margin: "40px 0 40px 30px" }}>
           <Button onClick={handleShowModal}>Open Modal</Button>

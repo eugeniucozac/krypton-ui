@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { sizeMetric, colorMetric } from "../utils/theme";
 import { toRem } from "../utils/string";
 import { toRGBA } from "../utils/colors";
-import { WrapperStyledProps, ItemStyledProps } from "./types";
+import { ItemStyledProps } from "./types";
 
-export const Wrapper = styled.nav<WrapperStyledProps>`
+export const Wrapper = styled.nav`
   ul {
     display: flex;
     align-items: center;

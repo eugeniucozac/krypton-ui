@@ -1,5 +1,5 @@
-import { memo } from "react";
-import { PaginationProps } from "./types";
+import { memo, useEffect } from "react";
+import { PaginationProps, PageProps } from "./types";
 import { Wrapper, Item } from "./Pagination.styles";
 import Icon from "../Icon";
 
@@ -7,8 +7,10 @@ export const Pagination = memo(
   ({
     total,
     current,
-    color = "primary",
     onChange,
+    color = "primary",
+    closestPages = 1,
+    pagesLimit = 16,
     disabled = false,
     size = "md",
     showPrevious = true,
@@ -17,24 +19,92 @@ export const Pagination = memo(
     nextIcon = "navigateNext",
     ...props
   }: PaginationProps) => {
-    let pageNew = current - 2 > 0 ? current - 2 : 1;
-    let pages = [] as any;
+    const LEFT_DOTS = "LEFT_DOTS";
+    const RIGHT_DOTS = "RIGHT_DOTS";
 
-    for (let i = 0; i < 3 && pageNew < total; i++) {
-      pages = [...pages, pageNew];
-      pageNew++;
-    }
+    const range = (from: PageProps, to: PageProps, step = 1) => {
+      let i = from;
+      const range = [];
 
-    if (current > 3) {
-      if (current > 4) pages = ["...", ...pages];
-      pages = [1, ...pages];
-    }
+      while (i <= to) {
+        range.push(i);
+        i = Number(i) + step;
+      }
 
-    if (total > 1) {
-      if (total - 1 > current) pages = [...pages, "..."];
-      pages = [...pages, total];
-    }
+      return range;
+    };
 
+    const closestPage = Math.max(0, Math.min(closestPages, 2));
+
+    const gotoPage = (page: PageProps) => {
+      const current = Math.max(0, Math.min(Number(page), total));
+      onChange(current);
+    };
+
+    const handleClick = (page: PageProps) => {
+      gotoPage(page);
+    };
+
+    const handleLeftDots = () => {
+      gotoPage(current - closestPage * 2 - 1);
+    };
+
+    const handleRightDots = () => {
+      gotoPage(current + closestPage * 2 + 1);
+    };
+
+    const handleLeft = () => {
+      gotoPage(current - 1);
+    };
+
+    const handleRight = () => {
+      gotoPage(current + 1);
+    };
+
+    useEffect(() => {
+      gotoPage(1);
+    }, []);
+
+    const pageNumbers = () => {
+      const totalNumbers = closestPage * 2 + 3;
+      const totalPages = totalNumbers + 2;
+
+      if (total > totalPages) {
+        const startPage = Math.max(2, current - closestPage);
+        const endPage = Math.min(total - 1, current + closestPage);
+
+        let pages = range(startPage, endPage);
+        const hasLeftSpill = startPage > 2;
+        const hasRightSpill = total - endPage > 1;
+        const spillOffset = totalNumbers - (pages.length + 1);
+
+        switch (true) {
+          case hasLeftSpill && !hasRightSpill: {
+            const extraPages = range(startPage - spillOffset, startPage - 1);
+            pages = [LEFT_DOTS, ...extraPages, ...pages];
+            break;
+          }
+
+          case !hasLeftSpill && hasRightSpill: {
+            const extraPages = range(endPage + 1, endPage + spillOffset);
+            pages = [...pages, ...extraPages, RIGHT_DOTS];
+            break;
+          }
+
+          case hasLeftSpill && hasRightSpill:
+          default: {
+            pages = [LEFT_DOTS, ...pages, RIGHT_DOTS];
+            break;
+          }
+        }
+
+        return [1, ...pages, total];
+      }
+
+      return range(1, total);
+    };
+
+    const pages = pageNumbers();
     const lastPage = pages[pages.length - 1];
 
     return (
@@ -45,25 +115,47 @@ export const Pagination = memo(
               color={color}
               disabled={disabled || current === 1}
               size={size}
-              onClick={() =>
-                !disabled && current !== 1 && onChange(current - 1)
-              }
+              onClick={() => !disabled && current !== 1 && handleLeft()}
             >
               <Icon name={previousIcon} />
             </Item>
           )}
-          {pages.map((number: any, iter: number) => {
-            const active = current === number;
+          {pages.map((page: any) => {
+            const active = current === page;
+            if (page === LEFT_DOTS)
+              return (
+                <Item
+                  key={page}
+                  color={color}
+                  size={size}
+                  disabled={false}
+                  onClick={handleLeftDots}
+                >
+                  <a>...</a>
+                </Item>
+              );
+            if (page === RIGHT_DOTS)
+              return (
+                <Item
+                  key={page}
+                  color={color}
+                  size={size}
+                  disabled={false}
+                  onClick={handleRightDots}
+                >
+                  <a>...</a>
+                </Item>
+              );
             return (
               <Item
-                key={iter}
+                key={page}
                 color={color}
                 active={active}
                 disabled={disabled}
                 size={size}
-                onClick={() => !disabled && onChange(Number(number))}
+                onClick={() => handleClick(page)}
               >
-                <a>{number}</a>
+                <a>{page}</a>
               </Item>
             );
           })}
@@ -72,9 +164,7 @@ export const Pagination = memo(
               color={color}
               disabled={disabled || current === lastPage}
               size={size}
-              onClick={() =>
-                !disabled && current !== lastPage && onChange(current + 1)
-              }
+              onClick={() => !disabled && current !== lastPage && handleRight()}
             >
               <Icon name={nextIcon} />
             </Item>

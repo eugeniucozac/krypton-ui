@@ -15,18 +15,13 @@ export const AccordionTitle = memo(
     allowMultiple,
     show,
     setShow,
+    handleChange,
     ...props
   }: any) => {
-    /// AccordionTitleProps
-    const toggleIcon = value === index ? openIcon : closeIcon;
-
-    const handleChange = () => {
-      if (allowMultiple) {
-        setShow(!show);
-      } else {
-        onChange(index);
-      }
-    };
+    var toggleIcon = value === index ? openIcon : closeIcon;
+    if (allowMultiple) {
+      toggleIcon = show ? openIcon : closeIcon;
+    }
 
     return (
       <Title {...props} type="button" onClick={handleChange}>
