@@ -45,14 +45,14 @@ type ModalType = {
 
 export type ReactPortalType = {
   children?: React.ReactNode;
-  backdropClassName?: string;
-  wrapperId?: string;
+  className?: string;
+  parent?: HTMLDivElement;
 };
 
 export type WrapperStyledProps = {};
 
 export type BackgroundStyledProps = {
-  isOpen: boolean;
+  isOpen?: boolean;
 };
 
 export type ModalBodyProps = ComponentPropsWithRef<"section"> & ModalBodyType;

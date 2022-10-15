@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, memo } from "react";
-import { CSSTransition } from "react-transition-group";
+import React, { useEffect, useRef, memo, useState, Fragment } from "react";
 import { ModalProps } from "./types";
 import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
@@ -12,51 +11,60 @@ export const Modal = memo(
     color = "secondary",
     ...props
   }: ModalProps) => {
-    const portalRef = useRef<HTMLDivElement>(null);
-    const wrapperRef = useRef<HTMLDivElement>(null);
-
-    const onEscapeKeyDown = (event: KeyboardEvent) => {
-      if ((event.charCode || event.keyCode) === 27) {
-        onClose();
-      }
-    };
-
-    const onClickOutside = (event: Event) => {
-      const target = event.target as HTMLButtonElement;
-      if (wrapperRef.current && !wrapperRef.current.contains(target)) {
-        onClose();
-      }
-    };
+    const [active, setActive] = useState(false);
+    const backdrop = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-      document.addEventListener("keydown", onEscapeKeyDown);
-      document.addEventListener("click", onClickOutside, true);
+      const { current } = backdrop;
+      const transitionEnd = () => setActive(isOpen);
+      const onEscapeKeyUp = (event: KeyboardEvent) =>
+        [27].indexOf(event.which) >= 0 && onClose();
+      const clickHandler = (event: Event) =>
+        event.target === current && onClose();
+
+      if (current) {
+        current.addEventListener("transitionend", transitionEnd);
+        current.addEventListener("click", clickHandler);
+        window.addEventListener("keyup", onEscapeKeyUp);
+      }
+
+      if (isOpen) {
+        window.setTimeout(() => {
+          setActive(isOpen);
+          document.querySelector("#root")?.setAttribute("inert", "true");
+        }, 10);
+      }
+
       return () => {
-        document.removeEventListener("keydown", onEscapeKeyDown);
-        document.removeEventListener("click", onClickOutside, true);
+        if (current) {
+          current.removeEventListener("transitionend", transitionEnd);
+          current.removeEventListener("click", clickHandler);
+        }
+
+        document.querySelector("#root")?.removeAttribute("inert");
+        window.removeEventListener("keyup", onEscapeKeyUp);
       };
-    }, []);
+    }, [isOpen, onClose]);
 
     return (
-      <ReactPortal wrapperId="modal-backdrop">
-        <CSSTransition
-          in={isOpen}
-          timeout={500}
-          unmountOnExit
-          classNames="modal"
-          nodeRef={portalRef}
-        >
-          <Background isOpen={isOpen}>
-            <Wrapper {...props} ref={wrapperRef}>
-              {React.Children.map(children, (child) => {
-                if (React.isValidElement(child)) {
-                  return React.cloneElement(child, { onClose });
-                }
-              })}
-            </Wrapper>
-          </Background>
-        </CSSTransition>
-      </ReactPortal>
+      <Fragment>
+        {(isOpen || active) && (
+          <ReactPortal>
+            <Background
+              ref={backdrop}
+              className={active && isOpen ? "active" : ""}
+            >
+              <Wrapper className="modal-content" {...props}>
+                {React.Children.map(children, (child) => {
+                  if (React.isValidElement(child)) {
+                    return React.cloneElement(child, { onClose });
+                  }
+                })}
+              </Wrapper>
+            </Background>
+          </ReactPortal>
+        )}
+      </Fragment>
     );
   }
 );

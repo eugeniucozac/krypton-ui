@@ -1,36 +1,26 @@
-import { useState, useLayoutEffect } from "react";
-import { createPortal } from "react-dom";
-import { ReactPortalType } from "./types";
+import { useMemo, useEffect } from "react";
+import ReactDOM from "react-dom";
 
-const createBackground = (backdropClassName: string) => {
-  const backgroundElement = document.createElement("div");
-  backgroundElement.setAttribute("class", backdropClassName);
-  document.body.appendChild(backgroundElement);
-  return backgroundElement;
-};
+import { ReactPortalType } from "./types";
 
 export const ReactPortal = ({
   children,
-  backdropClassName = "modal-backdrop",
+  parent,
+  className,
 }: ReactPortalType) => {
-  const [backgroundElement, setBackgroundElement] =
-    useState<Element | null>(null);
+  const element = useMemo(() => document.createElement("div"), []);
 
-  useLayoutEffect(() => {
-    let modalBackground = document.getElementsByClassName(backdropClassName)[0];
-    if (!modalBackground) {
-      modalBackground = createBackground(backdropClassName);
-    }
-    setBackgroundElement(modalBackground);
-
+  useEffect(() => {
+    const target = parent ? parent : document.body;
+    const classList = ["portal-container"];
+    if (className)
+      className.split(" ").forEach((item: string) => classList.push(item));
+    classList.forEach((item) => element.classList.add(item));
+    target.appendChild(element);
     return () => {
-      if (modalBackground.parentNode) {
-        modalBackground.parentNode.removeChild(modalBackground);
-      }
+      target.removeChild(element);
     };
-  }, []);
+  }, [element, parent, className]);
 
-  if (backgroundElement === null) return null;
-
-  return createPortal(children, backgroundElement);
+  return ReactDOM.createPortal(children, element);
 };
