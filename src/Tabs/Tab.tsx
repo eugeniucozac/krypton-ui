@@ -4,14 +4,15 @@ import { Link } from "./Tabs.styles";
 
 export const Tab = memo(
   ({
-    label,
+    value = 1,
     disabled = false,
-    onChange,
+    onChange = () => {},
+    label,
     active,
     color,
-    value,
     orientation,
     alignment,
+
     ...props
   }: TabProps) => {
     return (
@@ -22,7 +23,7 @@ export const Tab = memo(
           alignment={alignment}
           orientation={orientation}
           active={active}
-          onClick={!disabled ? () => onChange(value) : undefined}
+          onClick={() => !disabled && onChange(value)}
         >
           {label}
         </Link>

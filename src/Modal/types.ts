@@ -49,8 +49,6 @@ export type ReactPortalType = {
   parent?: HTMLDivElement;
 };
 
-export type WrapperStyledProps = {};
-
 export type BackgroundStyledProps = {
   isOpen?: boolean;
 };

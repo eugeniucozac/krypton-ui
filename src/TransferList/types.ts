@@ -1,4 +1,4 @@
-import React, { ComponentProps, ComponentPropsWithRef } from "react";
+import React, { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type ItemType = {
@@ -77,7 +77,7 @@ export type TransferListItemProps = TransferListCommonType & {
 };
 
 export type TransferListHeaderProps = TransferListCommonType & {
-  children: any;
+  children: React.ReactNode;
   checkedItemsLength: number;
   items: ItemType[];
 };

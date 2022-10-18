@@ -6,11 +6,14 @@ import { Item, Label, Checkbox, List } from "./TransferList.styles";
 export const TransferListItem = memo(
   ({ label, value, items, onChange, ...props }: TransferListItemProps) => {
     const handleChange = () => {
-      const result = items?.map((item: ItemProps) =>
-        item.label === label ? { ...item, value: !value } : item
-      );
-      onChange(result as ItemProps[]);
+      const result =
+        items?.map((item: ItemProps) =>
+          item.label === label ? { ...item, value: !value } : item
+        ) || [];
+      onChange(result);
     };
+
+    console.log(" value", value);
 
     return (
       <List {...props}>

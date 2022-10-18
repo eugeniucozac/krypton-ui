@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { WrapperStyledProps } from "./types";
 
-export const Wrapper = styled.div<WrapperStyledProps>`
+export const Wrapper = styled.div`
   width: auto;
   max-width: 48.75rem;
   margin: 1.875rem auto;

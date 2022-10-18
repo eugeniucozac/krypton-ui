@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 export type Orientation = "horizontal" | "vertical";
@@ -32,7 +32,7 @@ type VariantTabsType = {
 };
 
 type OnChangeColorType = {
-  onChange?: any;
+  onChange?: (value: number) => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -84,7 +84,7 @@ export type VariantTabsStyledProps = {
 
 export type LinkStyledProps = VariantTabsStyledProps & {
   disabled: boolean;
-  onClick: any;
+  onClick: () => void;
   color?: Color;
   active?: boolean;
 };

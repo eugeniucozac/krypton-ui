@@ -63,8 +63,6 @@ type PaginationType = {
    */
 };
 
-export type WrapperStyledProps = {};
-
 export type PageProps = number | PageDotsType;
 
 export type ItemStyledProps = {

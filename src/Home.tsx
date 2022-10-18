@@ -9,6 +9,7 @@ import AdvancedAlert from "./AdvancedAlert";
 import ButtonGroup from "./ButtonGroup";
 import Button from "./Button";
 import Rating from "./Rating";
+import Range from "./Range";
 import {
   Accordion,
   AccordionItem,
@@ -169,6 +170,14 @@ const Home = () => {
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <ProgressBar value={20} color="info" showValue={true} />
+        </div>
+        <div style={{ width: "50%", marginTop: "40px" }}>
+          <Range
+            initial={10}
+            max={100}
+            details={true}
+            onChange={(value: any) => console.log(value)}
+          />
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Chip variant="rounded" color="secondary">

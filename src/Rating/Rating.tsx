@@ -25,7 +25,7 @@ const Rating = memo(
             <Star key={iter} color={color} variant={variant}>
               <Input
                 type="radio"
-                onChange={(e) => onChangeValue(e.target.value)}
+                onChange={(event) => onChangeValue(event.target.value)}
                 value={iterator}
                 name={`stars-${uuidv4}`}
                 variant={variant}

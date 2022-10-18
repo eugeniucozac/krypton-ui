@@ -2,11 +2,23 @@ import { ComponentPropsWithRef } from "react";
 import { Color } from "../types";
 
 type RangeType = {
+  onChange: any;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  initial: number;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  max: number;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
   className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  label?: string;
+  details?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -19,14 +31,10 @@ type RangeType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default default
    */
-  onChange?: () => void;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 export type ColorStyledProps = {
   color: Color;
 };
 
-export type RangeProps = ComponentPropsWithRef<"input"> & RangeType;
+export type RangeProps = ComponentPropsWithRef<"div"> & RangeType;

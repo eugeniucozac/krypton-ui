@@ -4,7 +4,7 @@ import { Size, Color } from "../types";
 export type Variant = "controlled" | "readOnly" | "disabled";
 
 type RatingType = {
-  value: number; // THIS NEEDS TO BE FIXED
+  value: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -27,7 +27,7 @@ type RatingType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default md
    */
-  onChangeValue?: any; // THIS NEEDS TO BE FIXED
+  onChangeValue?: any; // (event: any) => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

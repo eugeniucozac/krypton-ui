@@ -1,4 +1,8 @@
-import { ComponentProps, ComponentPropsWithRef } from "react";
+import {
+  ComponentProps,
+  ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
+} from "react";
 
 export type Padding = "default" | "none";
 
@@ -89,13 +93,23 @@ type TablePaginationType = {
    */
 };
 
+export type SizeAlignStyledProps = {
+  align: Align;
+  size: Size;
+};
+
+export type WidthStrippedStyledProps = {
+  width: string;
+  stripped: boolean;
+};
+
 export type TableHeadProps = ComponentPropsWithRef<"thead"> & TableCommonType;
 
 export type TableBodyProps = ComponentPropsWithRef<"tbody"> & TableCommonType;
 
 export type TableFooterProps = ComponentPropsWithRef<"tfoot"> & TableCommonType;
 
-export type TableProps = ComponentProps<"table"> & TableType;
+export type TableProps = ComponentPropsWithRef<"table"> & TableType;
 
 export type TableRowProps = ComponentPropsWithRef<"tr"> & TableRowType;
 

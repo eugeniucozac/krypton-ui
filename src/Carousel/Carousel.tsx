@@ -64,7 +64,7 @@ export const Carousel = memo(
         {indicators && (
           <>
             <Indicators>
-              {children.map((item, iter) => (
+              {children.map((_, iter) => (
                 <Indicator
                   onClick={() => toSlide(iter)}
                   active={index === iter}

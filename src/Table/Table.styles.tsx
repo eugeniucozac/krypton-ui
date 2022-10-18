@@ -1,15 +1,15 @@
 import styled from "styled-components";
+import { SizeAlignStyledProps } from "./types";
 
-// here we can check if we have rem/em/px/%
-export const Wrapper = styled.table<any>`
+export const Wrapper = styled.table<any>`  // WidthStrippedStyledProps
   font-family: "SFProDisplay";
   font-size: 0.875rem;
   margin-bottom: 20px;
   caption-side: bottom;
   border-collapse: collapse;
-  width: ${(props) => (props.width ? props.width : "100%")};
+  width: ${(props) => (props?.width ? props?.width : "100%")};
   ${(props) => ({
-    ...(props.stripped && {
+    ...(props?.stripped && {
       "tr:nth-of-type(2n+1)": {
         backgroundColor: "rgba(0, 0, 0, 0.04)",
       },
@@ -40,7 +40,7 @@ export const Row = styled.tr`
   border-width: 0;
 `;
 
-export const Coltd = styled.td<any>`
+export const Coltd = styled.td<SizeAlignStyledProps>`
   border-color: inherit;
   border-style: solid;
   border-width: 0;
@@ -49,7 +49,7 @@ export const Coltd = styled.td<any>`
   text-align: ${(props) => props.align};
 `;
 
-export const Colth = styled.th<any>`
+export const Colth = styled.th<SizeAlignStyledProps>`
   border-color: inherit;
   border-style: solid;
   border-width: 0;

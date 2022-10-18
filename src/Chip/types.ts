@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color, Size } from "../types";
 
 export type Variant = "square" | "rounded";

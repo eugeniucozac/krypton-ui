@@ -1,4 +1,4 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, Children } from "react";
 import Icon from "../Icon";
 import { TransferListHeaderProps, ItemProps } from "./types";
 import { Item, Label, Checkbox, Header } from "./TransferList.styles";
@@ -52,7 +52,7 @@ export const TransferListHeader = memo(
             onChange={handleChange}
             disabled={!items.length}
           />
-          <Checkbox checked={children.length && checked !== "empty"}>
+          <Checkbox checked={(Children.count(children) && checked) !== "empty"}>
             <Icon
               name={checked === "checkedAll" ? "tick" : "minus"}
               size="sm"
