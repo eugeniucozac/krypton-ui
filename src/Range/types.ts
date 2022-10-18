@@ -34,7 +34,7 @@ type RangeType = {
 };
 
 export type ColorStyledProps = {
-  color: Color;
+  color?: Color;
 };
 
 export type RangeProps = ComponentPropsWithRef<"div"> & RangeType;

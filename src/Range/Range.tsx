@@ -78,7 +78,6 @@ const Range = memo(
         diffRef.current =
           event.clientX - handleRef.current.getBoundingClientRect().left;
       }
-
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
     };
@@ -86,16 +85,18 @@ const Range = memo(
     return (
       <Wrapper {...props}>
         {details && (
-          <Details>
+          <Details color={color}>
             <span ref={currentRef}>{initial}</span>/{max}
           </Details>
         )}
-        <Slider ref={sliderRef}>
+        <Slider color={color} ref={sliderRef}>
           <RangeInput
+            color={color}
             style={{ width: getLeft(initialPercentage) }}
             ref={rangeInputRef}
           />
           <Handle
+            color={color}
             style={{ left: getLeft(initialPercentage) }}
             ref={handleRef}
             onMouseDown={handleMouseDown}
