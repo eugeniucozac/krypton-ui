@@ -1,8 +1,4 @@
-import {
-  ComponentProps,
-  ComponentPropsWithoutRef,
-  ComponentPropsWithRef,
-} from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 
 export type Padding = "default" | "none";
 

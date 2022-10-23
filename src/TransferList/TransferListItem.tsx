@@ -13,8 +13,6 @@ export const TransferListItem = memo(
       onChange(result);
     };
 
-    console.log(" value", value);
-
     return (
       <List {...props}>
         <Item htmlFor={label}>

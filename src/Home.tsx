@@ -44,6 +44,7 @@ import {
   TablePagination,
   TableRow,
 } from "./Table";
+import { Stepper, Step } from "./Stepper";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -58,6 +59,7 @@ const Home = () => {
   const [rowsTablePerPage, setRowsTablePerPage] = useState(5);
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
+  const [currentStep, setCurrentStep] = useState(3);
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -72,6 +74,13 @@ const Home = () => {
     { label: "List Item 7", value: false },
     { label: "List Item 8", value: false },
   ]);
+
+  const steps = [
+    "Select campaign settings",
+    "Create an ad group",
+    "Create an ad",
+    "Completed",
+  ];
 
   /*
   const StyledList = styled(List)`  font-size: 10px;  .ko-list-item {     padding: 10px;  }`
@@ -272,6 +281,14 @@ const Home = () => {
             <Icon name="mail" />
           </Badge>
         </div>
+        <div style={{ width: "70%", margin: "20px 0 20px 30px" }}>
+          <Stepper activeStep={currentStep} orientation="vertical">
+            {steps.map((label, iter) => (
+              <Step key={iter} label={label} />
+            ))}
+          </Stepper>
+        </div>
+
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Link href="#">Hello sir</Link>
         </div>
