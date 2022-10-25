@@ -45,6 +45,7 @@ import {
   TableRow,
 } from "./Table";
 import { Stepper, Step } from "./Stepper";
+import Switch from "./Switch";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -60,6 +61,7 @@ const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [index, setIndex] = useState(0);
   const [currentStep, setCurrentStep] = useState(3);
+  const [isSwitched, setSwitched] = useState(false);
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -288,7 +290,12 @@ const Home = () => {
             ))}
           </Stepper>
         </div>
-
+        <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
+          <Switch
+            value={isSwitched}
+            onChange={() => setSwitched(!isSwitched)}
+          />
+        </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Link href="#">Hello sir</Link>
         </div>
