@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { colorMetric } from "../../utils/theme";
 import { CheckBoxStyledProps } from "./types";
-import "../../css/fonts.css";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -24,6 +23,7 @@ export const Check = styled.span<CheckBoxStyledProps>`
       ? colorMetric[props.color || "primary"]
       : "rgb(229, 229, 229)"};
   &:before {
+    font-family: "ko-iconfont";
     color: #fff;
     margin-top: 1px;
     content: "\\e901";

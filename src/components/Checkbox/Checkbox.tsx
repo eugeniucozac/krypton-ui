@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { CheckBoxProps } from "./types";
 import { Wrapper, Check, Input } from "./Checkbox.styles";
-import "../../css/fonts.css";
 
 const Checkbox = memo(
   (
