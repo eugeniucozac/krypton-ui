@@ -1,23 +1,23 @@
 import { useState } from "react";
-import Alert from "./Alert";
-import Chip from "./Chip";
-import Avatar from "./Avatar";
-import ProgressBar from "./ProgressBar";
-import Spinner from "./Spinner";
-import Icon from "./Icon";
-import AdvancedAlert from "./AdvancedAlert";
-import ButtonGroup from "./ButtonGroup";
-import Button from "./Button";
-import Rating from "./Rating";
-import Range from "./Range";
+import Alert from "./components/Alert";
+import Chip from "./components/Chip";
+import Avatar from "./components/Avatar";
+import ProgressBar from "./components/ProgressBar";
+import Spinner from "./components/Spinner";
+import Icon from "./components/Icon";
+import AdvancedAlert from "./components/AdvancedAlert";
+import ButtonGroup from "./components/ButtonGroup";
+import Button from "./components/Button";
+import Rating from "./components/Rating";
+import Range from "./components/Range";
 import {
   Accordion,
   AccordionItem,
   AccordionDescription,
   AccordionTitle,
-} from "./Accordion";
-import Tooltip from "./Tooltip";
-import { List, ListItem } from "./List";
+} from "./components/Accordion";
+import Tooltip from "./components/Tooltip";
+import { List, ListItem } from "./components/List";
 import {
   Card,
   CardHeader,
@@ -26,15 +26,15 @@ import {
   CardTitle,
   CardActions,
   CardBody,
-} from "./Card";
-import Badge from "./Badge";
-import Link from "./Link";
-import Breadcrumbs from "./Breadcrumbs";
-import { TabList, Tab, TabPanels, TabPanel, Tabs } from "./Tabs";
-import { Pagination } from "./Pagination";
-import { ModalFooter, ModalHeader, Modal, ModalBody } from "./Modal";
-import { TransferList, TransferListItem } from "./TransferList";
-import { Carousel, CarouselItem, CarouselCaption } from "./Carousel";
+} from "./components/Card";
+import Badge from "./components/Badge";
+import Link from "./components/Link";
+import Breadcrumbs from "./components/Breadcrumbs";
+import { TabList, Tab, TabPanels, TabPanel, Tabs } from "./components/Tabs";
+import { Pagination } from "./components/Pagination";
+import { ModalFooter, ModalHeader, Modal, ModalBody } from "./components/Modal";
+import { TransferList, TransferListItem } from "./components/TransferList";
+import { Carousel, CarouselItem, CarouselCaption } from "./components/Carousel";
 import {
   Table,
   TableBody,
@@ -43,9 +43,10 @@ import {
   TableHead,
   TablePagination,
   TableRow,
-} from "./Table";
-import { Stepper, Step } from "./Stepper";
-import Switch from "./Switch";
+} from "./components/Table";
+import { Stepper, Step } from "./components/Stepper";
+import Switch from "./components/Switch";
+import Checkbox from "./components/Checkbox";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -62,6 +63,7 @@ const Home = () => {
   const [index, setIndex] = useState(0);
   const [currentStep, setCurrentStep] = useState(3);
   const [isSwitched, setSwitched] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -157,6 +159,10 @@ const Home = () => {
 
   const handleRowsTablePerPageChnage = (val: any) => {
     setRowsTablePerPage(val);
+  };
+
+  const handleChangeCheckbox = () => {
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -289,6 +295,15 @@ const Home = () => {
               <Step key={iter} label={label} />
             ))}
           </Stepper>
+        </div>
+        <div
+          style={{
+            width: "35%",
+            margin: "20px 0 20px 30px",
+            position: "relative",
+          }}
+        >
+          <Checkbox checked={isChecked} onChange={handleChangeCheckbox} />
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Switch
