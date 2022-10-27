@@ -52,7 +52,7 @@ import Radio from "./components/Radio";
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
-  const [rating, setRating] = useState(4);
+  const [rating, setRating] = useState(2);
   const [panel, setPanel] = useState<number | undefined>(undefined);
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);

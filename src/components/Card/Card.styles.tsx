@@ -31,7 +31,7 @@ export const Actions = styled.div`
   gap: 1rem;
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;

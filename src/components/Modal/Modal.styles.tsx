@@ -54,7 +54,7 @@ export const CloseButton = styled.button`
   position: absolute;
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   display: flex;
   margin: 1.25rem 1.25rem 0 1.25rem;
   padding-bottom: 1.25rem;
@@ -66,7 +66,7 @@ export const Header = styled.header`
   position: relative;
 `;
 
-export const Footer = styled.section`
+export const Footer = styled.div`
   display: flex;
   padding: 1.25rem;
   align-items: center;
@@ -74,7 +74,7 @@ export const Footer = styled.section`
   gap: 0.75rem;
 `;
 
-export const Body = styled.section`
+export const Body = styled.div`
   padding: 0.5rem 1.25rem;
   font-family: "SFProDisplay";
   font-size: 0.875rem;

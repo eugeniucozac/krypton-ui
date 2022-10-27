@@ -15,14 +15,13 @@ export const Wrapper = styled.nav`
 
 export const Item = styled.li<ItemStyledProps>`
   list-style-type: none;
-  a {
+  div {
     font-family: "SFProDisplay";
     border-radius: 50%;
     text-decoration: none;
     display: flex;
     line-height: 1rem;
     align-items: center;
-    transition: ease 0.2s;
     justify-content: center;
     width: ${(props) => toRem(sizeMetric[props.size] * 1.875)};
     height: ${(props) => toRem(sizeMetric[props.size] * 1.875)};

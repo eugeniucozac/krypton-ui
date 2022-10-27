@@ -15,7 +15,7 @@ const Rating = memo(
   }: RatingProps) => {
     const stars = Array(5).fill(0);
     const uuidv4 = uuid();
-
+    const currentValue = value < 5 ? Number(value) : 5;
     return (
       <Wrapper {...props} color={color} variant={variant}>
         {stars.map((_, iter) => {
@@ -29,7 +29,7 @@ const Rating = memo(
                 value={iterator}
                 name={`stars-${uuidv4}`}
                 variant={variant}
-                checked={iterator === Number(value)}
+                checked={iterator === currentValue}
                 disabled={variant === "disabled"}
               />
               {icons.map((_, iter) => (

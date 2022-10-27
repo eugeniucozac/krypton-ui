@@ -96,7 +96,7 @@ export const List = styled.li`
   padding: 0.75rem 1.25rem;
 `;
 
-export const Header = styled.header`
+export const Header = styled.div`
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid rgb(196, 196, 196);
 `;

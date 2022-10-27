@@ -131,7 +131,7 @@ export const Pagination = memo(
                   disabled={false}
                   onClick={handleLeftDots}
                 >
-                  <a>...</a>
+                  <div>...</div>
                 </Item>
               );
             if (page === RIGHT_DOTS)
@@ -143,7 +143,7 @@ export const Pagination = memo(
                   disabled={false}
                   onClick={handleRightDots}
                 >
-                  <a>...</a>
+                  <div>...</div>
                 </Item>
               );
             return (
@@ -155,7 +155,7 @@ export const Pagination = memo(
                 size={size}
                 onClick={() => handleClick(page)}
               >
-                <a>{page}</a>
+                <div>{page}</div>
               </Item>
             );
           })}

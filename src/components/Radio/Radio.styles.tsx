@@ -14,9 +14,9 @@ export const Choose = styled.span<RadioStyledProps>`
   flex-shrink: 0;
   position: relative;
   border-radius: 50%;
-  width: 1.25rem;
+  width: 1.3rem;
   align-items: center;
-  height: 1.25rem;
+  height: 1.3rem;
   justify-content: center;
   border: ${(props) => `1px solid ${colorMetric[props.color || "primary"]}`};
   &:before {
