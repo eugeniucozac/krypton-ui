@@ -7,7 +7,7 @@ const defaultProps: Partial<CardImageProps> = {
 };
 
 export const CardImage = memo(({ ...props }: CardImageProps) => {
-  const componentProps: CardImageProps = {
+  const componentProps = {
     ...defaultProps,
     ...props,
   };

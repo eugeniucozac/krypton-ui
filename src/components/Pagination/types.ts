@@ -19,10 +19,6 @@ type PaginationType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  pagesLimit?: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   closestPages?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

@@ -13,7 +13,7 @@ const defaultProps: Partial<ButtonProps> = {
 
 const Button = memo(
   ({ children, beginIcon, endIcon, ...props }: ButtonProps) => {
-    const componentProps: ButtonProps = {
+    const componentProps = {
       ...defaultProps,
       ...props,
     };

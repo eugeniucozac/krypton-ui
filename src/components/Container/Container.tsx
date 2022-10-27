@@ -8,7 +8,7 @@ const defaultProps: Partial<ContainerProps> = {
 };
 
 const Container = memo(({ children, ...props }: ContainerProps) => {
-  const componentProps: ContainerProps = {
+  const componentProps = {
     ...defaultProps,
     ...props,
   };

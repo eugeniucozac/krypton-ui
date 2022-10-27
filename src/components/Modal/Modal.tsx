@@ -4,13 +4,7 @@ import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
 
 export const Modal = memo(
-  ({
-    children,
-    isOpen,
-    onClose,
-    color = "secondary",
-    ...props
-  }: ModalProps) => {
+  ({ children, isOpen, onClose, ...props }: ModalProps) => {
     const [active, setActive] = useState(false);
     const backdrop = useRef<HTMLDivElement>(null);
 

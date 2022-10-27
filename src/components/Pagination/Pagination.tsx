@@ -13,7 +13,6 @@ export const Pagination = memo(
     onChange,
     color = "primary",
     closestPages = 1,
-    pagesLimit = 16,
     disabled = false,
     size = "md",
     showPrevious = true,

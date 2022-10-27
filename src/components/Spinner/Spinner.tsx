@@ -7,7 +7,7 @@ const defaultProps: Partial<SpinnerProps> = {
 };
 
 const Spinner = memo(({ color = "success", ...props }: SpinnerProps) => {
-  const componentProps: SpinnerProps = {
+  const componentProps = {
     ...defaultProps,
     ...props,
   };

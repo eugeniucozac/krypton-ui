@@ -9,7 +9,7 @@ const defaultProps: Partial<ChipProps> = {
 };
 
 const Chip = memo(({ children, color = "secondary", ...props }: ChipProps) => {
-  const componentProps: ChipProps = {
+  const componentProps = {
     ...defaultProps,
     ...props,
   };

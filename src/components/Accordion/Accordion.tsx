@@ -2,6 +2,10 @@ import React, { memo } from "react";
 import { AccordionProps } from "./types";
 import { Wrapper } from "./Accordion.styles";
 
+const defaultProps: Partial<AccordionProps> = {
+  allowMultiple: false,
+};
+
 export const Accordion = memo(
   ({
     children,
@@ -10,8 +14,13 @@ export const Accordion = memo(
     onChange,
     ...props
   }: AccordionProps) => {
+    const componentProps = {
+      ...defaultProps,
+      ...props,
+    };
+
     return (
-      <Wrapper {...props}>
+      <Wrapper {...componentProps}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return React.cloneElement(child, {

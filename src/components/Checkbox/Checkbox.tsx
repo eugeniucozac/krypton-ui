@@ -2,24 +2,30 @@ import { memo } from "react";
 import { CheckBoxProps } from "./types";
 import { Wrapper, Check, Input } from "./Checkbox.styles";
 
+const defaultProps: Partial<CheckBoxProps> = {
+  value: "checkbox",
+  name: "checkbox",
+};
+
 const Checkbox = memo(
   ({
     checked,
     onChange,
-    value = "checkbox",
-    name = "checkbox",
     color = "primary",
     disabled = false,
     ...props
   }: CheckBoxProps) => {
+    const componentProps = {
+      ...defaultProps,
+      id: defaultProps.name,
+      ...props,
+    };
+
     return (
       <Wrapper>
         <Input
-          {...props}
+          {...componentProps}
           type="checkbox"
-          value={value}
-          id={name}
-          name={name}
           checked={checked}
           onChange={onChange}
           disabled={disabled}
