@@ -47,6 +47,7 @@ import {
 import { Stepper, Step } from "./components/Stepper";
 import Switch from "./components/Switch";
 import Checkbox from "./components/Checkbox";
+import Radio from "./components/Radio";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -64,6 +65,7 @@ const Home = () => {
   const [currentStep, setCurrentStep] = useState(3);
   const [isSwitched, setSwitched] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [radio, setRadio] = useState("second");
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -163,6 +165,10 @@ const Home = () => {
 
   const handleChangeCheckbox = () => {
     setIsChecked(!isChecked);
+  };
+
+  const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRadio(event.target.name);
   };
 
   return (
@@ -304,6 +310,24 @@ const Home = () => {
           }}
         >
           <Checkbox checked={isChecked} onChange={handleChangeCheckbox} />
+        </div>
+        <div
+          style={{ width: "35%", margin: "20px 0 20px 30px", display: "flex" }}
+        >
+          <div style={{ marginRight: "10px" }}>
+            <Radio
+              label="First"
+              checked={radio === "first"}
+              onChange={handleChangeRadio}
+              value="first"
+            />
+          </div>
+          <Radio
+            label="Second"
+            checked={radio === "second"}
+            onChange={handleChangeRadio}
+            value="second"
+          />
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
           <Switch
