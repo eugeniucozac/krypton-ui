@@ -112,6 +112,10 @@ const Home = () => {
     setPage(val);
   };
 
+  const handleChangeRating = (val: any) => {
+    setRating(val);
+  };
+
   const handleCloseModal = () => setShowModal(false);
   const handleShowModal = () => setShowModal(true);
 
@@ -242,7 +246,7 @@ const Home = () => {
           </ButtonGroup>
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
-          <Rating value={rating} onChangeValue={setRating} variant="disabled" />
+          <Rating value={rating} onChange={handleChangeRating} />
         </div>
         <div
           style={{
@@ -252,16 +256,12 @@ const Home = () => {
             justifyContent: "right",
           }}
         >
-          <Tooltip title="Tooltip" placement="top">
+          <Tooltip title="Tooltip" placement="top" arrow={false}>
             <Button onClick={onClickButton}>Button</Button>
           </Tooltip>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <Accordion
-            allowMultiple={false}
-            value={panel}
-            onChange={handleChangeAccordion}
-          >
+          <Accordion value={panel} onChange={handleChangeAccordion}>
             <AccordionItem index={1}>
               <AccordionTitle>Accordion Header 1</AccordionTitle>
               <AccordionDescription>
@@ -296,7 +296,7 @@ const Home = () => {
           </Badge>
         </div>
         <div style={{ width: "70%", margin: "20px 0 20px 30px" }}>
-          <Stepper activeStep={currentStep} orientation="vertical">
+          <Stepper activeStep={currentStep}>
             {steps.map((label, iter) => (
               <Step key={iter} label={label} />
             ))}

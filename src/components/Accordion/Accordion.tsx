@@ -3,7 +3,13 @@ import { AccordionProps } from "./types";
 import { Wrapper } from "./Accordion.styles";
 
 export const Accordion = memo(
-  ({ children, value, allowMultiple, onChange, ...props }: AccordionProps) => {
+  ({
+    children,
+    value,
+    allowMultiple = false,
+    onChange,
+    ...props
+  }: AccordionProps) => {
     return (
       <Wrapper {...props}>
         {React.Children.map(children, (child) => {

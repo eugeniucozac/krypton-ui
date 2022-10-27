@@ -3,6 +3,9 @@ import { PaginationProps, PageProps } from "./types";
 import { Wrapper, Item } from "./Pagination.styles";
 import Icon from "../Icon";
 
+const LEFT_DOTS = "LEFT_DOTS";
+const RIGHT_DOTS = "RIGHT_DOTS";
+
 export const Pagination = memo(
   ({
     total,
@@ -19,9 +22,6 @@ export const Pagination = memo(
     nextIcon = "navigateNext",
     ...props
   }: PaginationProps) => {
-    const LEFT_DOTS = "LEFT_DOTS";
-    const RIGHT_DOTS = "RIGHT_DOTS";
-
     const range = (from: PageProps, to: PageProps, step = 1) => {
       let i = from;
       const range = [];
@@ -120,7 +120,7 @@ export const Pagination = memo(
               <Icon name={previousIcon} />
             </Item>
           )}
-          {pages.map((page: any) => {
+          {pages.map((page: PageProps) => {
             const active = current === page;
             if (page === LEFT_DOTS)
               return (

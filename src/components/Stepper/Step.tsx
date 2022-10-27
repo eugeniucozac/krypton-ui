@@ -14,16 +14,15 @@ import { StepProps } from "./types";
 
 export const Step = memo(
   ({
-    orientation,
-    activeStep,
-    index,
-    child: {
-      props: { label },
-    },
-  }: any) => {
+    orientation = "horizontal",
+    activeStep = 1,
+    index = 0,
+    label,
+  }: StepProps) => {
     const step = index + 1;
-    var icon = "check";
-    var status = "Completed";
+    let icon: IconName = "check";
+    let status = "Completed";
+
     if (activeStep === step) {
       icon = "file";
       status = "Progress";
@@ -36,7 +35,7 @@ export const Step = memo(
       <>
         <StepItem orientation={orientation}>
           <StepIcon orientation={orientation} status={status}>
-            <Icon name={icon as IconName} />
+            <Icon name={icon} />
           </StepIcon>
           <StepWrapper orientation={orientation}>
             <StepLabel status={status}>Step {step}</StepLabel>

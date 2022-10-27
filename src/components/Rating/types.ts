@@ -8,10 +8,6 @@ type RatingType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   variant?: Variant;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -27,7 +23,7 @@ type RatingType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default md
    */
-  onChangeValue?: any; // (event: any) => void;
+  onChange: (value: string) => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

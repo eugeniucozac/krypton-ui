@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, memo, useState, Fragment } from "react";
+import React, { useEffect, useRef, memo, useState } from "react";
 import { ModalProps } from "./types";
 import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
@@ -16,9 +16,15 @@ export const Modal = memo(
 
     useEffect(() => {
       const { current } = backdrop;
+
       const transitionEnd = () => setActive(isOpen);
-      const onEscapeKeyUp = (event: KeyboardEvent) =>
-        [27].indexOf(event.which) >= 0 && onClose();
+
+      const onEscapeKeyUp = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          onClose();
+        }
+      };
+
       const clickHandler = (event: Event) =>
         event.target === current && onClose();
 
@@ -47,7 +53,7 @@ export const Modal = memo(
     }, [isOpen, onClose]);
 
     return (
-      <Fragment>
+      <>
         {(isOpen || active) && (
           <ReactPortal>
             <Background
@@ -64,7 +70,7 @@ export const Modal = memo(
             </Background>
           </ReactPortal>
         )}
-      </Fragment>
+      </>
     );
   }
 );

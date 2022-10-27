@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { AvatarProps } from "./types";
-import { initials } from "../../utils/string";
+import { getInitials } from "../../utils/string";
 import { Wrapper } from "./Avatar.styles";
 
 const defaultProps: Partial<AvatarProps> = {
@@ -9,15 +9,15 @@ const defaultProps: Partial<AvatarProps> = {
 };
 
 const Avatar = memo(({ name, imgSrc, ...props }: AvatarProps) => {
-  const componentProps: Omit<AvatarProps, "name"> = {
+  const componentProps = {
     ...defaultProps,
     ...props,
   };
 
-  const init = initials(name);
+  const initials = getInitials(name);
   return (
     <Wrapper {...componentProps}>
-      {imgSrc ? <img src={imgSrc} alt={init} /> : init}
+      {imgSrc ? <img src={imgSrc} alt={initials} /> : initials}
     </Wrapper>
   );
 });

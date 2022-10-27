@@ -5,10 +5,6 @@ type CarouselType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   controls?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -40,10 +36,6 @@ type CarouselItemType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   active?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -52,10 +44,6 @@ type CarouselItemType = {
 
 type CarouselCaptionType = {
   children: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

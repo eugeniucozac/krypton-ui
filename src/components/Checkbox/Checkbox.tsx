@@ -3,17 +3,15 @@ import { CheckBoxProps } from "./types";
 import { Wrapper, Check, Input } from "./Checkbox.styles";
 
 const Checkbox = memo(
-  (
-    {
-      checked,
-      onChange,
-      value = "checkbox",
-      name = "checkbox",
-      color = "primary",
-      disabled = false,
-    }: CheckBoxProps,
-    props
-  ) => {
+  ({
+    checked,
+    onChange,
+    value = "checkbox",
+    name = "checkbox",
+    color = "primary",
+    disabled = false,
+    ...props
+  }: CheckBoxProps) => {
     return (
       <Wrapper>
         <Input

@@ -6,11 +6,11 @@ import { Wrapper, Star, Input } from "./Rating.styles";
 
 const Rating = memo(
   ({
+    value,
+    onChange,
     variant = "controlled",
     size = "md",
     color = "success",
-    value,
-    onChangeValue,
     ...props
   }: RatingProps) => {
     const stars = Array(5).fill(0);
@@ -25,7 +25,7 @@ const Rating = memo(
             <Star key={iter} color={color} variant={variant}>
               <Input
                 type="radio"
-                onChange={(event) => onChangeValue(event.target.value)}
+                onChange={(event) => onChange(event.target.value)}
                 value={iterator}
                 name={`stars-${uuidv4}`}
                 variant={variant}

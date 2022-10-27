@@ -19,8 +19,8 @@ export const TransferList = memo(
     ...props
   }: TransferListProps) => {
     const [left, right] = children;
-    const leftCheckedItems = leftItems?.filter((item: ItemProps) => item.value);
-    const rightCheckedItems = rightItems?.filter(
+    const leftCheckedItems = leftItems.filter((item: ItemProps) => item.value);
+    const rightCheckedItems = rightItems.filter(
       (item: ItemProps) => item.value
     );
 
@@ -28,7 +28,7 @@ export const TransferList = memo(
       const moveLeftItems = leftCheckedItems.map((item: ItemProps) =>
         item.value ? { ...item, value: false } : item
       );
-      const updatedLeftItems = leftItems?.filter(
+      const updatedLeftItems = leftItems.filter(
         (item: ItemProps) => !item.value
       );
       setRightItems([...rightItems, ...moveLeftItems]);
@@ -39,7 +39,7 @@ export const TransferList = memo(
       const moveRightItems = rightCheckedItems.map((item: ItemProps) =>
         item.value ? { ...item, value: false } : item
       );
-      const updatedRightItems = rightItems?.filter(
+      const updatedRightItems = rightItems.filter(
         (item: ItemProps) => !item.value
       );
       setLeftItems([...leftItems, ...moveRightItems]);

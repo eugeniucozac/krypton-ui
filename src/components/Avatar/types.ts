@@ -11,10 +11,6 @@ type AvatarType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default primary
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   imgSrc?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

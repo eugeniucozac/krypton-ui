@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { AccordionPanelProps } from "./types";
 import { Item } from "./Accordion.styles";
 import { AccordionAction } from "./AccordionAction";

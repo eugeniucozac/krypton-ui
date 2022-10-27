@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentProps, ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
 type CheckBoxType = {
@@ -36,4 +36,4 @@ export type CheckBoxStyledProps = {
   disabled: boolean;
 };
 
-export type CheckBoxProps = ComponentProps<"div"> & CheckBoxType;
+export type CheckBoxProps = ComponentPropsWithRef<"input"> & CheckBoxType;

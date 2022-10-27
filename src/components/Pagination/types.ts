@@ -2,8 +2,6 @@ import { ComponentPropsWithRef } from "react";
 import { Color, Size } from "../../types";
 import { IconName } from "../Icon/types";
 
-type PageDotsType = "LEFT_DOTS" | "RIGHT_DOTS";
-
 type PaginationType = {
   total: number;
   /**
@@ -14,10 +12,6 @@ type PaginationType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
   onChange: (value: number) => void;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -63,7 +57,7 @@ type PaginationType = {
    */
 };
 
-export type PageProps = number | PageDotsType;
+export type PageProps = number | string;
 
 export type ItemStyledProps = {
   active?: boolean;

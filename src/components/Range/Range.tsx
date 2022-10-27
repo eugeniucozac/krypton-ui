@@ -24,7 +24,7 @@ const Range = memo(
     const handleRef = useRef<HTMLDivElement>(null);
     const rangeInputRef = useRef<HTMLDivElement>(null);
     const currentRef = useRef<HTMLDivElement>(null);
-    const diffRef = useRef<any>(null);
+    const diffRef = useRef<number>(0);
     var end = 0;
     var newX = 0;
 

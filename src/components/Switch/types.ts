@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
 type SwitchType = {
@@ -11,10 +11,6 @@ type SwitchType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
   name?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -39,4 +35,5 @@ export type SwitcherStyledProps = {
   color: Color;
 };
 
-export type SwitchProps = ComponentProps<"div"> & SwitchType;
+export type SwitchProps = Omit<ComponentPropsWithRef<"input">, "value"> &
+  SwitchType;

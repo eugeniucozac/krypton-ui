@@ -12,10 +12,6 @@ type StepperType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -29,20 +25,16 @@ type StepperType = {
 };
 
 type StepType = {
-  activeStep: number;
+  activeStep?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  orientation: Orientation;
+  orientation?: Orientation;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default horizontal
    */
-  index: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  child?: any;
+  index?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

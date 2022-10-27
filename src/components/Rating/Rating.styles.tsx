@@ -7,12 +7,15 @@ export const Wrapper = styled.div<WrapperStyledProps>`
   position: relative;
   &:not(:hover) label input:checked ~ span {
     color: ${(props) => colorMetric[props.color]};
-  },
+  }
   ${(props) => ({
     ...(props.variant === "controlled" && {
       "&:hover label:hover input ~ span": {
         color: colorMetric[props.color],
       },
+    }),
+    ...(props.variant === "disabled" && {
+      pointerEvents: "none",
     }),
   })}
 `;

@@ -43,7 +43,7 @@ export const Background = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const CloseButton = styled.button`
   color: inherit;
   cursor: pointer;
   border: none;

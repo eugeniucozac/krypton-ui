@@ -12,7 +12,6 @@ export const Tab = memo(
     color,
     orientation,
     alignment,
-
     ...props
   }: TabProps) => {
     return (

@@ -3,18 +3,16 @@ import { RadioProps } from "./types";
 import { Wrapper, Choose, Input, Label } from "./Radio.styles";
 
 const Radio = memo(
-  (
-    {
-      className,
-      checked,
-      value,
-      onChange,
-      label = "",
-      color = "primary",
-      disabled = false,
-    }: RadioProps,
-    props
-  ) => {
+  ({
+    className,
+    checked,
+    value,
+    onChange,
+    label = "",
+    color = "primary",
+    disabled = false,
+    ...props
+  }: RadioProps) => {
     return (
       <Wrapper className={className}>
         <Input

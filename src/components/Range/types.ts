@@ -2,7 +2,7 @@ import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
 type RangeType = {
-  onChange: any;
+  onChange: (value: number) => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

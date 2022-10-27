@@ -2,10 +2,6 @@ import { ComponentPropsWithRef } from "react";
 import { Color, Size } from "../../types";
 
 type SpinnerType = {
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

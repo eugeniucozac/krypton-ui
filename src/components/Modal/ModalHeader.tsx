@@ -1,7 +1,7 @@
 import { memo } from "react";
 import Icon from "../Icon";
 import { ModalHeaderProps } from "./types";
-import { Header, Button } from "./Modal.styles";
+import { Header, CloseButton } from "./Modal.styles";
 
 export const ModalHeader = memo(
   ({ children, closeButton, onClose }: ModalHeaderProps) => {
@@ -9,9 +9,9 @@ export const ModalHeader = memo(
       <Header>
         {children}
         {closeButton && (
-          <Button onClick={onClose}>
+          <CloseButton onClick={onClose}>
             <Icon name="close" color="rgb(0, 0, 0)" />
-          </Button>
+          </CloseButton>
         )}
       </Header>
     );

@@ -10,10 +10,6 @@ type TabCommonType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   activeTab?: number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -49,10 +45,6 @@ type TabType = VariantTabsType &
      * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
      */
     value?: number;
-    /**
-     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-     */
-    className?: string;
     /**
      * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
      */

@@ -11,10 +11,6 @@ type AlertType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.

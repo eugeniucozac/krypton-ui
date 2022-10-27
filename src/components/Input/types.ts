@@ -1,107 +1,91 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentProps } from "react";
+import { Color } from "../../types";
 
-export type Padding = "default" | "none";
+type InputType =
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "month"
+  | "number"
+  | "password"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week"
+  | "color";
 
-export type Align = "center" | "inherit" | "justify" | "left" | "right";
-
-export type Size = "small" | "medium";
-
-type TableCommonType = {
-  children: React.ReactNode;
+type FormInputType = {
+  value: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  size?: Size;
+  onChange: () => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  stripped?: boolean;
+  name: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  type?: InputType;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  helperText?: string;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  placeholder?: string;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  className?: string;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  beginIcon?: React.ReactNode;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  endIcon?: React.ReactNode;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  color?: Color;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default default
+   */
+  disabled?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default false
+   */
+  error?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default false
+   */
+  fullWidth?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default false
+   */
+  required?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default false
+   */
+  readOnly?: boolean;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   * @default false
    */
 };
 
-type TableType = TableCommonType & {
-  width?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-};
+export type DisabledStyledProps = {};
 
-type TableRowType = TableCommonType & {
-  hover?: boolean;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  stripped?: boolean;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-};
+export type SwitcherStyledProps = {};
 
-type TableColType = TableCommonType & {
-  padding?: Padding;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  align?: Align;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  tag?: "td" | "th";
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-};
-
-type TablePaginationType = {
-  page: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  count: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  rowsPerPage: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  rowsPerPageOptions: number[];
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  onPageChange: any;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  onRowsPerPageChange: any;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-};
-
-export type SizeAlignStyledProps = {
-  align: Align;
-  size: Size;
-};
-
-export type WidthStrippedStyledProps = {
-  width: string;
-  stripped: boolean;
-};
-
-export type TableHeadProps = ComponentPropsWithRef<"thead"> & TableCommonType;
-
-export type TableBodyProps = ComponentPropsWithRef<"tbody"> & TableCommonType;
-
-export type TableFooterProps = ComponentPropsWithRef<"tfoot"> & TableCommonType;
-
-export type TableProps = ComponentPropsWithRef<"table"> & TableType;
-
-export type TableRowProps = ComponentPropsWithRef<"tr"> & TableRowType;
-
-export type TableColProps = ComponentPropsWithRef<"td"> & TableColType;
-
-export type TablePaginationProps = ComponentPropsWithRef<"div"> &
-  TablePaginationType;
+export type InputProps = ComponentProps<"div"> & FormInputType;

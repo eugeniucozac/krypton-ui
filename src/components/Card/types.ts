@@ -5,10 +5,6 @@ type CardBaseType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 type CardImageType = {
@@ -16,10 +12,7 @@ type CardImageType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
+
   alt?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
@@ -40,10 +33,6 @@ type CardHeaderType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
   avatar: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */

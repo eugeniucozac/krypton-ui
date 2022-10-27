@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
 type RadioType = {
@@ -7,10 +7,6 @@ type RadioType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  className?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -40,4 +36,4 @@ export type RadioStyledProps = {
   disabled: boolean;
 };
 
-export type RadioProps = ComponentProps<"div"> & RadioType;
+export type RadioProps = ComponentPropsWithRef<"input"> & RadioType;

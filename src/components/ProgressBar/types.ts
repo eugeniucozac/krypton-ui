@@ -16,10 +16,6 @@ type ProgressBarType = {
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default false
    */
-  className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 export type ColorStyledProps = {
