@@ -1,6 +1,5 @@
 import { memo } from "react";
 import Icon from "../Icon";
-import { IconName } from "../Icon/types";
 import {
   StepLine,
   StepItem,
@@ -14,20 +13,21 @@ import { StepProps } from "./types";
 
 export const Step = memo(
   ({
+    step,
     orientation = "horizontal",
     activeStep = 1,
     index = 0,
-    label,
+    showStatus = true,
   }: StepProps) => {
-    const step = index + 1;
-    let icon: IconName = "check";
+    const currentStep = index + 1;
+    let defaultIcon = step?.icon ? step?.icon : <Icon name="check" />;
     let status = "Completed";
 
-    if (activeStep === step) {
-      icon = "file";
+    if (activeStep === currentStep) {
+      defaultIcon = step?.icon ? step?.icon : <Icon name="file" />;
       status = "Progress";
-    } else if (step > activeStep) {
-      icon = "https";
+    } else if (currentStep > activeStep) {
+      defaultIcon = step?.icon ? step?.icon : <Icon name="https" />;
       status = "Pending";
     }
 
@@ -35,13 +35,13 @@ export const Step = memo(
       <>
         <StepItem orientation={orientation}>
           <StepIcon orientation={orientation} status={status}>
-            <Icon name={icon} />
+            {defaultIcon}
           </StepIcon>
           <StepWrapper orientation={orientation}>
-            <StepLabel status={status}>Step {step}</StepLabel>
-            <StepTitle status={status}>{label}</StepTitle>
+            <StepLabel status={status}>Step {currentStep}</StepLabel>
+            <StepTitle status={status}>{step?.label}</StepTitle>
           </StepWrapper>
-          {orientation === "horizontal" && (
+          {orientation === "horizontal" && showStatus && (
             <StepStatus status={status}>{status}</StepStatus>
           )}
         </StepItem>

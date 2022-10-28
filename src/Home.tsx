@@ -82,10 +82,10 @@ const Home = () => {
   ]);
 
   const steps = [
-    "Select campaign settings",
-    "Create an ad group",
-    "Create an ad",
-    "Completed",
+    { label: "Select campaign settings" },
+    { label: "Create an ad group", icon: <Icon name="https" /> },
+    { label: "Create an ad" },
+    { label: "Completed" },
   ];
 
   /*
@@ -297,8 +297,8 @@ const Home = () => {
         </div>
         <div style={{ width: "70%", margin: "20px 0 20px 30px" }}>
           <Stepper activeStep={currentStep}>
-            {steps.map((label, iter) => (
-              <Step key={iter} label={label} />
+            {steps.map((step, iter) => (
+              <Step key={iter} step={step} />
             ))}
           </Stepper>
         </div>

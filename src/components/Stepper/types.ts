@@ -3,6 +3,17 @@ import { Color } from "../../types";
 
 type Orientation = "horizontal" | "vertical";
 
+type ObjectStepType = {
+  label: string;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  icon?: React.ReactNode;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+};
+
 type StepperType = {
   children: React.ReactNode;
   /**
@@ -38,7 +49,11 @@ type StepType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  label?: string;
+  step?: ObjectStepType;
+  /**
+   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
+   */
+  showStatus?: boolean;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
