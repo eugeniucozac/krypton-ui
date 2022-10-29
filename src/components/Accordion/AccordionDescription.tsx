@@ -1,16 +1,27 @@
-import { memo, useRef, useEffect } from "react";
+import { memo, useRef, useEffect, useState } from "react";
 import { Description, Body } from "./Accordion.styles";
-import { AccordionPanelProps } from "./types";
+import { AccordionDescriptionProps } from "./types";
 
 export const AccordionDescription = memo(
-  ({ children, value, index, show, allowMultiple, ...props }: any) => {
+  ({
+    children,
+    value,
+    index,
+    allowMultiple,
+    ...props
+  }: AccordionDescriptionProps) => {
+    const [maxHeight, setMaxHeight] = useState<number | undefined>(undefined);
     const bodyRef = useRef<HTMLDivElement | null>(null);
 
-    var maxHeight = value === index ? bodyRef.current?.scrollHeight : 0;
-
-    if (allowMultiple) {
-      maxHeight = show ? bodyRef.current?.scrollHeight : 0;
-    }
+    useEffect(() => {
+      if (allowMultiple && value?.includes(index || 1)) {
+        let scrollHeight = bodyRef.current?.scrollHeight;
+        setMaxHeight(scrollHeight);
+      } else {
+        let scrollHeight = value === index ? bodyRef.current?.scrollHeight : 0;
+        setMaxHeight(scrollHeight);
+      }
+    }, [value]);
 
     return (
       <Description {...props} maxHeight={maxHeight}>

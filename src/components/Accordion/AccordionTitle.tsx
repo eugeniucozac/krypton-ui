@@ -6,22 +6,32 @@ import { Header, Title } from "./Accordion.styles";
 export const AccordionTitle = memo(
   ({
     children,
+    allowMultiple,
+    onChange = () => {},
+    value = [],
     closeIcon = "plus",
     openIcon = "minus",
     color = "rgb(0, 0, 0)",
-    onChange,
-    value,
-    index,
-    allowMultiple,
-    show,
-    setShow,
-    handleChange,
+    index = 0,
     ...props
-  }: any) => {
-    var toggleIcon = value === index ? openIcon : closeIcon;
-    if (allowMultiple) {
-      toggleIcon = show ? openIcon : closeIcon;
+  }: AccordionTitleProps) => {
+    let toggleIcon = closeIcon;
+
+    if (value === index || (allowMultiple && value?.includes(index))) {
+      toggleIcon = openIcon;
     }
+
+    const handleChange = () => {
+      if (allowMultiple) {
+        let updateValues = [...value, index];
+        if (toggleIcon === openIcon) {
+          updateValues = updateValues.filter((item) => item !== index);
+        }
+        onChange(updateValues);
+      } else {
+        onChange(index);
+      }
+    };
 
     return (
       <Title {...props} type="button" onClick={handleChange}>

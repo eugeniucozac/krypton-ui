@@ -53,7 +53,7 @@ const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
   const [advancedAlertOpen, isAdvancedAlertOpen] = useState(true);
   const [rating, setRating] = useState(2);
-  const [panel, setPanel] = useState<number | undefined>(undefined);
+  const [panel, setPanel] = useState([1, 3]); //undefined  [1, 3]
   const [bottomNav, setBottomNav] = useState(1);
   const [tabs, setTabs] = useState(1);
   const [page, setPage] = useState(1);
@@ -261,7 +261,11 @@ const Home = () => {
           </Tooltip>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <Accordion value={panel} onChange={handleChangeAccordion}>
+          <Accordion
+            value={panel}
+            allowMultiple={true}
+            onChange={handleChangeAccordion}
+          >
             <AccordionItem index={1}>
               <AccordionTitle>Accordion Header 1</AccordionTitle>
               <AccordionDescription>
