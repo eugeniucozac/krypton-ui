@@ -48,6 +48,7 @@ import { Stepper, Step } from "./components/Stepper";
 import Switch from "./components/Switch";
 import Checkbox from "./components/Checkbox";
 import Radio from "./components/Radio";
+import Input from "./components/Input";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -66,6 +67,7 @@ const Home = () => {
   const [isSwitched, setSwitched] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [radio, setRadio] = useState("second");
+  const [inputValue, setInputValue] = useState("");
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -159,11 +161,11 @@ const Home = () => {
 
   const rowsPerPageOptions = [5, 10, 20];
 
-  const handleTablePageChnage = (val: any) => {
+  const handleTablePageChange = (val: any) => {
     setTablePage(val);
   };
 
-  const handleRowsTablePerPageChnage = (val: any) => {
+  const handleRowsTablePerPageChange = (val: any) => {
     setRowsTablePerPage(val);
   };
 
@@ -173,6 +175,10 @@ const Home = () => {
 
   const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
     setRadio(event.target.name);
+  };
+
+  const handleInputChange = (event: any) => {
+    setInputValue(event.target.value);
   };
 
   return (
@@ -247,6 +253,15 @@ const Home = () => {
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Rating value={rating} onChange={handleChangeRating} />
+        </div>
+        <div style={{ width: "30%", marginTop: "20px" }}>
+          <Input
+            value={inputValue}
+            placeholder="Text"
+            onChange={handleInputChange}
+            fullWidth
+            required
+          />
         </div>
         <div
           style={{
@@ -589,8 +604,8 @@ const Home = () => {
                 count={forTable.length}
                 rowsPerPage={rowsTablePerPage}
                 rowsPerPageOptions={rowsPerPageOptions}
-                onPageChange={handleTablePageChnage}
-                onRowsPerPageChange={handleRowsTablePerPageChnage}
+                onPageChange={handleTablePageChange}
+                onRowsPerPageChange={handleRowsTablePerPageChange}
               />
             </TableFooter>
           </Table>

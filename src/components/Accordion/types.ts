@@ -56,17 +56,6 @@ type AccordionTitleType = BaseType &
      */
   };
 
-type AccordionPanelType = BaseType & {
-  value: number[];
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-  index: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
-};
-
 type AccordionItemType = BaseType &
   IndexValueType & {
     onChange?: (value: number[] | number) => void;
@@ -74,6 +63,8 @@ type AccordionItemType = BaseType &
      * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
      */
   };
+
+type AccordionPanelType = BaseType & IndexValueType;
 
 type AccordionDescriptionType = BaseType & IndexValueType;
 

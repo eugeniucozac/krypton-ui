@@ -1,30 +1,25 @@
-import { ComponentProps } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
 type InputType =
-  | "date"
-  | "datetime-local"
   | "email"
-  | "month"
   | "number"
   | "password"
   | "tel"
   | "text"
-  | "time"
   | "url"
-  | "week"
   | "color";
 
 type FormInputType = {
-  value: boolean;
+  value: string | number;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  onChange: () => void;
+  onChange: (value: any) => void;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  name: string;
+  name?: string;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
@@ -84,8 +79,20 @@ type FormInputType = {
    */
 };
 
-export type DisabledStyledProps = {};
+export type InnerStyledProps = {
+  fullWidth: boolean;
+  type: InputType;
+  beginIcon: React.ReactNode;
+  endIcon: React.ReactNode;
+};
 
-export type SwitcherStyledProps = {};
+export type InputFieldStyledProps = {
+  color: Color;
+  fullWidth: boolean;
+  readOnly: boolean;
+  type: InputType;
+  beginIcon: React.ReactNode;
+  endIcon: React.ReactNode;
+};
 
-export type InputProps = ComponentProps<"div"> & FormInputType;
+export type InputProps = ComponentPropsWithRef<"input"> & FormInputType;

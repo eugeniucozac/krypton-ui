@@ -1,46 +1,53 @@
 import { memo } from "react";
 import { InputProps } from "./types";
-import { Inner, Input } from "./Input.styles";
+import { Inner, InputField, HelperText } from "./Input.styles";
 
-const Switch = memo(
-  (
-    {
-      value,
-      onChange,
-      name,
-      className,
-      beginIcon,
-      endIcon,
-      helperText,
-      type = "text",
-      placeholder = "text",
-      color = "success",
-      disabled = false,
-      error = false,
-      fullWidth = false,
-      required = false,
-      readOnly = false,
-    }: InputProps,
-    props
-  ) => {
+const Input = memo(
+  ({
+    value,
+    onChange,
+    className,
+    beginIcon,
+    endIcon,
+    helperText,
+    type = "text",
+    placeholder = "",
+    color = "secondary",
+    disabled = false,
+    error = false,
+    fullWidth = false,
+    required = false,
+    readOnly = false,
+    ...props
+  }: InputProps) => {
     return (
-      <Inner className={className} color={color} fullWidth={fullWidth}>
+      <Inner
+        className={className}
+        type={type}
+        fullWidth={fullWidth}
+        beginIcon={beginIcon}
+        endIcon={endIcon}
+      >
         {beginIcon}
-        <Input
+        <InputField
           {...props}
           value={value}
           onChange={onChange}
-          name={name}
           type={type}
+          color={color}
+          required={required}
           placeholder={placeholder}
           disabled={disabled}
+          fullWidth={fullWidth}
           beginIcon={beginIcon}
           endIcon={endIcon}
+          readOnly={readOnly}
         />
         {endIcon}
+        {helperText && <HelperText>{helperText}</HelperText>}
       </Inner>
     );
   }
 );
 
-export default Switch;
+export default Input;
