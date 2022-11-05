@@ -49,6 +49,7 @@ import Switch from "./components/Switch";
 import Checkbox from "./components/Checkbox";
 import Radio from "./components/Radio";
 import Input from "./components/Input";
+import { Select, Option } from "./components/Select";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -68,6 +69,7 @@ const Home = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [radio, setRadio] = useState("second");
   const [inputValue, setInputValue] = useState("");
+  const [nameSelect, setNameSelect] = useState("");
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -159,6 +161,19 @@ const Home = () => {
     },
   ];
 
+  const selectNames = [
+    "Oliver Hansen",
+    "Van Henry",
+    "April Tucker",
+    "Ralph Hubbard",
+    "Omar Alexander",
+    "Carlos Abbott",
+    "Miriam Wagner",
+    "Bradley Wilkerson",
+    "Virginia Andrews",
+    "Kelly Snyder",
+  ];
+
   const rowsPerPageOptions = [5, 10, 20];
 
   const handleTablePageChange = (val: any) => {
@@ -179,6 +194,10 @@ const Home = () => {
 
   const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
+  };
+
+  const handleChangeSelect = (event: any) => {
+    setNameSelect(event.target.value);
   };
 
   return (
@@ -255,6 +274,15 @@ const Home = () => {
           <Rating value={rating} onChange={handleChangeRating} />
         </div>
         <div style={{ width: "30%", marginTop: "20px" }}>
+          <Select value={nameSelect} onChange={handleChangeSelect} fullWidth>
+            {selectNames.map((name) => (
+              <Option key={name} value={name}>
+                {name}
+              </Option>
+            ))}
+          </Select>
+        </div>
+        <div style={{ width: "30%", marginTop: "20px" }}>
           <Input
             value={inputValue}
             placeholder="Text"
@@ -271,7 +299,7 @@ const Home = () => {
             justifyContent: "right",
           }}
         >
-          <Tooltip title="Tooltip" placement="top" arrow={false}>
+          <Tooltip title="Tooltip" placement="top" arrow={true}>
             <Button onClick={onClickButton}>Button</Button>
           </Tooltip>
         </div>
