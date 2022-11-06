@@ -47,7 +47,7 @@ type FormInputType = {
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    */
-  color?: Color;
+  color?: any;
   /**
    * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
    * @default default
@@ -87,12 +87,12 @@ export type InnerStyledProps = {
 };
 
 export type InputFieldStyledProps = {
-  color: Color;
   fullWidth: boolean;
-  readOnly: boolean;
   type: InputType;
   beginIcon: React.ReactNode;
   endIcon: React.ReactNode;
+  color?: Color;
+  readOnly?: boolean;
 };
 
 export type InputProps = ComponentPropsWithRef<"input"> & FormInputType;

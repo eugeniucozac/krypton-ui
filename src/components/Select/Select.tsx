@@ -2,6 +2,11 @@ import { memo } from "react";
 import { SelectProps } from "./types";
 import { Inner, SelectField, HelperText } from "./Select.styles";
 
+const defaultProps: Partial<SelectProps> = {
+  required: false,
+  disabled: false,
+};
+
 export const Select = memo(
   ({
     children,
@@ -10,21 +15,22 @@ export const Select = memo(
     className,
     helperText = "",
     color = "secondary",
-    disabled = false,
     error = false,
     fullWidth = false,
-    required = false,
     ...props
   }: SelectProps) => {
+    const componentProps = {
+      ...defaultProps,
+      ...props,
+    };
+
     return (
       <Inner className={className} fullWidth={fullWidth} color={color}>
         <SelectField
-          {...props}
+          {...componentProps}
           value={value}
           onChange={onChange}
           color={color}
-          required={required}
-          disabled={disabled}
           fullWidth={fullWidth}
         >
           {children}

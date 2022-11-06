@@ -36,7 +36,9 @@ export const InputField = styled.input<InputFieldStyledProps>`
     border-color: rgb(196, 196, 196);
   }
   color: ${(props) =>
-    props.color === "secondary" ? "#212529" : colorMetric[props.color]};
+    props.color === "secondary"
+      ? "#212529"
+      : colorMetric[props.color || "secondary"]};
   padding: ${(props) => (props.type === "color" ? "6px" : "12px 18px")};
   border: ${(props) => ` 1px solid ${colorMetric[props.color || "secondary"]}`};
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};

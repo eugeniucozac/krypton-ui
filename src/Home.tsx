@@ -50,6 +50,7 @@ import Checkbox from "./components/Checkbox";
 import Radio from "./components/Radio";
 import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
+import { Navbar, NavItem, NavSubItems } from "./components/Navbar";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -281,6 +282,24 @@ const Home = () => {
               </Option>
             ))}
           </Select>
+        </div>
+        <div style={{ width: "70%", marginTop: "20px" }}>
+          <Navbar align="center" color="danger">
+            <NavItem to="/">Home</NavItem>
+            <NavItem to="/">Link</NavItem>
+            <NavItem to="/">Dropdown</NavItem>
+            <NavItem to="/link" active>
+              Link
+            </NavItem>
+            <NavItem to="/" disabled>
+              Link
+            </NavItem>
+            <NavSubItems title="Dropdown">
+              <NavItem to="/link">Link1</NavItem>
+              <NavItem to="/link">Link2</NavItem>
+              <NavItem to="/link">Link3</NavItem>
+            </NavSubItems>
+          </Navbar>
         </div>
         <div style={{ width: "30%", marginTop: "20px" }}>
           <Input

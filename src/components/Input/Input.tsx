@@ -2,6 +2,15 @@ import { memo } from "react";
 import { InputProps } from "./types";
 import { Inner, InputField, HelperText } from "./Input.styles";
 
+const defaultProps: Partial<InputProps> = {
+  placeholder: "",
+  disabled: false,
+  required: false,
+  error: false,
+  readOnly: false,
+  color: "secondary",
+};
+
 const Input = memo(
   ({
     value,
@@ -11,15 +20,14 @@ const Input = memo(
     endIcon,
     helperText,
     type = "text",
-    placeholder = "",
-    color = "secondary",
-    disabled = false,
-    error = false,
     fullWidth = false,
-    required = false,
-    readOnly = false,
     ...props
   }: InputProps) => {
+    const componentProps = {
+      ...defaultProps,
+      ...props,
+    };
+
     return (
       <Inner
         className={className}
@@ -30,18 +38,13 @@ const Input = memo(
       >
         {beginIcon}
         <InputField
-          {...props}
+          {...componentProps}
           value={value}
           onChange={onChange}
           type={type}
-          color={color}
-          required={required}
-          placeholder={placeholder}
-          disabled={disabled}
           fullWidth={fullWidth}
           beginIcon={beginIcon}
           endIcon={endIcon}
-          readOnly={readOnly}
         />
         {endIcon}
         {helperText && <HelperText>{helperText}</HelperText>}
