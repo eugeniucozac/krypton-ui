@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Alert from "./components/Alert";
 import Chip from "./components/Chip";
 import Avatar from "./components/Avatar";
@@ -51,6 +51,7 @@ import Radio from "./components/Radio";
 import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
 import { Navbar, NavItem, NavSubItems } from "./components/Navbar";
+import Autocomplete from "./components/Autocomplete";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -71,6 +72,7 @@ const Home = () => {
   const [radio, setRadio] = useState("second");
   const [inputValue, setInputValue] = useState("");
   const [nameSelect, setNameSelect] = useState("");
+  const [valueAutocomplete, setValueAutocomplete] = useState("");
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -175,6 +177,16 @@ const Home = () => {
     "Kelly Snyder",
   ];
 
+  const autocompleteNames = [
+    "The Shawshank Redemption",
+    "The Godfather",
+    "The Godfather: Part II",
+    "The Dark Knight",
+    "12 Angry Men",
+    "Schindler's List",
+    "Pulp Fiction",
+  ];
+
   const rowsPerPageOptions = [5, 10, 20];
 
   const handleTablePageChange = (val: any) => {
@@ -199,6 +211,10 @@ const Home = () => {
 
   const handleChangeSelect = (event: any) => {
     setNameSelect(event.target.value);
+  };
+
+  const handleAutocompleteChange = (value: string) => {
+    setValueAutocomplete(value);
   };
 
   return (
@@ -240,6 +256,7 @@ const Home = () => {
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Spinner />
         </div>
+
         <div style={{ width: "50%", marginTop: "20px" }}>
           {advancedAlertOpen && (
             <AdvancedAlert
@@ -259,6 +276,15 @@ const Home = () => {
           >
             Button
           </Button>
+        </div>
+        <div style={{ width: "30%", marginTop: "20px" }}>
+          <Autocomplete
+            value={valueAutocomplete}
+            onChange={handleAutocompleteChange as any}
+            suggestions={autocompleteNames}
+            placeholder="Search the best movie"
+            fullWidth
+          />
         </div>
         <div style={{ width: "50%", marginTop: "20px" }}>
           <ButtonGroup>

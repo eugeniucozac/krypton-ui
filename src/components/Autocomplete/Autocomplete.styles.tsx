@@ -12,16 +12,9 @@ export const Wrapper = styled.div<InnerStyledProps>`
     transform: translateY(-50%);
   }
   display: ${(props) => (props.fullWidth ? "flex" : "inline-flex")};
-  ${(props) => ({
-    width: props.type === "color" ? "40px" : "auto",
-    span: {
-      left: props.beginIcon ? "15px" : "auto",
-      right: props.endIcon ? "15px" : "auto",
-    },
-  })}}
 `;
 
-export const InputField = styled.input<InputFieldStyledProps>`
+export const AutocompleteField = styled.input<InputFieldStyledProps>`
   outline: none;
   display: flex;
   appearance: none;
@@ -43,18 +36,38 @@ export const InputField = styled.input<InputFieldStyledProps>`
   border: ${(props) => ` 1px solid ${colorMetric[props.color || "secondary"]}`};
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};
   user-select: ${(props) => (props.readOnly ? "none" : "all")};
-  ${(props) =>
-    props.endIcon && {
-      paddingRight: "42px",
-    }}
-  ${(props) =>
-    props.beginIcon && {
-      paddingLeft: "42px",
-    }}
 `;
 
 export const HelperText = styled.div`
   font-size: 14px;
   margin-top: 3px;
   color: #727272;
+`;
+
+export const Suggestions = styled.nav`
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 5px;
+  left: 0;
+  top: 100%;
+  padding: 0;
+  z-index: 100;
+  min-width: 154px;
+  position: absolute;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
+  li {
+    color: #000;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    &:hover {
+      color: rgb(34, 34, 34);
+      text-decoration: none;
+      background-color: rgba(34, 34, 34, 0.1);
+    }
+  }
 `;

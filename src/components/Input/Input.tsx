@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { InputProps } from "./types";
-import { Inner, InputField, HelperText } from "./Input.styles";
+import { Wrapper, InputField, HelperText } from "./Input.styles";
 
 const defaultProps: Partial<InputProps> = {
   placeholder: "",
@@ -29,7 +29,7 @@ const Input = memo(
     };
 
     return (
-      <Inner
+      <Wrapper
         className={className}
         type={type}
         fullWidth={fullWidth}
@@ -48,7 +48,7 @@ const Input = memo(
         />
         {endIcon}
         {helperText && <HelperText>{helperText}</HelperText>}
-      </Inner>
+      </Wrapper>
     );
   }
 );
