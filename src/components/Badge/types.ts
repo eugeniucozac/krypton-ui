@@ -11,35 +11,12 @@ export type Alignment =
 
 type BadgeType = {
   children: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   value: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   showZero?: boolean;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   alignment?: Alignment;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   maxValue?: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default default
-   */
   variant?: Variant;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default default
-   */
 };
 
 type BasicStyledProps = {

@@ -3,23 +3,9 @@ import { Color, Size } from "../../types";
 
 type AvatarType = {
   name: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default primary
-   */
   imgSrc?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   size?: Size;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default md
-   */
 };
 
 export type AvatarStyledProps = {

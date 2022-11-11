@@ -48,25 +48,12 @@ export type IconName =
 
 type NameType = {
   name: IconName;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 type IconType = NameType & {
   className?: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: ColorCodes;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   size?: Size;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default md
-   */
 };
 
 export type IconStyledProps = NameType & {

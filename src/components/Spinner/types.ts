@@ -3,15 +3,7 @@ import { Color, Size } from "../../types";
 
 type SpinnerType = {
   color?: Color;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default success
-   */
   size?: Size;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default md
-   */
 };
 
 export type ColorStyledProps = {

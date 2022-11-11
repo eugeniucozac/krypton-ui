@@ -5,27 +5,10 @@ type UnderlineType = "none" | "hover" | "always";
 
 type LinkType = {
   children: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   href: string;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   underline?: UnderlineType;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default default
-   */
   size?: Size;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default md
-   */
 };
 
 export type WrapperStyledProps = {

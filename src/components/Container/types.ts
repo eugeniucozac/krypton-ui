@@ -4,18 +4,8 @@ type Size = "sm" | "md" | "lg";
 
 type ContainerType = {
   children?: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   fluid?: boolean;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   size?: Size;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   * @default md
-   */
 };
 
 export type WrapperStyledProps = {

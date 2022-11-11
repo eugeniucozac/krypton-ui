@@ -7,66 +7,30 @@ export type Alignment = "left" | "right";
 
 type TabCommonType = {
   children: React.ReactNode;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   activeTab?: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 type VariantTabsType = {
   orientation?: Orientation;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   alignment?: Alignment;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 type OnChangeColorType = {
   onChange?: (value: number) => void;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
   color?: Color;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 type TabType = VariantTabsType &
   OnChangeColorType & {
     label: string | React.ReactNode;
-    /**
-     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-     */
     value?: number;
-    /**
-     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-     */
     disabled?: boolean;
-    /**
-     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-     */
     active?: boolean;
-    /**
-     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-     */
     alignment?: Alignment;
-    /**
-     * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-     */
   };
 
 type TabPanelType = TabCommonType & {
   index?: number;
-  /**
-   * Lorem Ipsum is not simply random text. It has roots in a piece of classical Lati.
-   */
 };
 
 export type VariantTabsStyledProps = {

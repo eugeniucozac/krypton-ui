@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, MouseEvent, MouseEventHandler } from "react";
 import { AutocompleteProps } from "./types";
 import {
   Wrapper,
@@ -34,7 +34,10 @@ const Autocomplete = memo(
       ...props,
     };
 
-    const handleChange = (event: any, newValue?: string) => {
+    const handleChange = (
+      event: any | MouseEvent<HTMLLIElement, MouseEvent>,
+      newValue?: string
+    ) => {
       if (newValue) {
         onChange(newValue as any);
         setFilteredSearch([]);

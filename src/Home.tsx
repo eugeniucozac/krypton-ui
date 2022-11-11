@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import dayjs from "dayjs";
 import Alert from "./components/Alert";
 import Chip from "./components/Chip";
 import Avatar from "./components/Avatar";
@@ -52,6 +53,7 @@ import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
 import { Navbar, NavItem, NavSubItems } from "./components/Navbar";
 import Autocomplete from "./components/Autocomplete";
+import { DatePicker } from "./components/Calendar/DatePicker";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -73,6 +75,7 @@ const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [nameSelect, setNameSelect] = useState("");
   const [valueAutocomplete, setValueAutocomplete] = useState("");
+  const [date, setDate] = useState(dayjs());
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -231,6 +234,11 @@ const Home = () => {
             </Alert>
           )}
         </div>
+
+        <div style={{ width: "50%", marginTop: "20px" }}>
+          <DatePicker selectedDate={date} onChange={setDate} />
+        </div>
+
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Avatar
             imgSrc="https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5"
