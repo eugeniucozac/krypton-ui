@@ -1,8 +1,4 @@
-import React from "react";
-
-export interface IChevronDownIconProps {}
-
-export const ChevronDownIcon: React.FC<IChevronDownIconProps> = () => {
+export const Icon = () => {
   return (
     <svg
       width="22"

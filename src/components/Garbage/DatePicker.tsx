@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import dayjs from "dayjs";
 import clsx from "clsx";
-import { ChevronDownIcon } from "./ChevronDownIcon";
+import { Icon } from "./Icon";
 import { changeDateMonth, getCalendarRows } from "./utils";
 import "./DatePicker.css";
 
@@ -23,7 +23,7 @@ export const DatePicker = ({
           )}
           onClick={() => setShownDate(changeDateMonth(shownDate, false))}
         >
-          <ChevronDownIcon />
+          <Icon />
         </div>
         <div className={"DatePickerSelector__date"}>
           {shownDate.format("MMMM YYYY")}
@@ -35,7 +35,7 @@ export const DatePicker = ({
           )}
           onClick={() => setShownDate(changeDateMonth(shownDate, true))}
         >
-          <ChevronDownIcon />
+          <Icon />
         </div>
       </div>
       <>

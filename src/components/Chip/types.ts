@@ -3,22 +3,21 @@ import { Color, Size } from "../../types";
 
 export type Variant = "square" | "rounded";
 
-type ChipType = {
-  children?: React.ReactNode;
-  color?: Color;
+type ChipBaseType = {
   size?: Size;
   variant?: Variant;
   disabled?: boolean;
+};
+
+type ChipType = ChipBaseType & {
+  children?: React.ReactNode;
+  color?: Color;
 };
 
 export type ColorStyledProps = {
   color: Color;
 };
 
-export type WrapperStyledProps = ColorStyledProps & {
-  size?: Size;
-  variant?: Variant;
-  disabled?: boolean;
-};
+export type WrapperStyledProps = ColorStyledProps & ChipBaseType;
 
 export type ChipProps = ComponentPropsWithRef<"div"> & ChipType;

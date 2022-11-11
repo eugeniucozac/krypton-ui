@@ -3,18 +3,17 @@ import { Color, Size } from "../../types";
 
 type UnderlineType = "none" | "hover" | "always";
 
-type LinkType = {
-  children: React.ReactNode;
-  href: string;
-  underline?: UnderlineType;
+type LinkBaseType = {
   color?: Color;
   size?: Size;
+  underline?: UnderlineType;
 };
 
-export type WrapperStyledProps = {
-  color?: Color;
-  size?: Size;
-  underline?: UnderlineType;
+type LinkType = LinkBaseType & {
+  children: React.ReactNode;
+  href: string;
 };
+
+export type WrapperStyledProps = LinkBaseType;
 
 export type LinkProps = ComponentPropsWithRef<"a"> & LinkType;

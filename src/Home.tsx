@@ -53,7 +53,7 @@ import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
 import { Navbar, NavItem, NavSubItems } from "./components/Navbar";
 import Autocomplete from "./components/Autocomplete";
-import { DatePicker } from "./components/Calendar/DatePicker";
+import Calendar from "./components/Calendar";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -236,7 +236,7 @@ const Home = () => {
         </div>
 
         <div style={{ width: "50%", marginTop: "20px" }}>
-          <DatePicker selectedDate={date} onChange={setDate} />
+          <Calendar selectedDate={date} onChange={setDate} />
         </div>
 
         <div style={{ width: "50%", marginTop: "20px" }}>

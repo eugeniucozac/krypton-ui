@@ -1,17 +1,18 @@
 import { ComponentPropsWithRef } from "react";
 import { Color, Size } from "../../types";
 
-type SpinnerType = {
-  color?: Color;
-  size?: Size;
-};
-
-export type ColorStyledProps = {
+type ColorBaseType = {
   color?: Color;
 };
 
-export type SizeStyledProps = {
+type SizeBaseType = {
   size?: Size;
 };
+
+type SpinnerType = ColorBaseType & SizeBaseType;
+
+export type ColorStyledProps = ColorBaseType;
+
+export type SizeStyledProps = SizeBaseType;
 
 export type SpinnerProps = ComponentPropsWithRef<"svg"> & SpinnerType;

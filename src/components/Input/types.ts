@@ -10,7 +10,19 @@ type InputType =
   | "url"
   | "color";
 
-type FormInputType = {
+type InputBaseType = {
+  fullWidth: boolean;
+  type: InputType;
+  beginIcon: React.ReactNode;
+  endIcon: React.ReactNode;
+};
+
+type InputBaseStyleType = {
+  color?: Color;
+  readOnly?: boolean;
+};
+
+type FormInputType = InputBaseStyleType & {
   value: string | number;
   onChange: (value: any) => void;
   name?: string;
@@ -20,28 +32,14 @@ type FormInputType = {
   className?: string;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  color?: any;
   disabled?: boolean;
   error?: boolean;
   fullWidth?: boolean;
   required?: boolean;
-  readOnly?: boolean;
 };
 
-export type InnerStyledProps = {
-  fullWidth: boolean;
-  type: InputType;
-  beginIcon: React.ReactNode;
-  endIcon: React.ReactNode;
-};
+export type InnerStyledProps = InputBaseType;
 
-export type InputFieldStyledProps = {
-  fullWidth: boolean;
-  type: InputType;
-  beginIcon: React.ReactNode;
-  endIcon: React.ReactNode;
-  color?: Color;
-  readOnly?: boolean;
-};
+export type InputFieldStyledProps = InputBaseType & InputBaseStyleType;
 
 export type InputProps = ComponentPropsWithRef<"input"> & FormInputType;

@@ -2,16 +2,16 @@ import { ComponentPropsWithRef } from "react";
 
 type Size = "sm" | "md" | "lg";
 
-type ContainerType = {
-  children?: React.ReactNode;
+type ContainerBaseType = {
   fluid?: boolean;
   size?: Size;
 };
 
-export type WrapperStyledProps = {
-  size?: Size;
-  fluid?: boolean;
+type ContainerType = ContainerBaseType & {
+  children?: React.ReactNode;
 };
+
+export type WrapperStyledProps = ContainerBaseType;
 
 export type BreakpointProps = Record<Size, string>;
 

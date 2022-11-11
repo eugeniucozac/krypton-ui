@@ -1,19 +1,20 @@
 import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
-type AdvancedAlertType = {
+type OnCloseType = {
+  onClose?: () => void;
+};
+
+type AdvancedAlertType = OnCloseType & {
   children?: React.ReactNode;
   color?: Color;
-  onClose?: () => void;
 };
 
 export type ColorStyledProps = {
   color: Color;
 };
 
-export type AdvancedAlertStyledProps = ColorStyledProps & {
-  onClose?: () => void;
-};
+export type AdvancedAlertStyledProps = ColorStyledProps & OnCloseType;
 
 export type AdvancedAlertProps = ComponentPropsWithRef<"div"> &
   AdvancedAlertType;

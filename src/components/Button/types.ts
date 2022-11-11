@@ -5,8 +5,7 @@ export type Variant = "default" | "outline" | "text" | "icon";
 
 export type Shape = "square" | "rounded";
 
-type ButtonType = {
-  children?: React.ReactNode;
+type BaseButtonType = {
   shape?: Shape;
   variant?: Variant;
   color?: Color;
@@ -15,18 +14,13 @@ type ButtonType = {
   disabled?: boolean;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
+};
+
+type ButtonType = BaseButtonType & {
+  children?: React.ReactNode;
   onClick?: () => void;
 };
 
-export type WrapperStyledProps = {
-  color?: Color;
-  size?: Size;
-  variant?: Variant;
-  shape?: Shape;
-  fullWidth?: boolean;
-  disabled?: boolean;
-  beginIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-};
+export type WrapperStyledProps = BaseButtonType;
 
 export type ButtonProps = ComponentPropsWithRef<"button"> & ButtonType;
