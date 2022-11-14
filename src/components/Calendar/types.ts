@@ -1,25 +1,23 @@
 import { ComponentProps } from "react";
 import { Color, Size } from "../../types";
 
-export type Variant = "square" | "rounded";
-
-type BundleType = {
+type CalendarType = {
   children?: React.ReactNode;
   className?: string;
   color?: Color;
   size?: Size;
-  variant?: Variant;
   disabled?: boolean;
 };
 
-export type ColorStyledProps = {
-  color: Color;
+type RowType = {
+  day: number;
+  value: any;
 };
 
-export type WrapperStyledProps = ColorStyledProps & {
-  size: Size;
-  variant: Variant;
-  disabled: boolean;
-};
+export type ColorStyledProps = {};
 
-export type BundleProps = ComponentProps<"div"> & BundleType;
+export type WrapperStyledProps = ColorStyledProps & {};
+
+export type RowProps = RowType;
+
+export type CalendarProps = ComponentProps<"div"> & CalendarType;
