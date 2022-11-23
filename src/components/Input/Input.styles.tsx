@@ -58,3 +58,9 @@ export const HelperText = styled.div`
   margin-top: 3px;
   color: #727272;
 `;
+
+export const CalendarWrapper = styled.div`
+  position: absolute;
+  z-index: 1000;
+  top: 42px;
+`;

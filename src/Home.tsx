@@ -40,9 +40,7 @@ import {
   Table,
   TableBody,
   TableCol,
-  TableFooter,
   TableHead,
-  TablePagination,
   TableRow,
 } from "./components/Table";
 import { Stepper, Step } from "./components/Stepper";
@@ -51,9 +49,10 @@ import Checkbox from "./components/Checkbox";
 import Radio from "./components/Radio";
 import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
-import { Navbar, NavItem, NavSubItems } from "./components/Navbar";
 import Autocomplete from "./components/Autocomplete";
 import Calendar from "./components/Calendar";
+import { format } from "date-fns";
+import FormLabel from "./components/FormLabel";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -71,11 +70,12 @@ const Home = () => {
   const [currentStep, setCurrentStep] = useState(3);
   const [isSwitched, setSwitched] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [radio, setRadio] = useState("second");
+  const [radio, setRadio] = useState("first");
   const [inputValue, setInputValue] = useState("");
+  const [inputValueDate, setInputValueDate] = useState(dayjs());
   const [nameSelect, setNameSelect] = useState("");
   const [valueAutocomplete, setValueAutocomplete] = useState("");
-  const [date, setDate] = useState(dayjs());
+  const [date, setDate] = useState(dayjs()); //format(new Date(), "yyyy-MM-dd")
 
   const [left, setLeft] = useState([
     { label: "List Item 1", value: true },
@@ -205,7 +205,7 @@ const Home = () => {
   };
 
   const handleChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRadio(event.target.name);
+    setRadio(event.target.value);
   };
 
   const handleInputChange = (event: any) => {
@@ -220,9 +220,14 @@ const Home = () => {
     setValueAutocomplete(value);
   };
 
+  const handleChangeInputValueDate = (value: any) => {
+    setInputValueDate(value);
+  };
+
   return (
     <div>
       <>
+        <Icon name="calendarToday" />
         <div style={{ width: "50%", marginTop: "20px" }}>
           {alertOpen && (
             <Alert
@@ -286,9 +291,10 @@ const Home = () => {
           </Button>
         </div>
         <div style={{ width: "30%", marginTop: "20px" }}>
+          <FormLabel>Jenea</FormLabel>
           <Autocomplete
             value={valueAutocomplete}
-            onChange={handleAutocompleteChange as any}
+            onChange={handleAutocompleteChange}
             suggestions={autocompleteNames}
             placeholder="Search the best movie"
             fullWidth
@@ -308,6 +314,17 @@ const Home = () => {
         <div style={{ width: "50%", marginTop: "20px" }}>
           <Rating value={rating} onChange={handleChangeRating} />
         </div>
+
+        <div style={{ width: "30%", marginTop: "20px" }}>
+          <Input
+            value={inputValueDate as any}
+            placeholder="Date"
+            type="date"
+            onChange={handleChangeInputValueDate}
+            fullWidth
+            required
+          />
+        </div>
         <div style={{ width: "30%", marginTop: "20px" }}>
           <Select value={nameSelect} onChange={handleChangeSelect} fullWidth>
             {selectNames.map((name) => (
@@ -316,24 +333,6 @@ const Home = () => {
               </Option>
             ))}
           </Select>
-        </div>
-        <div style={{ width: "70%", marginTop: "20px" }}>
-          <Navbar align="center" color="danger">
-            <NavItem to="/">Home</NavItem>
-            <NavItem to="/">Link</NavItem>
-            <NavItem to="/">Dropdown</NavItem>
-            <NavItem to="/link" active>
-              Link
-            </NavItem>
-            <NavItem to="/" disabled>
-              Link
-            </NavItem>
-            <NavSubItems title="Dropdown">
-              <NavItem to="/link">Link1</NavItem>
-              <NavItem to="/link">Link2</NavItem>
-              <NavItem to="/link">Link3</NavItem>
-            </NavSubItems>
-          </Navbar>
         </div>
         <div style={{ width: "30%", marginTop: "20px" }}>
           <Input
@@ -419,6 +418,7 @@ const Home = () => {
               label="First"
               checked={radio === "first"}
               onChange={handleChangeRadio}
+              name="radioButtons"
               value="first"
             />
           </div>
@@ -426,6 +426,7 @@ const Home = () => {
             label="Second"
             checked={radio === "second"}
             onChange={handleChangeRadio}
+            name="radioButtons"
             value="second"
           />
         </div>
@@ -660,12 +661,12 @@ const Home = () => {
           </Carousel>
         </div>
         <div style={{ width: "55%", margin: "60px 0 20px 30px" }}>
-          <Table width="44rem" stripped>
+          <Table width="44rem" size="medium" stripped>
             <TableHead>
               <TableRow>
-                <TableCol tag="th">Name</TableCol>
-                <TableCol tag="th">Address</TableCol>
-                <TableCol tag="th">Payment</TableCol>
+                <TableCol heading>Name</TableCol>
+                <TableCol heading>Address</TableCol>
+                <TableCol heading>Payment</TableCol>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -679,16 +680,6 @@ const Home = () => {
                 );
               })}
             </TableBody>
-            <TableFooter>
-              <TablePagination
-                page={tablePage}
-                count={forTable.length}
-                rowsPerPage={rowsTablePerPage}
-                rowsPerPageOptions={rowsPerPageOptions}
-                onPageChange={handleTablePageChange}
-                onRowsPerPageChange={handleRowsTablePerPageChange}
-              />
-            </TableFooter>
           </Table>
         </div>
       </>

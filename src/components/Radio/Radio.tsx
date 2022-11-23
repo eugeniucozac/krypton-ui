@@ -6,7 +6,6 @@ const Radio = memo(
   ({
     className,
     checked,
-    value,
     onChange,
     label = "",
     color = "primary",
@@ -18,7 +17,6 @@ const Radio = memo(
         <Input
           {...props}
           type="radio"
-          name={value}
           checked={checked}
           onChange={onChange}
           disabled={disabled}

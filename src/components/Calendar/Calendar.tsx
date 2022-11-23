@@ -14,6 +14,7 @@ import {
 } from "./Calendar.styles";
 
 const Calendar = memo(({ selectedDate, onChange }: any) => {
+  // console.log("selectedDate ", selectedDate);
   const [chosenDate, setChosenDate] = useState(selectedDate);
 
   const handleChangeYearAndMonth = (date: any, isNextMonth: boolean) => {
@@ -31,13 +32,14 @@ const Calendar = memo(({ selectedDate, onChange }: any) => {
   const getCalendarRows = (date: any, customDate: any) => {
     const allDays = new Array(date.daysInMonth()).fill(1);
 
-    const createCell = (date: any, day: number) => ({
+    const createCell = (date: any, day: number, currentMonth?: boolean) => ({
       day,
       value: date.clone().set("date", day),
+      currentMonth,
     });
 
     const monthCells = allDays.map((_: number[], iter: number) =>
-      createCell(date, iter + 1)
+      createCell(date, iter + 1, true)
     );
 
     const addCells = 35 - allDays.length;
@@ -46,15 +48,16 @@ const Calendar = memo(({ selectedDate, onChange }: any) => {
 
     const lastMonthCell = Array.from(Array(Math.floor(addCells / 2)).keys())
       .map((_: any, iter: number) =>
-        createCell(lastMonth, lastMonth.daysInMonth() - iter)
+        createCell(lastMonth, lastMonth.daysInMonth() - iter, false)
       )
       .reverse();
 
     const nextMonthCell = Array.from(
       Array(Math.round(addCells / 2)).keys()
-    ).map((_: any, iter: number) => createCell(nextMonth, iter + 1));
+    ).map((_: any, iter: number) => createCell(nextMonth, iter + 1, false));
 
     const cells = [...lastMonthCell, ...monthCells, ...nextMonthCell];
+
     return cells.reduce((acc: any, _: RowProps, iter: number) => {
       if (iter % 7 === 0) {
         return [...acc, cells.slice(iter, iter + 7)];
@@ -89,14 +92,15 @@ const Calendar = memo(({ selectedDate, onChange }: any) => {
       </YearMonth>
       <Header>
         {rows[0].map((row: RowProps, iter: number) => (
-          <Cell key={iter}>{row.value.format("dd")}</Cell>
+          <Cell key={iter}>{row.value.format("ddd")}</Cell>
         ))}
       </Header>
       {rows.map((cells: RowProps[], iter: number) => (
         <Row key={iter}>
-          {cells.map(({ day, value }: RowProps, iter: number) => (
+          {cells.map(({ day, value, currentMonth }: RowProps, iter: number) => (
             <RowCell
               key={`${day}-${iter}`}
+              currentMonth={currentMonth}
               selected={value.toString() === selectedDate.toString()}
               onClick={() => onChange(value)}
             >

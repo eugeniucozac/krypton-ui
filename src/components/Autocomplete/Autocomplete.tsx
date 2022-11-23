@@ -1,4 +1,5 @@
-import { memo, useState, MouseEvent, MouseEventHandler } from "react";
+import { memo, useState, useEffect, useMemo, ChangeEvent } from "react";
+import ReactHtmlParser from "react-html-parser";
 import { AutocompleteProps } from "./types";
 import {
   Wrapper,
@@ -26,25 +27,30 @@ const Autocomplete = memo(
     fullWidth = false,
     ...props
   }: AutocompleteProps) => {
-    const search = suggestions.filter((item) => item.includes(value));
-    const [filteredSearch, setFilteredSearch] = useState(search);
+    const search = useMemo(() => {
+      if (!value) return [];
+      return suggestions.filter((item) => item.includes(value));
+    }, [suggestions, value]);
+    const [searchOptions, setSearchOptions] = useState(search);
+    const [open, setOpen] = useState(true);
 
     const componentProps = {
       ...defaultProps,
       ...props,
     };
 
-    const handleChange = (
-      event: any | MouseEvent<HTMLLIElement, MouseEvent>,
-      newValue?: string
-    ) => {
-      if (newValue) {
-        onChange(newValue as any);
-        setFilteredSearch([]);
-      } else {
-        onChange(event.target.value);
-        setFilteredSearch(search);
-      }
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+      onChange(event.target.value);
+      setOpen(true);
+    };
+
+    useEffect(() => {
+      setSearchOptions(search);
+    }, [search]);
+
+    const handleClick = (suggestion: string) => {
+      onChange(suggestion);
+      setOpen(false);
     };
 
     return (
@@ -54,16 +60,24 @@ const Autocomplete = memo(
           type="search"
           value={value}
           fullWidth={fullWidth}
-          onChange={(event) => handleChange(event)}
+          onChange={handleChange}
         />
-        <Suggestions>
-          {value &&
-            filteredSearch.map((newValue) => (
-              <li onClick={(event) => handleChange(event, newValue)}>
-                {newValue}
-              </li>
-            ))}
-        </Suggestions>
+        {open && searchOptions.length ? (
+          <Suggestions>
+            {searchOptions.map((s) => {
+              const bOfS = s.indexOf(value);
+              const result = `${s.slice(0, bOfS)}<strong>${s.slice(
+                bOfS,
+                value.length
+              )}</strong>${s.slice(value.length, s.length)}`;
+              return (
+                <li onClick={() => handleClick(s)}>
+                  {ReactHtmlParser(result)}
+                </li>
+              );
+            })}
+          </Suggestions>
+        ) : null}
         {helperText && <HelperText>{helperText}</HelperText>}
       </Wrapper>
     );

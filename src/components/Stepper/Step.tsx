@@ -20,14 +20,14 @@ export const Step = memo(
     showStatus = true,
   }: StepProps) => {
     const currentStep = index + 1;
-    let defaultIcon = step?.icon ? step?.icon : <Icon name="check" />;
+    let defaultIcon = step.icon ? step.icon : <Icon name="check" />;
     let status = "Completed";
 
     if (activeStep === currentStep) {
-      defaultIcon = step?.icon ? step?.icon : <Icon name="file" />;
+      defaultIcon = step.icon ? step.icon : <Icon name="file" />;
       status = "Progress";
     } else if (currentStep > activeStep) {
-      defaultIcon = step?.icon ? step?.icon : <Icon name="https" />;
+      defaultIcon = step.icon ? step.icon : <Icon name="https" />;
       status = "Pending";
     }
 

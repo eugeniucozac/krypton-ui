@@ -3,7 +3,7 @@ import { Color } from "../../types";
 
 type AutocompleteType = {
   value: string;
-  onChange: (event: any, newValue: string) => void;
+  onChange: (value: string) => void;
   suggestions: string[];
   name?: string;
   helperText?: string;
@@ -27,5 +27,8 @@ export type InputFieldStyledProps = {
   readOnly?: boolean;
 };
 
-export type AutocompleteProps = ComponentPropsWithRef<"input"> &
+export type AutocompleteProps = Omit<
+  ComponentPropsWithRef<"input">,
+  "onChange"
+> &
   AutocompleteType;

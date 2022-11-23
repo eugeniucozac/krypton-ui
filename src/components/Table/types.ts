@@ -23,39 +23,26 @@ type TableRowType = TableCommonType & {
 
 type TableColType = TableCommonType & {
   align?: Align;
-  tag?: "td" | "th";
-};
-
-type TablePaginationType = {
-  page: number;
-  count: number;
-  rowsPerPage: number;
-  rowsPerPageOptions: number[];
-  onPageChange: any;
-  onRowsPerPageChange: any;
+  heading?: boolean;
 };
 
 export type SizeAlignStyledProps = {
-  align: Align;
-  size: Size;
+  align?: Align;
+  size?: Size;
+  heading?: boolean;
 };
 
 export type WidthStrippedStyledProps = {
-  width: string;
-  stripped: boolean;
+  width?: string;
+  stripped?: boolean;
 };
 
 export type TableHeadProps = ComponentPropsWithRef<"thead"> & TableCommonType;
 
 export type TableBodyProps = ComponentPropsWithRef<"tbody"> & TableCommonType;
 
-export type TableFooterProps = ComponentPropsWithRef<"tfoot"> & TableCommonType;
-
 export type TableProps = ComponentPropsWithRef<"table"> & TableType;
 
 export type TableRowProps = ComponentPropsWithRef<"tr"> & TableRowType;
 
 export type TableColProps = ComponentPropsWithRef<"td"> & TableColType;
-
-export type TablePaginationProps = ComponentPropsWithRef<"div"> &
-  TablePaginationType;

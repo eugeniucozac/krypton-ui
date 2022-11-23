@@ -4,25 +4,25 @@ import { toRem } from "../../utils/string";
 import { WrapperStyledProps, ColorStyledProps } from "./types";
 
 export const Wrapper = styled.div`
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 8px;
-  border-radius: 8px;
-  width: 320px;
+  padding: 1.25rem;
+  user-select: none;
+  text-align: center;
+  display: inline-block;
+  background: #fff;
+  box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
 `;
 
 export const YearMonth = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 42px;
-  border-bottom: 1px solid #b3b3b3;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 `;
 
 export const Prev = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   display: flex;
@@ -32,9 +32,9 @@ export const Prev = styled.div`
 `;
 
 export const Next = styled.div`
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
+  width: 1.625rem;
+  height: 1.625rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   display: flex;
@@ -44,16 +44,17 @@ export const Next = styled.div`
 `;
 
 export const Header = styled.div`
-  margin-bottom: 8px;
   display: flex;
 `;
 
 export const Cell = styled.div`
-  padding: 4px;
-  width: 38px;
-  height: 38px;
-  margin: 0 2px;
-  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgb(170, 170, 170);
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,28 +65,31 @@ export const Row = styled.div`
 `;
 
 export const RowCell = styled.div<any>`
-  padding: 4px;
-  width: 38px;
-  height: 38px;
-  margin: 0 2px;
-  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 50%;
+  position: relative;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   &:active {
-    background-color: #d1d1d1;
-  }
+    color: #fff;
+    background-color: rgb(39, 174, 96);
+  };
+  color: ${(props) => (props.currentMonth ? "black" : "rgb(196, 196, 196)")};
   ${(props) => ({
     ...(props.selected
       ? {
-          backgroundColor: "#0036cc",
+          backgroundColor: "rgb(39, 174, 96)",
           color: "#fff",
         }
       : {
           "&:hover": {
-            backgroundColor: "#e9e9e9",
+            backgroundColor: "rgba(39, 174, 96, 0.3)",
           },
         }),
   })}};

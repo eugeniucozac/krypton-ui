@@ -21,7 +21,7 @@ export const AccordionDescription = memo(
         let scrollHeight = value === index ? bodyRef.current?.scrollHeight : 0;
         setMaxHeight(scrollHeight);
       }
-    }, [value]);
+    }, [allowMultiple, index, value]);
 
     return (
       <Description {...props} maxHeight={maxHeight}>

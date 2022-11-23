@@ -13,7 +13,7 @@ type IndexValueType = {
 };
 
 type AccordionType = BaseType & {
-  value: number[];
+  value?: number[] | number;
   onChange: (value: number) => void;
 };
 

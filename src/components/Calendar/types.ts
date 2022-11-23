@@ -12,6 +12,7 @@ type CalendarType = {
 type RowType = {
   day: number;
   value: any;
+  currentMonth?: boolean;
 };
 
 export type ColorStyledProps = {};

@@ -5,7 +5,6 @@ type RadioType = {
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
-  value?: string;
   color?: Color;
   disabled?: boolean;
 };

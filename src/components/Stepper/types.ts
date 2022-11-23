@@ -19,7 +19,7 @@ type StepType = {
   activeStep?: number;
   orientation?: Orientation;
   index?: number;
-  step?: ObjectStepType;
+  step: ObjectStepType;
   showStatus?: boolean;
 };
 

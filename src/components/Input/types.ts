@@ -8,13 +8,14 @@ type InputType =
   | "tel"
   | "text"
   | "url"
-  | "color";
+  | "color"
+  | "date";
 
 type InputBaseType = {
   fullWidth: boolean;
   type: InputType;
   beginIcon: React.ReactNode;
-  endIcon: React.ReactNode;
+  endIcon: React.ReactNode | boolean;
 };
 
 type InputBaseStyleType = {
@@ -24,14 +25,14 @@ type InputBaseStyleType = {
 
 type FormInputType = InputBaseStyleType & {
   value: string | number;
-  onChange: (value: any) => void;
+  onChange: (value?: string) => void;
   name?: string;
   type?: InputType;
   helperText?: string;
   placeholder?: string;
   className?: string;
   beginIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
+  endIcon?: React.ReactNode | boolean;
   disabled?: boolean;
   error?: boolean;
   fullWidth?: boolean;

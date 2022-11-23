@@ -1,13 +1,9 @@
 import { memo } from "react";
 import { FormLabelProps } from "./types";
-import { Wrapper, Label } from "./FormLabel.styles";
+import { Wrapper } from "./FormControl.styles";
 
 const FormLabel = memo(({ children, ...props }: FormLabelProps) => {
-  return (
-    <Wrapper {...props}>
-      <Label>{children}</Label>
-    </Wrapper>
-  );
+  return <Wrapper {...props}>{children}</Wrapper>;
 });
 
 export default FormLabel;
