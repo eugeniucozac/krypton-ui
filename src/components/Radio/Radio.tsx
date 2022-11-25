@@ -1,21 +1,25 @@
-import { memo } from "react";
+import { forwardRef, memo } from "react";
 import { RadioProps } from "./types";
 import { Wrapper, Choose, Input, Label } from "./Radio.styles";
 
-const Radio = memo(
-  ({
-    className,
-    checked,
-    onChange,
-    label = "",
-    color = "primary",
-    disabled = false,
-    ...props
-  }: RadioProps) => {
+const Component = forwardRef<HTMLInputElement, RadioProps>(
+  (
+    {
+      className,
+      checked,
+      onChange,
+      label = "",
+      color = "primary",
+      disabled = false,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <Wrapper className={className}>
         <Input
           {...props}
+          ref={ref}
           type="radio"
           checked={checked}
           onChange={onChange}
@@ -27,5 +31,7 @@ const Radio = memo(
     );
   }
 );
+
+const Radio = memo(Component);
 
 export default Radio;

@@ -1,9 +1,9 @@
-import React, { ComponentPropsWithRef } from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import { IconName } from "../Icon/types";
 import { ColorCodes } from "../../types";
 
 type BaseType = {
-  children?: React.ReactNode | string;
+  children?: React.ReactNode;
   allowMultiple?: boolean;
 };
 
@@ -38,16 +38,16 @@ export type MaxHeightStyledProps = {
   maxHeight?: number;
 };
 
-export type AccordionProps = ComponentPropsWithRef<"div"> & AccordionType;
+export type AccordionProps = ComponentPropsWithoutRef<"div"> & AccordionType;
 
-export type AccordionPanelProps = ComponentPropsWithRef<"div"> &
+export type AccordionPanelProps = ComponentPropsWithoutRef<"div"> &
   AccordionPanelType;
 
-export type AccordionItemProps = ComponentPropsWithRef<"div"> &
+export type AccordionItemProps = ComponentPropsWithoutRef<"div"> &
   AccordionItemType;
 
-export type AccordionDescriptionProps = ComponentPropsWithRef<"div"> &
+export type AccordionDescriptionProps = ComponentPropsWithoutRef<"div"> &
   AccordionDescriptionType;
 
-export type AccordionTitleProps = ComponentPropsWithRef<"button"> &
+export type AccordionTitleProps = ComponentPropsWithoutRef<"button"> &
   AccordionTitleType;

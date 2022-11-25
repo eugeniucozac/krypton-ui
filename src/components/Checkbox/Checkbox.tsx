@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { forwardRef, memo } from "react";
 import { CheckBoxProps } from "./types";
 import { Wrapper, Check, Input } from "./Checkbox.styles";
 
@@ -7,14 +7,11 @@ const defaultProps: Partial<CheckBoxProps> = {
   name: "checkbox",
 };
 
-const Checkbox = memo(
-  ({
-    checked,
-    onChange,
-    color = "primary",
-    disabled = false,
-    ...props
-  }: CheckBoxProps) => {
+const Component = forwardRef<HTMLInputElement, CheckBoxProps>(
+  (
+    { checked, onChange, color = "primary", disabled = false, ...props },
+    ref
+  ) => {
     const componentProps = {
       ...defaultProps,
       id: defaultProps.name,
@@ -25,6 +22,7 @@ const Checkbox = memo(
       <Wrapper>
         <Input
           {...componentProps}
+          ref={ref}
           type="checkbox"
           checked={checked}
           onChange={onChange}
@@ -35,5 +33,7 @@ const Checkbox = memo(
     );
   }
 );
+
+const Checkbox = memo(Component);
 
 export default Checkbox;

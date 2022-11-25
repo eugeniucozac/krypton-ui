@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { Color, Size } from "../../types";
 import { IconName } from "../Icon/types";
 
@@ -26,4 +26,4 @@ export type ItemStyledProps = {
   size: Size;
 };
 
-export type PaginationProps = ComponentPropsWithRef<"div"> & PaginationType;
+export type PaginationProps = ComponentPropsWithoutRef<"div"> & PaginationType;

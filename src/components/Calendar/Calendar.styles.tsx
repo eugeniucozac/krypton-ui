@@ -1,15 +1,66 @@
 import styled from "styled-components";
 import { sizeMetric, colorMetric } from "../../utils/theme";
 import { toRem } from "../../utils/string";
-import { WrapperStyledProps, ColorStyledProps } from "./types";
+import {
+  WrapperStyledProps,
+  ColorStyledProps,
+  InnerStyledProps,
+  InputFieldStyledProps,
+} from "./types";
 
-export const Wrapper = styled.div`
+export const CalendarWrapper = styled.div`
   padding: 1.25rem;
   user-select: none;
   text-align: center;
   display: inline-block;
   background: #fff;
   box-shadow: 0 3px 7px rgb(0 0 0 / 10%);
+`;
+
+export const Wrapper = styled.div<InnerStyledProps>`
+  position: relative;
+  flex-direction: column;
+  cursor: pointer;
+  span {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+  }
+  display: ${(props) => (props.fullWidth ? "flex" : "inline-flex")};
+  ${(props) => ({
+    width: "auto",
+    span: {
+      right: props.endIcon ? "15px" : "auto",
+    },
+  })}}
+`;
+
+export const InputField = styled.input<InputFieldStyledProps>`
+  outline: none;
+  display: flex;
+  appearance: none;
+  min-height: 42px;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+  &:disabled {
+    user-select: none;
+    background-color: #e5e5e5;
+    border-color: rgb(196, 196, 196);
+  }
+  color: ${(props) =>
+    props.color === "secondary"
+      ? "#212529"
+      : colorMetric[props.color || "secondary"]};
+  padding: ${(props) => (props.type === "color" ? "6px" : "12px 18px")};
+  border: ${(props) => ` 1px solid ${colorMetric[props.color || "secondary"]}`};
+  width: ${(props) => (props.fullWidth ? "100%" : "auto")};
+  user-select: ${(props) => (props.readOnly ? "none" : "all")};
+  ${(props) =>
+    props.endIcon && {
+      paddingRight: "42px",
+    }}
 `;
 
 export const YearMonth = styled.div`

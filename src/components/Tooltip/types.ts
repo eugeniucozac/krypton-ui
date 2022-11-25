@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
 export type Placement = "top" | "bottom" | "right" | "left";
 
@@ -13,4 +13,4 @@ export type PlacementStyledProps = {
   placement?: Placement;
 };
 
-export type TooltipProps = ComponentPropsWithRef<"div"> & TooltipType;
+export type TooltipProps = ComponentPropsWithoutRef<"div"> & TooltipType;

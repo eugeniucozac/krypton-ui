@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { Color } from "../../types";
 
 export type Variant = "default" | "dot";
@@ -31,4 +31,4 @@ export type ValueStyledProps = BasicStyledProps & {
 
 export type DotStyledProps = BasicStyledProps;
 
-export type BadgeProps = ComponentPropsWithRef<"div"> & BadgeType;
+export type BadgeProps = ComponentPropsWithoutRef<"div"> & BadgeType;

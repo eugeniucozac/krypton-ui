@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef } from "react";
+import React, { ComponentPropsWithoutRef } from "react";
 import { Color } from "../../types";
 
 type Orientation = "horizontal" | "vertical";
@@ -13,14 +13,20 @@ type StepperType = {
   activeStep: number;
   color?: Color;
   orientation?: Orientation;
+  completed?: React.ReactNode;
+  progress?: React.ReactNode;
+  pending?: React.ReactNode;
 };
 
 type StepType = {
+  step: ObjectStepType;
   activeStep?: number;
   orientation?: Orientation;
   index?: number;
-  step: ObjectStepType;
   showStatus?: boolean;
+  completed?: React.ReactNode;
+  progress?: React.ReactNode;
+  pending?: React.ReactNode;
 };
 
 export type StatusStyledProps = {
@@ -33,6 +39,6 @@ export type OrientationStyledProps = {
 
 export type CommonStyledProps = StatusStyledProps & OrientationStyledProps;
 
-export type StepperProps = ComponentPropsWithRef<"div"> & StepperType;
+export type StepperProps = ComponentPropsWithoutRef<"div"> & StepperType;
 
-export type StepProps = ComponentPropsWithRef<"div"> & StepType;
+export type StepProps = ComponentPropsWithoutRef<"div"> & StepType;

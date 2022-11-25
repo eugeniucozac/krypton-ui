@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { Color } from "../../types";
 
 type ProgressBarType = {
@@ -15,4 +15,5 @@ export type ProgressStyleProps = ColorStyledProps & { value: number };
 
 export type ValueStyleProps = ColorStyledProps & { withValue: boolean };
 
-export type ProgressBarProps = ComponentPropsWithRef<"div"> & ProgressBarType;
+export type ProgressBarProps = ComponentPropsWithoutRef<"div"> &
+  ProgressBarType;

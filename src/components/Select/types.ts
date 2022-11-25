@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithRef } from "react";
+import React, { ComponentPropsWithoutRef, ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
 type ChildrenType = {
@@ -25,4 +25,4 @@ export type SelectStyledProps = {
 
 export type SelectProps = ComponentPropsWithRef<"select"> & FormSelectType;
 
-export type OptionProps = ComponentPropsWithRef<"option"> & ChildrenType;
+export type OptionProps = ComponentPropsWithoutRef<"option"> & ChildrenType;

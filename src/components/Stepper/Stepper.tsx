@@ -10,6 +10,9 @@ export const Stepper = memo(
   ({
     children,
     activeStep,
+    completed,
+    progress,
+    pending,
     color = "secondary",
     orientation = "horizontal",
     ...props
@@ -27,6 +30,9 @@ export const Stepper = memo(
               index,
               activeStep,
               orientation,
+              completed,
+              progress,
+              pending,
             });
           }
         })}

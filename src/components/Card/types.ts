@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
 type CardBaseType = {
   children: React.ReactNode;
@@ -24,11 +24,11 @@ export type HeightStyledProps = {
   height?: string;
 };
 
-export type CardHeaderProps = ComponentPropsWithRef<"div"> & CardHeaderType;
+export type CardHeaderProps = ComponentPropsWithoutRef<"div"> & CardHeaderType;
 
-export type CardProps = ComponentPropsWithRef<"div"> &
+export type CardProps = ComponentPropsWithoutRef<"div"> &
   CardBaseType & { maxWidth?: string };
 
-export type CardImageProps = ComponentPropsWithRef<"img"> & CardImageType;
+export type CardImageProps = ComponentPropsWithoutRef<"img"> & CardImageType;
 
-export type CardBaseProps = ComponentPropsWithRef<"div"> & CardBaseType;
+export type CardBaseProps = ComponentPropsWithoutRef<"div"> & CardBaseType;

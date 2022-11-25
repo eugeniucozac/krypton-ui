@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
 export type Padding = "default" | "none";
 
@@ -37,12 +37,14 @@ export type WidthStrippedStyledProps = {
   stripped?: boolean;
 };
 
-export type TableHeadProps = ComponentPropsWithRef<"thead"> & TableCommonType;
+export type TableHeadProps = ComponentPropsWithoutRef<"thead"> &
+  TableCommonType;
 
-export type TableBodyProps = ComponentPropsWithRef<"tbody"> & TableCommonType;
+export type TableBodyProps = ComponentPropsWithoutRef<"tbody"> &
+  TableCommonType;
 
-export type TableProps = ComponentPropsWithRef<"table"> & TableType;
+export type TableProps = ComponentPropsWithoutRef<"table"> & TableType;
 
-export type TableRowProps = ComponentPropsWithRef<"tr"> & TableRowType;
+export type TableRowProps = ComponentPropsWithoutRef<"tr"> & TableRowType;
 
-export type TableColProps = ComponentPropsWithRef<"td"> & TableColType;
+export type TableColProps = ComponentPropsWithoutRef<"td"> & TableColType;

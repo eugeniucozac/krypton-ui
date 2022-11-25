@@ -1,4 +1,11 @@
-import { memo, useState, useEffect, useMemo, ChangeEvent } from "react";
+import {
+  memo,
+  useState,
+  useEffect,
+  useMemo,
+  ChangeEvent,
+  forwardRef,
+} from "react";
 import ReactHtmlParser from "react-html-parser";
 import { AutocompleteProps } from "./types";
 import {
@@ -17,16 +24,19 @@ const defaultProps: Partial<AutocompleteProps> = {
   color: "secondary",
 };
 
-const Autocomplete = memo(
-  ({
-    value,
-    onChange,
-    className,
-    helperText,
-    suggestions,
-    fullWidth = false,
-    ...props
-  }: AutocompleteProps) => {
+const Component = forwardRef<HTMLInputElement, AutocompleteProps>(
+  (
+    {
+      value,
+      onChange,
+      className,
+      helperText,
+      suggestions,
+      fullWidth = false,
+      ...props
+    },
+    ref
+  ) => {
     const search = useMemo(() => {
       if (!value) return [];
       return suggestions.filter((item) => item.includes(value));
@@ -57,6 +67,7 @@ const Autocomplete = memo(
       <Wrapper className={className} fullWidth={fullWidth}>
         <AutocompleteField
           {...componentProps}
+          ref={ref}
           type="search"
           value={value}
           fullWidth={fullWidth}
@@ -83,5 +94,7 @@ const Autocomplete = memo(
     );
   }
 );
+
+const Autocomplete = memo(Component);
 
 export default Autocomplete;

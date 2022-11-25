@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { Color, Size } from "../../types";
 
 type AvatarBaseType = {
@@ -13,4 +13,4 @@ type AvatarType = AvatarBaseType & {
 
 export type AvatarStyledProps = AvatarBaseType;
 
-export type AvatarProps = ComponentPropsWithRef<"div"> & AvatarType;
+export type AvatarProps = ComponentPropsWithoutRef<"div"> & AvatarType;

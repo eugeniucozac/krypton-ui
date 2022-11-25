@@ -53,6 +53,7 @@ import Autocomplete from "./components/Autocomplete";
 import Calendar from "./components/Calendar";
 import { format } from "date-fns";
 import FormLabel from "./components/FormLabel";
+import Datepicker from "./components/Datepicker/Datepicker";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -93,7 +94,7 @@ const Home = () => {
 
   const steps = [
     { label: "Select campaign settings" },
-    { label: "Create an ad group", icon: <Icon name="https" /> },
+    { label: "Create an ad group" },
     { label: "Create an ad" },
     { label: "Completed" },
   ];
@@ -316,10 +317,9 @@ const Home = () => {
         </div>
 
         <div style={{ width: "30%", marginTop: "20px" }}>
-          <Input
-            value={inputValueDate as any}
+          <Calendar
+            selectedDate={inputValueDate}
             placeholder="Date"
-            type="date"
             onChange={handleChangeInputValueDate}
             fullWidth
             required
@@ -395,7 +395,12 @@ const Home = () => {
           </Badge>
         </div>
         <div style={{ width: "70%", margin: "20px 0 20px 30px" }}>
-          <Stepper activeStep={currentStep}>
+          <Stepper
+            activeStep={currentStep}
+            completed={<Icon name="https" />}
+            progress={<Icon name="https" />}
+            pending={<Icon name="https" />}
+          >
             {steps.map((step, iter) => (
               <Step key={iter} step={step} />
             ))}

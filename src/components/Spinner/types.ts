@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { Color, Size } from "../../types";
 
 type ColorBaseType = {
@@ -15,4 +15,4 @@ export type ColorStyledProps = ColorBaseType;
 
 export type SizeStyledProps = SizeBaseType;
 
-export type SpinnerProps = ComponentPropsWithRef<"svg"> & SpinnerType;
+export type SpinnerProps = ComponentPropsWithoutRef<"svg"> & SpinnerType;

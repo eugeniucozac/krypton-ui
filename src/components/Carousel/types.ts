@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
 type CarouselType = {
   children: React.ReactNode[];
@@ -23,9 +23,10 @@ export type IndicatorStyledProps = {
   active?: boolean;
 };
 
-export type CarouselProps = ComponentPropsWithRef<"div"> & CarouselType;
+export type CarouselProps = ComponentPropsWithoutRef<"div"> & CarouselType;
 
-export type CarouselItemProps = ComponentPropsWithRef<"div"> & CarouselItemType;
+export type CarouselItemProps = ComponentPropsWithoutRef<"div"> &
+  CarouselItemType;
 
-export type CarouselCaptionProps = ComponentPropsWithRef<"div"> &
+export type CarouselCaptionProps = ComponentPropsWithoutRef<"div"> &
   CarouselCaptionType;

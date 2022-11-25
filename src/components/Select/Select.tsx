@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { forwardRef, memo } from "react";
 import { SelectProps } from "./types";
 import { Inner, SelectField, HelperText } from "./Select.styles";
 
@@ -7,18 +7,21 @@ const defaultProps: Partial<SelectProps> = {
   disabled: false,
 };
 
-export const Select = memo(
-  ({
-    children,
-    value,
-    onChange,
-    className,
-    helperText = "",
-    color = "secondary",
-    error = false,
-    fullWidth = false,
-    ...props
-  }: SelectProps) => {
+const Component = forwardRef<HTMLSelectElement, SelectProps>(
+  (
+    {
+      children,
+      value,
+      onChange,
+      className,
+      helperText = "",
+      color = "secondary",
+      error = false,
+      fullWidth = false,
+      ...props
+    },
+    ref
+  ) => {
     const componentProps = {
       ...defaultProps,
       ...props,
@@ -28,6 +31,7 @@ export const Select = memo(
       <Inner className={className} fullWidth={fullWidth} color={color}>
         <SelectField
           {...componentProps}
+          ref={ref}
           value={value}
           onChange={onChange}
           color={color}
@@ -40,3 +44,5 @@ export const Select = memo(
     );
   }
 );
+
+export const Select = memo(Component);

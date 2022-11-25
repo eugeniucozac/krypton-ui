@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { forwardRef, memo } from "react";
 import { ButtonProps } from "./types";
 import { Wrapper } from "./Button.styles";
 
@@ -11,15 +11,20 @@ const defaultProps: Partial<ButtonProps> = {
   disabled: false,
 };
 
-const Button = memo(
-  ({ children, beginIcon, endIcon, ...props }: ButtonProps) => {
+const Component = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, beginIcon, endIcon, ...props }, ref) => {
     const componentProps = {
       ...defaultProps,
       ...props,
     };
 
     return (
-      <Wrapper {...componentProps} beginIcon={beginIcon} endIcon={endIcon}>
+      <Wrapper
+        {...componentProps}
+        ref={ref}
+        beginIcon={beginIcon}
+        endIcon={endIcon}
+      >
         {beginIcon}
         {children}
         {endIcon}
@@ -27,5 +32,7 @@ const Button = memo(
     );
   }
 );
+
+const Button = memo(Component);
 
 export default Button;

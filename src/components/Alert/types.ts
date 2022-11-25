@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 import { IconName } from "../Icon/types";
 import { Color } from "../../types";
 
@@ -15,4 +15,4 @@ type AlertType = AlertBaseType & {
 
 export type WrapperStyledProps = AlertBaseType;
 
-export type AlertProps = ComponentPropsWithRef<"div"> & AlertType;
+export type AlertProps = ComponentPropsWithoutRef<"div"> & AlertType;

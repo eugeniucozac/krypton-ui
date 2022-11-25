@@ -1,7 +1,7 @@
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
 type FormLabelType = {
   children: React.ReactNode;
 };
 
-export type FormLabelProps = ComponentPropsWithRef<"div"> & FormLabelType;
+export type FormLabelProps = ComponentPropsWithoutRef<"div"> & FormLabelType;
