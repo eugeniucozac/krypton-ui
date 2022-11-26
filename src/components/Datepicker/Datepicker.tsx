@@ -1,57 +1,109 @@
-import { memo, useEffect, useRef, useState } from "react";
-import { InputProps } from "./types";
-import Calendar from "../Calendar";
-import {
-  Wrapper,
-  InputField,
-  HelperText,
-  CalendarWrapper,
-} from "./Datepicker.styles";
-import { format, getUnixTime } from "date-fns";
+import { forwardRef, memo, useEffect, useMemo, useRef, useState } from "react";
 import dayjs from "dayjs";
 import Icon from "../Icon";
+import { RowProps, CalendarProps } from "./types";
+import {
+  CalendarWrapper,
+  YearMonth,
+  Prev,
+  Next,
+  Header,
+  Cell,
+  Row,
+  RowCell,
+  Wrapper,
+  InputField,
+  InputWrapper,
+} from "./Datepicker.styles";
 
-const defaultProps: Partial<InputProps> = {
+const defaultProps: any = {
   placeholder: "",
   disabled: false,
   required: false,
-  error: false,
-  readOnly: false,
   color: "secondary",
 };
 
-const Input = memo(
-  ({
-    value,
-    onChange,
-    className,
-    beginIcon,
-    endIcon,
-    helperText,
-    type = "text",
-    fullWidth = false,
-    ...props
-  }: InputProps) => {
+const Component = forwardRef<HTMLInputElement, any>(
+  (
+    {
+      selectedDate,
+      onChange,
+      fullWidth,
+      placeholder,
+      required,
+      hideInput = false,
+      ...props
+    },
+    ref
+  ) => {
     const [focus, setFocus] = useState(false);
     const [isCalendarVisible, setIsCalendarVisible] = useState(false);
-    const ref = useRef<any>(null);
+    const calendarRef = useRef<any>(null);
+    const [chosenDate, setChosenDate] = useState(selectedDate);
 
-    const componentProps = {
-      ...defaultProps,
-      ...props,
+    const handleChangeYearAndMonth = (date: any, isNextMonth: boolean) => {
+      if (date.month() === 0 && !isNextMonth) {
+        return date.set("year", date.year() - 1).set("month", 11);
+      }
+
+      if (date.month() === 11 && isNextMonth) {
+        return date.set("year", date.year() + 1).set("month", 0);
+      }
+
+      return date.add(isNextMonth ? 1 : -1, "month");
     };
 
+    const getCalendarRows = (date: any, customDate: any) => {
+      const allDays = new Array(date.daysInMonth()).fill(1);
+
+      const createCell = (date: any, day: number, currentMonth?: boolean) => ({
+        day,
+        value: date.clone().set("date", day),
+        currentMonth,
+      });
+
+      const monthCells = allDays.map((_: number[], iter: number) =>
+        createCell(date, iter + 1, true)
+      );
+
+      const addCells = 35 - allDays.length;
+      const lastMonth = date.subtract(1, "month");
+      const nextMonth = date.add(1, "month");
+
+      const lastMonthCell = Array.from(Array(Math.floor(addCells / 2)).keys())
+        .map((_: any, iter: number) =>
+          createCell(lastMonth, lastMonth.daysInMonth() - iter, false)
+        )
+        .reverse();
+
+      const nextMonthCell = Array.from(
+        Array(Math.round(addCells / 2)).keys()
+      ).map((_: any, iter: number) => createCell(nextMonth, iter + 1, false));
+
+      const cells = [...lastMonthCell, ...monthCells, ...nextMonthCell];
+
+      return cells.reduce((acc: any, _: RowProps, iter: number) => {
+        if (iter % 7 === 0) {
+          return [...acc, cells.slice(iter, iter + 7)];
+        }
+        return acc;
+      }, []);
+    };
+
+    const rows = useMemo(
+      () => getCalendarRows(chosenDate, new Date(selectedDate)),
+      [chosenDate]
+    );
+
     const handleClickOutside = (event: Event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (calendarRef.current && !calendarRef.current.contains(event.target)) {
         setIsCalendarVisible(false);
       }
     };
 
     const handleFocus = () => {
-      if (type === "date") {
-        setFocus(true);
-        setIsCalendarVisible(true);
-      }
+      setFocus(true);
+      setIsCalendarVisible(true);
     };
 
     useEffect(() => {
@@ -63,39 +115,70 @@ const Input = memo(
 
     const onChangeDate = (value: any) => {
       onChange(value);
+      setChosenDate(value);
       setIsCalendarVisible(false);
     };
 
-    if (type === "date") {
-      const formattedDate = format(new Date(value), "dd/MM/yyyy");
-    }
+    const componentProps = {
+      ...defaultProps,
+      ...props,
+    };
 
     return (
-      <Wrapper
-        ref={ref}
-        className={className}
-        type={type}
-        fullWidth={fullWidth}
-        beginIcon={beginIcon}
-        endIcon={endIcon || type === "date"}
-      >
-        {beginIcon}
-        <InputField
-          {...componentProps}
-          value={value}
-          onChange={type !== "date" ? onChange : () => {}}
-          onFocus={handleFocus}
-          type={type === "date" ? "text" : type}
-          fullWidth={fullWidth}
-          beginIcon={beginIcon}
-          endIcon={endIcon || type === "date"}
-        />
-        {endIcon}
-        {type === "date" && <Icon name="calendarToday" />}
-        {helperText && <HelperText>{helperText}</HelperText>}
-        {type === "date" && focus && isCalendarVisible && (
-          <CalendarWrapper>
-            <Calendar selectedDate={value} onChange={onChangeDate} />
+      <Wrapper ref={calendarRef} fullWidth={fullWidth} endIcon={true}>
+        {!hideInput && (
+          <InputWrapper>
+            <InputField
+              {...componentProps}
+              ref={ref}
+              value={dayjs(chosenDate).format("MM-DD-YYYY")}
+              onFocus={handleFocus}
+              fullWidth={fullWidth}
+              endIcon={true}
+            />
+            <Icon name="calendarToday" />
+          </InputWrapper>
+        )}
+        {((focus && isCalendarVisible) || hideInput) && (
+          <CalendarWrapper hideInput={hideInput}>
+            <YearMonth>
+              <Prev
+                onClick={() =>
+                  setChosenDate(handleChangeYearAndMonth(chosenDate, false))
+                }
+              >
+                <Icon name="navigateBefore" />
+              </Prev>
+              <div>{chosenDate.format("MMMM YYYY")}</div>
+              <Next
+                onClick={() =>
+                  setChosenDate(handleChangeYearAndMonth(chosenDate, true))
+                }
+              >
+                <Icon name="navigateNext" />
+              </Next>
+            </YearMonth>
+            <Header>
+              {rows[0].map((row: RowProps, iter: number) => (
+                <Cell key={iter}>{row.value.format("ddd")}</Cell>
+              ))}
+            </Header>
+            {rows.map((cells: RowProps[], iter: number) => (
+              <Row key={iter}>
+                {cells.map(
+                  ({ day, value, currentMonth }: RowProps, iter: number) => (
+                    <RowCell
+                      key={`${day}-${iter}`}
+                      currentMonth={currentMonth}
+                      selected={value.toString() === selectedDate.toString()}
+                      onClick={() => onChangeDate(value)}
+                    >
+                      {day}
+                    </RowCell>
+                  )
+                )}
+              </Row>
+            ))}
           </CalendarWrapper>
         )}
       </Wrapper>
@@ -103,4 +186,6 @@ const Input = memo(
   }
 );
 
-export default Input;
+const Datepicker = memo(Component);
+
+export default Datepicker;

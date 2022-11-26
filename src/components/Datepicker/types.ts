@@ -1,20 +1,22 @@
-import { ComponentPropsWithRef } from "react";
-import { Color } from "../../types";
+import { ComponentProps } from "react";
+import { Color, Size } from "../../types";
 
-type InputType =
-  | "email"
-  | "number"
-  | "password"
-  | "tel"
-  | "text"
-  | "url"
-  | "color"
-  | "date";
+type CalendarType = {
+  children?: React.ReactNode;
+  className?: string;
+  color?: Color;
+  size?: Size;
+  disabled?: boolean;
+};
+
+type RowType = {
+  day: number;
+  value: any;
+  currentMonth?: boolean;
+};
 
 type InputBaseType = {
   fullWidth: boolean;
-  type: InputType;
-  beginIcon: React.ReactNode;
   endIcon: React.ReactNode;
 };
 
@@ -23,24 +25,16 @@ type InputBaseStyleType = {
   readOnly?: boolean;
 };
 
-type FormInputType = InputBaseStyleType & {
-  value: string | number;
-  onChange: (value?: string) => void;
-  name?: string;
-  type?: InputType;
-  helperText?: string;
-  placeholder?: string;
-  className?: string;
-  beginIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  disabled?: boolean;
-  error?: boolean;
-  fullWidth?: boolean;
-  required?: boolean;
+type CalendarWrapperStyleType = {
+  hideInput: boolean;
 };
 
 export type InnerStyledProps = InputBaseType;
 
+export type CalendarWrapperStyleProps = CalendarWrapperStyleType;
+
 export type InputFieldStyledProps = InputBaseType & InputBaseStyleType;
 
-export type InputProps = ComponentPropsWithRef<"input"> & FormInputType;
+export type RowProps = RowType;
+
+export type CalendarProps = ComponentProps<"div"> & CalendarType;

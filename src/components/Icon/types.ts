@@ -1,4 +1,4 @@
-import { ComponentProps, ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef } from "react";
 import { Size, ColorCodes } from "../../types";
 
 export type IconName =

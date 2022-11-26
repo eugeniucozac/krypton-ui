@@ -50,10 +50,10 @@ import Radio from "./components/Radio";
 import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
 import Autocomplete from "./components/Autocomplete";
-import Calendar from "./components/Calendar";
+import Datepicker from "./components/Datepicker";
 import { format } from "date-fns";
 import FormLabel from "./components/FormLabel";
-import Datepicker from "./components/Datepicker/Datepicker";
+import DatepickerOld from "./components/DatepickerOld/DatepickerOld";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);
@@ -228,7 +228,6 @@ const Home = () => {
   return (
     <div>
       <>
-        <Icon name="calendarToday" />
         <div style={{ width: "50%", marginTop: "20px" }}>
           {alertOpen && (
             <Alert
@@ -242,7 +241,7 @@ const Home = () => {
         </div>
 
         <div style={{ width: "50%", marginTop: "20px" }}>
-          <Calendar selectedDate={date} onChange={setDate} />
+          <Datepicker selectedDate={date} onChange={setDate} hideInput={true} />
         </div>
 
         <div style={{ width: "50%", marginTop: "20px" }}>
@@ -317,7 +316,7 @@ const Home = () => {
         </div>
 
         <div style={{ width: "30%", marginTop: "20px" }}>
-          <Calendar
+          <Datepicker
             selectedDate={inputValueDate}
             placeholder="Date"
             onChange={handleChangeInputValueDate}
