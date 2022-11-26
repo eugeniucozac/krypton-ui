@@ -61,6 +61,6 @@ export const SelectField = styled.select<SelectStyledProps>`
 
 export const HelperText = styled.div`
   font-size: 0.875rem;
-  margin-top: 3px;
+  margin-top: 0.188rem;
   color: #727272;
 `;

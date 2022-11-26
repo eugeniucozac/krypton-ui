@@ -10,6 +10,11 @@ type InputBaseType = {
 type InputBaseStyleType = {
   color?: Color;
   readOnly?: boolean;
+  error?: string;
+};
+
+type InputErrorStyleType = {
+  error?: string;
 };
 
 type FormInputType = InputBaseStyleType & {
@@ -18,12 +23,13 @@ type FormInputType = InputBaseStyleType & {
   helperText?: string;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  error?: boolean;
   fullWidth?: boolean;
 };
 
 export type InnerStyledProps = InputBaseType & { type: string };
 
 export type InputFieldStyledProps = InputBaseType & InputBaseStyleType;
+
+export type InputErrorStyledProps = InputErrorStyleType;
 
 export type InputProps = ComponentPropsWithRef<"input"> & FormInputType;

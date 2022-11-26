@@ -4,8 +4,8 @@ import { toRGBA } from "../../utils/colors";
 import { DisabledStyledProps, SwitcherStyledProps } from "./types";
 
 export const Wrapper = styled.div<DisabledStyledProps>`
-  width: 34px;
-  height: 14px;
+  width: 2.125rem;
+  height: 0.875rem;
   overflow: visible;
   position: relative;
   border-radius: 30px;
@@ -19,8 +19,8 @@ export const Input = styled.input`
   opacity: 0;
   z-index: 10;
   cursor: pointer;
-  width: 34px;
-  height: 14px;
+  width: 2.125rem;
+  height: 0.875rem;
 `;
 
 export const Switcher = styled.span<SwitcherStyledProps>`
@@ -31,16 +31,16 @@ export const Switcher = styled.span<SwitcherStyledProps>`
   bottom: 0;
   transition: 0.2s linear;
   position: absolute;
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background-color: ${(props) =>
     props.value
       ? toRGBA(colorMetric[props.color || "success"], "0.5")
       : " #ccc"};
   &:before {
     content: "";
-    top: -3.25px;
-    width: 20px;
-    height: 20px;
+    top: -0.203rem;
+    width: 1.25rem;
+    height: 1.25rem;
     transform: unset;
     border-radius: 50%;
     position: absolute;

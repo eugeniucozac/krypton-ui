@@ -11,11 +11,11 @@ export const Check = styled.span<CheckBoxStyledProps>`
   flex-shrink: 0;
   position: relative;
   align-items: center;
-  width: 20px;
+  width: 1.25rem;
   justify-content: center;
-  height: 20px;
+  height: 1.25rem;
   transition: all ease-in-out 0.1s;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   border: 1px solid transparent;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   background-color: ${(props) =>

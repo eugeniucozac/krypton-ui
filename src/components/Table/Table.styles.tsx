@@ -4,7 +4,7 @@ import { SizeAlignStyledProps, WidthStrippedStyledProps } from "./types";
 export const Wrapper = styled.table<WidthStrippedStyledProps>`
   font-family: "SFProDisplay";
   font-size: 0.875rem;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   caption-side: bottom;
   border-collapse: collapse;
   width: ${(props) => (props?.width ? props?.width : "100%")};
@@ -42,7 +42,8 @@ export const Col = styled.td<SizeAlignStyledProps>`
   border-color: inherit;
   border-style: solid;
   border-width: 0;
-  padding: ${(props) => (props.size === "medium" ? "13px 4px" : "4px")};
+  padding: ${(props) =>
+    props.size === "medium" ? "0.813rem 0.25rem" : "0.25rem"};
   text-align: ${(props) => props.align};
   ${(props) => ({
     ...(props?.heading

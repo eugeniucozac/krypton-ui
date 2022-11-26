@@ -1,12 +1,11 @@
 import { InputProps } from "./types";
-import { Wrapper, InputField, HelperText } from "./Input.styles";
+import { Wrapper, InputField, HelperText, ErrorText } from "./Input.styles";
 import { memo, forwardRef } from "react";
 
 const defaultProps: Partial<InputProps> = {
   placeholder: "",
   disabled: false,
   required: false,
-  error: false,
   readOnly: false,
   color: "secondary",
 };
@@ -19,6 +18,7 @@ const Component = forwardRef<HTMLInputElement, InputProps>(
       beginIcon,
       endIcon,
       helperText,
+      error,
       type = "text",
       fullWidth = false,
       ...props
@@ -42,6 +42,7 @@ const Component = forwardRef<HTMLInputElement, InputProps>(
         <InputField
           {...componentProps}
           ref={ref}
+          error={error}
           onChange={onChange}
           type={type}
           fullWidth={fullWidth}
@@ -50,6 +51,7 @@ const Component = forwardRef<HTMLInputElement, InputProps>(
         />
         {endIcon}
         {helperText && <HelperText>{helperText}</HelperText>}
+        {error && <ErrorText error={error}>{error}</ErrorText>}
       </Wrapper>
     );
   }

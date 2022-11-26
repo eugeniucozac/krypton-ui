@@ -34,7 +34,7 @@ export const Choose = styled.span<RadioStyledProps>`
 export const Label = styled.span`
   cursor: pointer;
   user-select: none;
-  margin: 0 0 0 5px;
+  margin: 0 0 0 0.313rem;
 `;
 
 export const Input = styled.input`
