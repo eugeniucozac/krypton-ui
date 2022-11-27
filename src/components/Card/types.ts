@@ -1,13 +1,16 @@
 import { ComponentPropsWithoutRef } from "react";
 
+type HeightType = {
+  height?: string;
+};
+
 type CardBaseType = {
   children: React.ReactNode;
 };
 
-type CardImageType = {
+type CardImageType = HeightType & {
   imgSrc: string;
   alt?: string;
-  height?: string;
 };
 
 type CardHeaderType = {
@@ -20,9 +23,7 @@ export type WrapperStyledProps = {
   maxWidth?: string;
 };
 
-export type HeightStyledProps = {
-  height?: string;
-};
+export type HeightStyledProps = HeightType;
 
 export type CardHeaderProps = ComponentPropsWithoutRef<"div"> & CardHeaderType;
 

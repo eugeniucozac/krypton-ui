@@ -4,9 +4,9 @@ import { Color, Size } from "../../types";
 export type Variant = "square" | "rounded";
 
 type ChipBaseType = {
+  disabled?: boolean;
   size?: Size;
   variant?: Variant;
-  disabled?: boolean;
 };
 
 type ChipType = ChipBaseType & {

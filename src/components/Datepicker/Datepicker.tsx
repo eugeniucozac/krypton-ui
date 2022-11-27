@@ -1,7 +1,7 @@
 import { forwardRef, memo, useEffect, useMemo, useRef, useState } from "react";
-import dayjs from "dayjs";
+import dayjs, { type Dayjs } from "dayjs";
 import Icon from "../Icon";
-import { RowProps, CalendarProps } from "./types";
+import { RowProps } from "./types";
 import {
   CalendarWrapper,
   YearMonth,
@@ -41,7 +41,7 @@ const Component = forwardRef<HTMLInputElement, any>(
     const calendarRef = useRef<any>(null);
     const [chosenDate, setChosenDate] = useState(selectedDate);
 
-    const handleChangeYearAndMonth = (date: any, isNextMonth: boolean) => {
+    const handleChangeYearAndMonth = (date: Dayjs, isNextMonth: boolean) => {
       if (date.month() === 0 && !isNextMonth) {
         return date.set("year", date.year() - 1).set("month", 11);
       }
@@ -53,10 +53,10 @@ const Component = forwardRef<HTMLInputElement, any>(
       return date.add(isNextMonth ? 1 : -1, "month");
     };
 
-    const getCalendarRows = (date: any, customDate: any) => {
+    const getCalendarRows = (date: Dayjs) => {
       const allDays = new Array(date.daysInMonth()).fill(1);
 
-      const createCell = (date: any, day: number, currentMonth?: boolean) => ({
+      const createCell = (date: Dayjs, day: number, currentMonth?: boolean) => ({
         day,
         value: date.clone().set("date", day),
         currentMonth,
@@ -71,18 +71,19 @@ const Component = forwardRef<HTMLInputElement, any>(
       const nextMonth = date.add(1, "month");
 
       const lastMonthCell = Array.from(Array(Math.floor(addCells / 2)).keys())
-        .map((_: any, iter: number) =>
+        .map((_: number, iter: number) =>
           createCell(lastMonth, lastMonth.daysInMonth() - iter, false)
         )
         .reverse();
 
       const nextMonthCell = Array.from(
         Array(Math.round(addCells / 2)).keys()
-      ).map((_: any, iter: number) => createCell(nextMonth, iter + 1, false));
+      ).map((_: number, iter: number) => createCell(nextMonth, iter + 1, false));
 
       const cells = [...lastMonthCell, ...monthCells, ...nextMonthCell];
 
       return cells.reduce((acc: any, _: RowProps, iter: number) => {
+        console.log("acc ", acc)
         if (iter % 7 === 0) {
           return [...acc, cells.slice(iter, iter + 7)];
         }
@@ -90,10 +91,7 @@ const Component = forwardRef<HTMLInputElement, any>(
       }, []);
     };
 
-    const rows = useMemo(
-      () => getCalendarRows(chosenDate, new Date(selectedDate)),
-      [chosenDate]
-    );
+    const rows = useMemo(() => getCalendarRows(chosenDate), [chosenDate]);
 
     const handleClickOutside = (event: Event) => {
       if (calendarRef.current && !calendarRef.current.contains(event.target)) {
@@ -113,7 +111,7 @@ const Component = forwardRef<HTMLInputElement, any>(
       };
     }, []);
 
-    const onChangeDate = (value: any) => {
+    const onChangeDate = (value: Dayjs) => {
       onChange(value);
       setChosenDate(value);
       setIsCalendarVisible(false);

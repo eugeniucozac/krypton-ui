@@ -11,7 +11,6 @@ type BaseButtonType = {
   color?: Color;
   fullWidth?: boolean;
   size?: Size;
-  disabled?: boolean;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
 };

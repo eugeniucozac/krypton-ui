@@ -1,17 +1,18 @@
 import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
-type RadioType = {
+type CheckedType = {
   checked: boolean;
+};
+
+type RadioType = CheckedType & {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   color?: Color;
-  disabled?: boolean;
 };
 
-export type RadioStyledProps = {
+export type RadioStyledProps = CheckedType & {
   color: Color;
-  checked: boolean;
   disabled: boolean;
 };
 

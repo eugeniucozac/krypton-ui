@@ -1,21 +1,22 @@
 import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
+type ErrorType = {
+  error?: string;
+};
+
 type InputBaseType = {
   fullWidth: boolean;
   beginIcon: React.ReactNode;
   endIcon: React.ReactNode;
 };
 
-type InputBaseStyleType = {
+type InputBaseStyleType = ErrorType & {
   color?: Color;
   readOnly?: boolean;
-  error?: string;
 };
 
-type InputErrorStyleType = {
-  error?: string;
-};
+type InputErrorStyleType = ErrorType;
 
 type FormInputType = InputBaseStyleType & {
   value: string | number;

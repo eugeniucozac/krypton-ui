@@ -3,11 +3,18 @@ import { Color, Size } from "../../types";
 
 type CalendarType = {
   children?: React.ReactNode;
-  className?: string;
   color?: Color;
   size?: Size;
-  disabled?: boolean;
 };
+
+/*
+
+      selectedDate,
+      onChange,
+      fullWidth,
+      placeholder,
+      required,
+      hideInput = false,*/
 
 type RowType = {
   day: number;

@@ -1,6 +1,10 @@
 import { ComponentPropsWithoutRef } from "react";
 import { Color } from "../../types";
 
+type ChildrenType = {
+  children?: React.ReactNode;
+};
+
 type ModalBodyType = {
   children: React.ReactNode;
 };
@@ -10,15 +14,13 @@ type ModalHeaderType = ModalBodyType & {
   onClose?: () => void;
 };
 
-type ModalType = {
+type ModalType = ChildrenType & {
   isOpen: boolean;
   onClose: () => void;
-  children?: React.ReactNode;
   color?: Color;
 };
 
-export type ReactPortalType = {
-  children?: React.ReactNode;
+export type ReactPortalType = ChildrenType & {
   className?: string;
   parent?: HTMLDivElement;
 };

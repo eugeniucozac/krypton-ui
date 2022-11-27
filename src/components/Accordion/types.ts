@@ -12,23 +12,24 @@ type IndexValueType = {
   index?: number;
 };
 
+type OnChangeType = {
+  onChange?: (value: number[] | number) => void;
+};
+
 type AccordionType = BaseType & {
   value?: number[] | number;
   onChange: (value: number) => void;
 };
 
 type AccordionTitleType = BaseType &
-  IndexValueType & {
+  IndexValueType &
+  OnChangeType & {
     closeIcon?: IconName;
     openIcon?: IconName;
     color?: ColorCodes;
-    onChange?: (value: number[] | number) => void;
   };
 
-type AccordionItemType = BaseType &
-  IndexValueType & {
-    onChange?: (value: number[] | number) => void;
-  };
+type AccordionItemType = BaseType & IndexValueType & OnChangeType;
 
 type AccordionPanelType = BaseType & IndexValueType;
 

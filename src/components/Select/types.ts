@@ -1,26 +1,26 @@
 import React, { ComponentPropsWithoutRef, ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
+type ColorType = {
+  color?: Color;
+};
+
 type ChildrenType = {
   children: React.ReactNode;
 };
 
-type FormSelectType = ChildrenType & {
-  value: string | number;
-  onChange: (value: string) => void;
-  helperText?: string;
-  className?: string;
-  color?: Color;
-  disabled?: boolean;
-  error?: boolean;
-  fullWidth?: boolean;
-  required?: boolean;
-};
+type FormSelectType = ChildrenType &
+  ColorType & {
+    value: string | number;
+    onChange: (value: string) => void;
+    helperText?: string;
+    error?: boolean;
+    fullWidth?: boolean;
+  };
 
-export type SelectStyledProps = {
+export type SelectStyledProps = ColorType & {
   fullWidth: boolean;
   readOnly?: boolean;
-  color?: Color;
 };
 
 export type SelectProps = ComponentPropsWithRef<"select"> & FormSelectType;

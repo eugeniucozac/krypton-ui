@@ -9,8 +9,8 @@ type AlertBaseType = {
 
 type AlertType = AlertBaseType & {
   children?: React.ReactNode;
-  onClose?: () => void;
   closeIcon?: IconName;
+  onClose?: () => void;
 };
 
 export type WrapperStyledProps = AlertBaseType;

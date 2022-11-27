@@ -1,18 +1,18 @@
 import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
-type CheckBoxType = {
+type CheckedType = {
   checked: boolean;
-  onChange: () => void;
-  value?: string;
-  name?: string;
-  color?: Color;
-  disabled?: boolean;
 };
 
-export type CheckBoxStyledProps = {
+type CheckBoxType = CheckedType & {
+  onChange: () => void;
+  value?: string;
+  color?: Color;
+};
+
+export type CheckBoxStyledProps = CheckedType & {
   color: Color;
-  checked: boolean;
   disabled: boolean;
 };
 

@@ -1,5 +1,13 @@
 import { ComponentPropsWithoutRef } from "react";
 
+type ChildrenType = {
+  children: React.ReactNode;
+};
+
+type ActiveType = {
+  active?: boolean;
+};
+
 type CarouselType = {
   children: React.ReactNode[];
   controls?: boolean;
@@ -10,18 +18,11 @@ type CarouselType = {
   onSelect?: (value: number) => void;
 };
 
-type CarouselItemType = {
-  children: React.ReactNode;
-  active?: boolean;
-};
+type CarouselItemType = ChildrenType & ActiveType;
 
-type CarouselCaptionType = {
-  children: React.ReactNode;
-};
+type CarouselCaptionType = ChildrenType;
 
-export type IndicatorStyledProps = {
-  active?: boolean;
-};
+export type IndicatorStyledProps = ActiveType;
 
 export type CarouselProps = ComponentPropsWithoutRef<"div"> & CarouselType;
 

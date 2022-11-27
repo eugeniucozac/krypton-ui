@@ -2,15 +2,16 @@ import { ComponentPropsWithoutRef } from "react";
 
 export type Placement = "top" | "bottom" | "right" | "left";
 
-type TooltipType = {
-  children: React.ReactNode;
-  title: string;
-  arrow?: boolean;
+type PlacementType = {
   placement?: Placement;
 };
 
-export type PlacementStyledProps = {
-  placement?: Placement;
+type TooltipType = PlacementType & {
+  children: React.ReactNode;
+  title: string;
+  arrow?: boolean;
 };
+
+export type PlacementStyledProps = PlacementType;
 
 export type TooltipProps = ComponentPropsWithoutRef<"div"> & TooltipType;

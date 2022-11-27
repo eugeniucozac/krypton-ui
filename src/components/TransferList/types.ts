@@ -12,7 +12,6 @@ type TransferListType = {
   rightItems: ItemType[];
   setLeftItems: (value: ItemType[]) => void;
   setRightItems: (value: ItemType[]) => void;
-  className?: string;
   color?: Color;
   allChoices?: boolean;
   leftChoicesLabel?: string;
@@ -22,7 +21,6 @@ type TransferListType = {
 type TransferListCommonType = {
   label: string;
   onChange: (value: ItemType[]) => void;
-  className?: string;
 };
 
 export type CheckboxStyledProps = {

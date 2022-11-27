@@ -33,10 +33,7 @@ type TabPanelType = TabCommonType & {
   index?: number;
 };
 
-export type VariantTabsStyledProps = {
-  orientation?: Orientation;
-  alignment?: Alignment;
-};
+export type VariantTabsStyledProps = VariantTabsType;
 
 export type LinkStyledProps = VariantTabsStyledProps & {
   disabled: boolean;

@@ -6,36 +6,40 @@ export type Align = "center" | "inherit" | "justify" | "left" | "right";
 
 export type Size = "small" | "medium";
 
-type TableCommonType = {
-  children: React.ReactNode;
-  size?: Size;
-  stripped?: boolean;
-};
-
-type TableType = TableCommonType & {
-  width?: string;
-};
-
-type TableRowType = TableCommonType & {
-  hover?: boolean;
-  stripped?: boolean;
-};
-
-type TableColType = TableCommonType & {
+type AlignHeadingType = {
   align?: Align;
   heading?: boolean;
 };
 
-export type SizeAlignStyledProps = {
-  align?: Align;
-  size?: Size;
-  heading?: boolean;
-};
-
-export type WidthStrippedStyledProps = {
-  width?: string;
+type StrippedType = {
   stripped?: boolean;
 };
+
+type SizeType = {
+  size?: Size;
+};
+
+type WidthType = {
+  width?: string;
+};
+
+type TableCommonType = StrippedType &
+  SizeType & {
+    children: React.ReactNode;
+  };
+
+type TableType = TableCommonType & StrippedType & WidthType;
+
+type TableRowType = TableCommonType &
+  StrippedType & {
+    hover?: boolean;
+  };
+
+type TableColType = TableCommonType & AlignHeadingType;
+
+export type SizeAlignStyledProps = AlignHeadingType & SizeType;
+
+export type WidthStrippedStyledProps = StrippedType & WidthType;
 
 export type TableHeadProps = ComponentPropsWithoutRef<"thead"> &
   TableCommonType;

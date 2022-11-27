@@ -9,7 +9,6 @@ type RangeType = RangeBaseType & {
   onChange: (value: number) => void;
   initial: number;
   max: number;
-  className?: string;
   details?: boolean;
   value?: number;
 };

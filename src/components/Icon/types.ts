@@ -51,7 +51,6 @@ type NameType = {
 };
 
 type IconType = NameType & {
-  className?: string;
   color?: ColorCodes;
   size?: Size;
 };

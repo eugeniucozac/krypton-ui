@@ -1,7 +1,16 @@
 import { ComponentPropsWithRef } from "react";
 import { Color } from "../../types";
 
-type AutocompleteType = {
+type FullWidthType = {
+  fullWidth: boolean;
+};
+
+type ReadColorType = {
+  color?: Color;
+  readOnly?: boolean;
+};
+
+type AutocompleteType = ReadColorType & {
   value: string;
   onChange: (value: string) => void;
   suggestions: string[];
@@ -9,23 +18,13 @@ type AutocompleteType = {
   helperText?: string;
   placeholder?: string;
   className?: string;
-  color?: any;
-  disabled?: boolean;
   error?: boolean;
   fullWidth?: boolean;
-  required?: boolean;
-  readOnly?: boolean;
 };
 
-export type InnerStyledProps = {
-  fullWidth: boolean;
-};
+export type InnerStyledProps = FullWidthType;
 
-export type InputFieldStyledProps = {
-  fullWidth: boolean;
-  color?: Color;
-  readOnly?: boolean;
-};
+export type InputFieldStyledProps = FullWidthType & ReadColorType;
 
 export type AutocompleteProps = Omit<
   ComponentPropsWithRef<"input">,

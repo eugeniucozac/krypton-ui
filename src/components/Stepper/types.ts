@@ -3,30 +3,29 @@ import { Color } from "../../types";
 
 type Orientation = "horizontal" | "vertical";
 
+type BaseType = {
+  orientation?: Orientation;
+  completed?: React.ReactNode;
+  progress?: React.ReactNode;
+  pending?: React.ReactNode;
+};
+
 type ObjectStepType = {
   label: string;
   icon?: React.ReactNode;
 };
 
-type StepperType = {
+type StepperType = BaseType & {
   children: React.ReactNode;
   activeStep: number;
   color?: Color;
-  orientation?: Orientation;
-  completed?: React.ReactNode;
-  progress?: React.ReactNode;
-  pending?: React.ReactNode;
 };
 
-type StepType = {
+type StepType = BaseType & {
   step: ObjectStepType;
   activeStep?: number;
-  orientation?: Orientation;
   index?: number;
   showStatus?: boolean;
-  completed?: React.ReactNode;
-  progress?: React.ReactNode;
-  pending?: React.ReactNode;
 };
 
 export type StatusStyledProps = {
