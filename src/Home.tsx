@@ -51,9 +51,7 @@ import Input from "./components/Input";
 import { Select, Option } from "./components/Select";
 import Autocomplete from "./components/Autocomplete";
 import Datepicker from "./components/Datepicker";
-import { format } from "date-fns";
 import FormLabel from "./components/FormLabel";
-import DatepickerOld from "./components/DatepickerOld/DatepickerOld";
 
 const Home = () => {
   const [alertOpen, isAlertOpen] = useState(true);

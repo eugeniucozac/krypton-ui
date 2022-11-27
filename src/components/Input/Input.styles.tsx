@@ -11,7 +11,7 @@ export const Wrapper = styled.div<InnerStyledProps>`
   flex-direction: column;
   cursor: pointer;
   span {
-    top: 50%;
+    top: 1.35rem;
     position: absolute;
     transform: translateY(-50%);
   }

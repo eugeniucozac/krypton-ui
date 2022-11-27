@@ -2,19 +2,14 @@ import { ComponentProps } from "react";
 import { Color, Size } from "../../types";
 
 type CalendarType = {
-  children?: React.ReactNode;
   color?: Color;
-  size?: Size;
+  selectedDate: any;
+  onChange: any;
+  required?: boolean;
+  fullWidth?: boolean;
+  placeholder?: string;
+  hideInput?: boolean;
 };
-
-/*
-
-      selectedDate,
-      onChange,
-      fullWidth,
-      placeholder,
-      required,
-      hideInput = false,*/
 
 type RowType = {
   day: number;
@@ -23,7 +18,7 @@ type RowType = {
 };
 
 type InputBaseType = {
-  fullWidth: boolean;
+  fullWidth?: boolean;
   endIcon: React.ReactNode;
 };
 

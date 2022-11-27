@@ -23,7 +23,7 @@ export const CalendarWrapper = styled.div<CalendarWrapperStyleProps>`
 export const InputWrapper = styled.div`
   position: relative;
   & > span {
-    top: 50%;
+    top: 0.938rem;
     position: absolute;
     transform: translateY(-50%);
   }

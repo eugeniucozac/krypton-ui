@@ -1,7 +1,8 @@
-import { forwardRef, memo, useEffect, useMemo, useRef, useState } from "react";
+import { ChangeEvent, forwardRef, memo, useEffect, useMemo, useRef, useState } from "react";
 import dayjs, { type Dayjs } from "dayjs";
+import Input from "../Input";
 import Icon from "../Icon";
-import { RowProps } from "./types";
+import { RowProps, CalendarProps } from "./types";
 import {
   CalendarWrapper,
   YearMonth,
@@ -12,7 +13,6 @@ import {
   Row,
   RowCell,
   Wrapper,
-  InputField,
   InputWrapper,
 } from "./Datepicker.styles";
 
@@ -23,7 +23,7 @@ const defaultProps: any = {
   color: "secondary",
 };
 
-const Component = forwardRef<HTMLInputElement, any>(
+const Component = forwardRef<HTMLInputElement, CalendarProps>(
   (
     {
       selectedDate,
@@ -37,9 +37,11 @@ const Component = forwardRef<HTMLInputElement, any>(
     ref
   ) => {
     const [focus, setFocus] = useState(false);
+    const [value, setValue] = useState("");
+    const [error, setError] = useState("");
     const [isCalendarVisible, setIsCalendarVisible] = useState(false);
-    const calendarRef = useRef<any>(null);
     const [chosenDate, setChosenDate] = useState(selectedDate);
+    const calendarRef = useRef<any>(null);
 
     const handleChangeYearAndMonth = (date: Dayjs, isNextMonth: boolean) => {
       if (date.month() === 0 && !isNextMonth) {
@@ -83,7 +85,6 @@ const Component = forwardRef<HTMLInputElement, any>(
       const cells = [...lastMonthCell, ...monthCells, ...nextMonthCell];
 
       return cells.reduce((acc: any, _: RowProps, iter: number) => {
-        console.log("acc ", acc)
         if (iter % 7 === 0) {
           return [...acc, cells.slice(iter, iter + 7)];
         }
@@ -99,6 +100,11 @@ const Component = forwardRef<HTMLInputElement, any>(
       }
     };
 
+    useEffect(() => {
+      setValue(dayjs(chosenDate).format("MM-DD-YYYY"))
+    }, [chosenDate])
+    
+
     const handleFocus = () => {
       setFocus(true);
       setIsCalendarVisible(true);
@@ -113,8 +119,22 @@ const Component = forwardRef<HTMLInputElement, any>(
 
     const onChangeDate = (value: Dayjs) => {
       onChange(value);
-      setChosenDate(value);
       setIsCalendarVisible(false);
+      if(dayjs(value, 'MM-DD-YYYY', true).isValid()){
+        setError("");
+        setChosenDate(value);
+      }
+    };
+
+    const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+      const value = event.target.value;
+      setValue(value);
+      if(dayjs(value, 'MM-DD-YYYY', true).isValid()){
+        setError("");
+        onChangeDate(dayjs(value));
+      }else{
+        setError("Invalid Format");
+      }
     };
 
     const componentProps = {
@@ -126,15 +146,16 @@ const Component = forwardRef<HTMLInputElement, any>(
       <Wrapper ref={calendarRef} fullWidth={fullWidth} endIcon={true}>
         {!hideInput && (
           <InputWrapper>
-            <InputField
+            <Input
               {...componentProps}
               ref={ref}
-              value={dayjs(chosenDate).format("MM-DD-YYYY")}
+              value={value}
               onFocus={handleFocus}
               fullWidth={fullWidth}
-              endIcon={true}
-            />
-            <Icon name="calendarToday" />
+              onChange={onChangeInput}
+              endIcon={<Icon name="calendarToday" />}
+              error={error}
+              />
           </InputWrapper>
         )}
         {((focus && isCalendarVisible) || hideInput) && (
