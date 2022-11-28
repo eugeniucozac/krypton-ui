@@ -1,6 +1,6 @@
-import { memo, useRef, useEffect, useState } from "react";
-import { Description, Body } from "./Accordion.styles";
+import { memo } from "react";
 import { AccordionDescriptionProps } from "./types";
+import { Description, Body } from "./Accordion.styles";
 
 export const AccordionDescription = memo(
   ({
@@ -8,21 +8,10 @@ export const AccordionDescription = memo(
     value,
     index,
     allowMultiple,
+    bodyRef,
+    maxHeight,
     ...props
   }: AccordionDescriptionProps) => {
-    const [maxHeight, setMaxHeight] = useState<number | undefined>(undefined);
-    const bodyRef = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-      if (allowMultiple && value?.includes(index || 1)) {
-        let scrollHeight = bodyRef.current?.scrollHeight;
-        setMaxHeight(scrollHeight);
-      } else {
-        let scrollHeight = value === index ? bodyRef.current?.scrollHeight : 0;
-        setMaxHeight(scrollHeight);
-      }
-    }, [allowMultiple, index, value]);
-
     return (
       <Description {...props} maxHeight={maxHeight}>
         <Body ref={bodyRef}>{children}</Body>

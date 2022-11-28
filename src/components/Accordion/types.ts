@@ -8,7 +8,7 @@ type BaseType = {
 };
 
 type IndexValueType = {
-  value?: number[];
+  value?: any; //number[] | number
   index?: number;
 };
 
@@ -21,6 +21,14 @@ type AccordionType = BaseType & {
   onChange: (value: number) => void;
 };
 
+type AccordionTitleType = {
+  children?: React.ReactNode;
+  icon?: any;
+  handleChange?: any;
+  color?: ColorCodes;
+};
+
+/*
 type AccordionTitleType = BaseType &
   IndexValueType &
   OnChangeType & {
@@ -28,12 +36,27 @@ type AccordionTitleType = BaseType &
     openIcon?: IconName;
     color?: ColorCodes;
   };
+*/
+//type AccordionItemType = BaseType & IndexValueType & OnChangeType;
 
-type AccordionItemType = BaseType & IndexValueType & OnChangeType;
+type AccordionItemType = {
+  children?: React.ReactNode;
+  value?: any; //number[] | number
+  index?: number;
+  allowMultiple?: boolean;
+  closeIcon?: IconName;
+  openIcon?: IconName;
+  onChange?: any;
+  color?: ColorCodes;
+};
 
 type AccordionPanelType = BaseType & IndexValueType;
 
-type AccordionDescriptionType = BaseType & IndexValueType;
+type AccordionDescriptionType = BaseType &
+  IndexValueType & {
+    bodyRef?: any;
+    maxHeight?: any;
+  };
 
 export type MaxHeightStyledProps = {
   maxHeight?: number;
