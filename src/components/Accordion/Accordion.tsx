@@ -12,7 +12,7 @@ export const Accordion = memo(
               value,
               allowMultiple,
               onChange,
-            });
+            } as AccordionProps);
           }
         })}
       </Wrapper>

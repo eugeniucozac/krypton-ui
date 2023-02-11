@@ -1,7 +1,7 @@
 import React, { memo, useState, useEffect } from "react";
 import Button from "../Button";
 import Icon from "../Icon";
-import { CarouselProps } from "./types";
+import { CarouselProps, IndicatorStyledProps } from "./types";
 import { Wrapper, Indicators, Indicator, Inner } from "./Carousel.styles";
 
 export const Carousel = memo(
@@ -57,21 +57,19 @@ export const Carousel = memo(
             if (React.isValidElement(child)) {
               return React.cloneElement(child, {
                 active: index === iter,
-              });
+              } as IndicatorStyledProps);
             }
           })}
         </Inner>
         {indicators && (
-          <>
-            <Indicators>
-              {children.map((_, iter) => (
-                <Indicator
-                  onClick={() => toSlide(iter)}
-                  active={index === iter}
-                />
-              ))}
-            </Indicators>
-          </>
+          <Indicators>
+            {children.map((_, iter) => (
+              <Indicator
+                onClick={() => toSlide(iter)}
+                active={index === iter}
+              />
+            ))}
+          </Indicators>
         )}
         {controls && (
           <>

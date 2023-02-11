@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { sizeMetric, colorMetric } from "../../utils/theme";
-import { toRem } from "../../utils/string";
+import { colorMetric } from "../../utils/theme";
 import {
   InnerStyledProps,
   InputFieldStyledProps,
   CalendarWrapperStyleProps,
+  RowCellProps,
 } from "./types";
 
 export const CalendarWrapper = styled.div<CalendarWrapperStyleProps>`
@@ -111,7 +111,7 @@ export const Row = styled.div`
   display: flex;
 `;
 
-export const RowCell = styled.div<any>`
+export const RowCell = styled.div<RowCellProps>`
   width: 2.25rem;
   height: 2.25rem;
   display: flex;

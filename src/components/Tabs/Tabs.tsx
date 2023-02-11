@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { TabsProps } from "./types";
+import { TabsProps, VariantTabsStyledProps } from "./types";
 import { Container } from "./Tabs.styles";
 
 export const Tabs = memo(
@@ -12,7 +12,7 @@ export const Tabs = memo(
               activeTab,
               orientation,
               alignment,
-            });
+            } as VariantTabsStyledProps);
           }
         })}
       </Container>

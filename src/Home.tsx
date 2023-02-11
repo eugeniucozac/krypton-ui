@@ -442,7 +442,7 @@ const Home = () => {
           <Link href="#">Hello sir</Link>
         </div>
         <div style={{ width: "35%", margin: "20px 0 20px 30px" }}>
-          <Tabs activeTab={tabs}>
+          <Tabs activeTab={tabs} orientation="vertical" alignment="right">
             <TabList onChange={handleChangeTabs}>
               <Tab label="Item 1" value={1} />
               <Tab label="Item 2" value={2} />

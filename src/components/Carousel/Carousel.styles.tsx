@@ -49,7 +49,7 @@ export const Item = styled.div<IndicatorStyledProps>`
   transition-duration: 0.6s;
   transition-property: opacity;
   transform: none;
-  opacity: ${(props) => (props.active ? 1 : 0)};
+  opacity: ${(props) => (props?.active ? 1 : 0)};
   & img {
     width: 100%;
     height: auto;
@@ -102,7 +102,7 @@ export const Indicator = styled.li<IndicatorStyledProps>`
   background-color: #fff;
   cursor: pointer;
   transition: opacity 0.15s cubic-bezier(0.4, 0, 1, 1);
-  opacity: ${(props) => (props.active ? 1 : 0.5)};
+  opacity: ${(props) => (props?.active ? 1 : 0.5)};
   &:hover {
     opacity: 1;
   }

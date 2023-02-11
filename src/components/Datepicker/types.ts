@@ -1,9 +1,10 @@
 import { ComponentProps } from "react";
-import { Color, Size } from "../../types";
+import { type Dayjs } from "dayjs";
+import { Color } from "../../types";
 
 type CalendarType = {
   color?: Color;
-  selectedDate: any;
+  selectedDate: Dayjs;
   onChange: any;
   required?: boolean;
   fullWidth?: boolean;
@@ -11,10 +12,17 @@ type CalendarType = {
   hideInput?: boolean;
 };
 
-type RowType = {
-  day: number;
-  value: any;
+type CurrentMonthType = {
   currentMonth?: boolean;
+};
+
+type RowType = CurrentMonthType & {
+  day: number;
+  value: Dayjs;
+};
+
+type RowCellType = CurrentMonthType & {
+  selected: boolean;
 };
 
 type InputBaseType = {
@@ -38,5 +46,7 @@ export type CalendarWrapperStyleProps = CalendarWrapperStyleType;
 export type InputFieldStyledProps = InputBaseType & InputBaseStyleType;
 
 export type RowProps = RowType;
+
+export type RowCellProps = RowCellType;
 
 export type CalendarProps = ComponentProps<"div"> & CalendarType;

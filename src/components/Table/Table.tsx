@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { TableProps } from "./types";
+import { TableProps, SizeAlignStyledProps } from "./types";
 import { Wrapper } from "./Table.styles";
 
 export const Table = memo(({ children, size, ...props }: TableProps) => {
@@ -7,7 +7,7 @@ export const Table = memo(({ children, size, ...props }: TableProps) => {
     <Wrapper {...props}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child, { size });
+          return React.cloneElement(child, { size } as SizeAlignStyledProps);
         }
       })}
     </Wrapper>

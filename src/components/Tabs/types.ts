@@ -22,7 +22,7 @@ type OnChangeColorType = {
 
 type TabType = VariantTabsType &
   OnChangeColorType & {
-    label: string | React.ReactNode;
+    label?: string | React.ReactNode;
     value?: number;
     disabled?: boolean;
     active?: boolean;
@@ -69,3 +69,5 @@ export type TabProps = ComponentPropsWithoutRef<"li"> & TabType;
 export type TabPanelProps = ComponentPropsWithoutRef<"div"> & TabPanelType;
 
 export type TabContentProps = ComponentPropsWithoutRef<"div"> & TabCommonType;
+
+export type TabsVariantsProps = VariantTabsType & TabType;

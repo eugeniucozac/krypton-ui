@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { TabListProps } from "./types";
+import { TabListProps, TabsVariantsProps } from "./types";
 import { Wrapper } from "./Tabs.styles";
 
 export const TabList = memo(
@@ -20,10 +20,10 @@ export const TabList = memo(
               active: activeTab === child.props.value,
               color,
               orientation,
-              onChange,
               activeTab: child.props.value,
               alignment,
-            });
+              onChange,
+            } as TabsVariantsProps);
           }
         })}
       </Wrapper>

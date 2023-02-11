@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { TableBodyProps } from "./types";
+import { TableBodyProps, SizeAlignStyledProps } from "./types";
 import { Body } from "./Table.styles";
 
 export const TableBody = memo(
@@ -8,7 +8,7 @@ export const TableBody = memo(
       <Body {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, { size });
+            return React.cloneElement(child, { size } as SizeAlignStyledProps);
           }
         })}
       </Body>

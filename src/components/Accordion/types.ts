@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef } from "react";
+import React, { ComponentPropsWithoutRef, RefObject } from "react";
 import { IconName } from "../Icon/types";
 import { ColorCodes } from "../../types";
 
@@ -8,45 +8,30 @@ type BaseType = {
 };
 
 type IndexValueType = {
-  value?: any; //number[] | number
+  value?: number[] | number;
   index?: number;
 };
 
-type OnChangeType = {
-  onChange?: (value: number[] | number) => void;
-};
-
 type AccordionType = BaseType & {
-  value?: number[] | number;
   onChange: (value: number) => void;
+  value?: number[] | number;
 };
 
 type AccordionTitleType = {
   children?: React.ReactNode;
   icon?: any;
-  handleChange?: any;
+  handleChange?: () => void;
   color?: ColorCodes;
 };
 
-/*
-type AccordionTitleType = BaseType &
-  IndexValueType &
-  OnChangeType & {
-    closeIcon?: IconName;
-    openIcon?: IconName;
-    color?: ColorCodes;
-  };
-*/
-//type AccordionItemType = BaseType & IndexValueType & OnChangeType;
-
 type AccordionItemType = {
   children?: React.ReactNode;
-  value?: any; //number[] | number
+  value?: any;
   index?: number;
   allowMultiple?: boolean;
   closeIcon?: IconName;
   openIcon?: IconName;
-  onChange?: any;
+  onChange?: (value: number[] | number) => void;
   color?: ColorCodes;
 };
 
@@ -54,8 +39,8 @@ type AccordionPanelType = BaseType & IndexValueType;
 
 type AccordionDescriptionType = BaseType &
   IndexValueType & {
-    bodyRef?: any;
-    maxHeight?: any;
+    bodyRef?: RefObject<HTMLDivElement>;
+    maxHeight?: number;
   };
 
 export type MaxHeightStyledProps = {

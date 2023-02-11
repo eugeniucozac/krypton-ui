@@ -8,7 +8,7 @@ export const TabPanels = memo(
       <Content {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, { activeTab });
+            return React.cloneElement(child, { activeTab } as TabPanelsProps);
           }
         })}
       </Content>

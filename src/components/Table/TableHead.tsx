@@ -8,7 +8,10 @@ export const TableHead = memo(
       <Head {...props}>
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
-            return React.cloneElement(child, { size, stripped });
+            return React.cloneElement(child, {
+              size,
+              stripped,
+            } as TableHeadProps);
           }
         })}
       </Head>

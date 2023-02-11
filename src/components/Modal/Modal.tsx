@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, memo, useState } from "react";
-import { ModalProps } from "./types";
+import { ModalProps, ModalHeaderProps } from "./types";
 import { Wrapper, Background } from "./Modal.styles";
 import { ReactPortal } from "./ReactPortal";
 
@@ -57,7 +57,9 @@ export const Modal = memo(
               <Wrapper className="modal-content" {...props}>
                 {React.Children.map(children, (child) => {
                   if (React.isValidElement(child)) {
-                    return React.cloneElement(child, { onClose });
+                    return React.cloneElement(child, {
+                      onClose,
+                    } as ModalHeaderProps);
                   }
                 })}
               </Wrapper>

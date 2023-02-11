@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { StepperProps } from "./types";
+import { StepperProps, StepProps } from "./types";
 import { Wrapper } from "./Stepper.styles";
 
 const defaultProps: Partial<StepperProps> = {
@@ -33,7 +33,7 @@ export const Stepper = memo(
               completed,
               progress,
               pending,
-            });
+            } as StepProps);
           }
         })}
       </Wrapper>

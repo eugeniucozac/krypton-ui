@@ -37,7 +37,6 @@ export const AccordionItem = memo(
         let updateValues = [...value, index];
         if (value.includes(index)) {
           updateValues = updateValues.filter((item) => item !== index);
-          console.log("updateValues ", updateValues);
         }
         onChange(updateValues);
       } else {
@@ -58,7 +57,7 @@ export const AccordionItem = memo(
               value,
               bodyRef,
               maxHeight,
-            });
+            } as AccordionItemProps);
           }
         })}
       </Item>

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { TransferListHeader } from "./TransferListHeader";
 import Button from "../Button";
 import Icon from "../Icon";
-import { TransferListProps, ItemProps } from "./types";
+import { TransferListProps, ItemProps, TransferListItemProps } from "./types";
 import { Wrapper, Controls, ItemWrapper } from "./TransferList.styles";
 
 export const TransferList = memo(
@@ -61,7 +61,9 @@ export const TransferList = memo(
           <ul>
             {React.Children.map(left, (child) => {
               if (React.isValidElement(child)) {
-                return React.cloneElement(child, { items: leftItems });
+                return React.cloneElement(child, {
+                  items: leftItems,
+                } as TransferListItemProps);
               }
             })}
           </ul>
@@ -95,7 +97,7 @@ export const TransferList = memo(
           <ul>
             {React.Children.map(right, (child) => {
               if (React.isValidElement(child)) {
-                return React.cloneElement(child, { items: rightItems });
+                return React.cloneElement(child, { items: rightItems } as any);
               }
             })}
           </ul>
