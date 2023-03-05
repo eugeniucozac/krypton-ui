@@ -20,7 +20,8 @@ const sizeMetric: SizeMetricProps = {
 
 export const Wrapper = styled.div<WrapperStyledProps>`
   flex-shrink: 0;
-  padding: 0 0.625rem;
+  padding: ${(props) =>
+    props?.gap ? `0 ${0.625 * props?.gap}rem` : "0.625rem"};
   ${(props) => ({
     ...(props.xs && {
       flexBasis: props.flex ? "100%" : sizeMetric[props.xs],

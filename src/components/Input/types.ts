@@ -18,14 +18,23 @@ type InputBaseStyleType = ErrorType & {
 
 type InputErrorStyleType = ErrorType;
 
-type FormInputType = InputBaseStyleType & {
-  value: string | number;
-  onChange: (value?: string) => void;
+type InputOptionalType = InputBaseStyleType & {
   helperText?: string;
   beginIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   fullWidth?: boolean;
 };
+
+type InputDefaultType = InputOptionalType & {
+  name: string;
+};
+
+type InputFormType = InputOptionalType & {
+  value: string | number;
+  onChange: (value?: string) => void;
+};
+
+type FormInputType = InputDefaultType | InputFormType;
 
 export type InnerStyledProps = InputBaseType & { type: string };
 

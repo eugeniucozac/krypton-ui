@@ -30,6 +30,8 @@ const Component = forwardRef<HTMLInputElement, InputProps>(
       ...props,
     };
 
+    console.log("props ", props);
+
     return (
       <Wrapper
         className={className}

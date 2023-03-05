@@ -1,17 +1,7 @@
 @font-face {
-  font-family: "SFProDisplay";
-  src: url("../public/fonts//SFProDisplay.woff2") format("woff2"),
-    url("../public/fonts//SFProDisplay.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  font-family: "SFProDisplay";
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+    font-family: 'SFProDisplay';
+    src: url('./fonts/SFProDisplay/SFProDisplay.woff2') format('woff2'),
+        url('./fonts/SFProDisplay/SFProDisplay.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }

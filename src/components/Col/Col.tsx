@@ -16,6 +16,7 @@ const Col = memo(
       offsetSm = 0,
       offsetMd = 0,
       offsetLg = 0,
+      gap = 0,
     }: ColProps,
     props
   ) => {
@@ -32,6 +33,7 @@ const Col = memo(
         offsetSm={offsetSm}
         offsetMd={offsetMd}
         offsetLg={offsetLg}
+        gap={gap}
       >
         {children}
       </Wrapper>

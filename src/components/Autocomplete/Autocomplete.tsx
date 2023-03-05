@@ -6,7 +6,7 @@ import {
   ChangeEvent,
   forwardRef,
 } from "react";
-import ReactHtmlParser from "react-html-parser";
+import parse from "html-react-parser";
 import { AutocompleteProps } from "./types";
 import {
   Wrapper,
@@ -81,11 +81,7 @@ const Component = forwardRef<HTMLInputElement, AutocompleteProps>(
                 bOfS,
                 value.length
               )}</strong>${s.slice(value.length, s.length)}`;
-              return (
-                <li onClick={() => handleClick(s)}>
-                  {ReactHtmlParser(result)}
-                </li>
-              );
+              return <li onClick={() => handleClick(s)}>{parse(result)}</li>;
             })}
           </Suggestions>
         ) : null}
