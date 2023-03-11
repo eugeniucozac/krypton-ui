@@ -1,9 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://krypton-ui.com"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Krypton" width="200"></a>
-  <br>
-  Krypton
-  <br>
+  <a href="https://krypton-ui.com"><img src="https://user-images.githubusercontent.com/7073241/224507233-ab9f5be0-e0af-4e37-a6de-bd64337d032f.png" alt="Krypton" width="175"></a>
 </h1>
 
 <h4 align="center">The Comprehensive React-Based UI Toolkit built on top of <a href="https://reactjs.org/" target="_blank">React</a>.</h4>
