@@ -25,3 +25,6 @@
   <pre>npm install krypton-ui</pre>
   <div class="zeroclipboard-container position-absolute right-0 top-0"></div>
 </div>
+
+<h3 tabindex="-1" dir="auto">License</h3>
+<p>This project is licensed under the terms of the <a href="https://github.com/eugeniucozac/krypton-ui/blob/main/LICENSE">MIT license</a>.</p>
