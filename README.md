@@ -16,3 +16,12 @@
 </p>
 
 <p dir="auto"><g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji> Krypton UI: The Comprehensive React-Based UI Toolkit <g-emoji class="g-emoji" alias="zap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png">⚡️</g-emoji> Krypton is a collection of reusable UI components for React that can assist in the development of any web application.</p>
+<h3 tabindex="-1" dir="auto">Features</h3>
+
+<h3 tabindex="-1" dir="auto">Installation</h3>
+<p dir="auto">Krypton UI is available as an <a href="https://www.npmjs.com/package/krypton-ui" rel="nofollow">npm package</a>.</p>
+<p dir="auto"><strong>npm:</strong></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto">
+  <pre>npm install krypton-ui</pre>
+  <div class="zeroclipboard-container position-absolute right-0 top-0"></div>
+</div>
