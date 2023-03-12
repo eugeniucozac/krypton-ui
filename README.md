@@ -19,9 +19,9 @@
 <h3 tabindex="-1" dir="auto">List of reusable components:</h3>
 <ul>
     <li>:abacus:Accordion</li>
-    <li>AdvancedAlert</li>
+    <li>:smiling_imp:AdvancedAlert</li>
     <li>:warning:Alert</li>
-    <li>Autocomplete</li>
+    <li>:slot_machine:Autocomplete</li>
     <li>:monkey_face:Avatar</li>
     <li>:flower_playing_cards:Badge</li>
     <li>:rotating_light:Button</li>
@@ -49,7 +49,7 @@
     <li>Table</li>
     <li>Tabs</li>
     <li>Tooltip</li>
-    <li>TransferList</li>
+    <li>:clipboard:TransferList</li>
 </ul>
 
 <h3 tabindex="-1" dir="auto">Installation</h3>
