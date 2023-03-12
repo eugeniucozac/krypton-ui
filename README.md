@@ -35,7 +35,7 @@
     <li>Input</li>
     <li>:framed_picture:Icon</li>
     <li>:page_facing_up:Pagination</li>
-    <li>ProgressBar</li>
+    <li>:hourglass_flowing_sand:ProgressBar</li>
     <li>Modal</li>
     <li>:link:Link</li>
     <li>:bookmark_tabs:List</li>
@@ -45,7 +45,7 @@
     <li>Switch</li>
     <li>:radio_button:Radio</li>
     <li>:star:Rating</li>
-    <li>Range</li>
+    <li>:level_slider:Range</li>
     <li>Table</li>
     <li>Tabs</li>
     <li>Tooltip</li>
