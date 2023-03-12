@@ -16,7 +16,41 @@
 </p>
 
 <p dir="auto"><g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji> Krypton UI: The Comprehensive React-Based UI Toolkit <g-emoji class="g-emoji" alias="zap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png">⚡️</g-emoji> Krypton is a collection of reusable UI components for React that can assist in the development of any web application.</p>
-<h3 tabindex="-1" dir="auto">Features</h3>
+<h3 tabindex="-1" dir="auto">List of reusable components:</h3>
+<ul>
+    <li>Accordion</li>
+    <li>AdvancedAlert</li>
+    <li>:warning:Alert</li>
+    <li>Autocomplete</li>
+    <li>Avatar</li>
+    <li>Badge</li>
+    <li>Button</li>
+    <li>:bread:Breadcrumbs</li>
+    <li>:black_joker:Card</li>
+    <li>:carousel_horse:Carousel</li>
+    <li>:white_check_mark:Checkbox</li>
+    <li>Chip</li>
+    <li>:date:Datepicker</li>
+    <li>:label:FormLabel</li>
+    <li>Input</li>
+    <li>Icon</li>
+    <li>:page_facing_up:Pagination</li>
+    <li>ProgressBar</li>
+    <li>Modal</li>
+    <li>:link:Link</li>
+    <li>List</li>
+    <li>:cyclone:Spinner</li>
+    <li>Select</li>
+    <li>Stepper</li>
+    <li>Switch</li>
+    <li>:radio_button:Radio</li>
+    <li>:star:Rating</li>
+    <li>Range</li>
+    <li>Table</li>
+    <li>Tabs</li>
+    <li>Tooltip</li>
+    <li>TransferList</li>
+</ul>
 
 <h3 tabindex="-1" dir="auto">Installation</h3>
 <p dir="auto">Krypton UI is available as an <a href="https://www.npmjs.com/package/krypton-ui" rel="nofollow">npm package</a>.</p>
