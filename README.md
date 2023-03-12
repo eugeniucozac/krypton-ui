@@ -23,13 +23,13 @@
     <li>:warning:Alert</li>
     <li>Autocomplete</li>
     <li>:monkey_face:Avatar</li>
-    <li>Badge</li>
+    <li>:flower_playing_cards:Badge</li>
     <li>:rotating_light:Button</li>
     <li>:bread:Breadcrumbs</li>
     <li>:black_joker:Card</li>
     <li>:carousel_horse:Carousel</li>
     <li>:white_check_mark:Checkbox</li>
-    <li>Chip</li>
+    <li>:credit_card:Chip</li>
     <li>:date:Datepicker</li>
     <li>:label:FormLabel</li>
     <li>Input</li>
