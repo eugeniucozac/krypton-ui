@@ -18,38 +18,38 @@
 <p dir="auto"><g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji> Krypton UI: The Comprehensive React-Based UI Toolkit <g-emoji class="g-emoji" alias="zap" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png">⚡️</g-emoji> Krypton is a collection of reusable UI components for React that can assist in the development of any web application.</p>
 <h3 tabindex="-1" dir="auto">List of reusable components:</h3>
 <ul>
-    <li>:abacus:Accordion</li>
-    <li>:smiling_imp:AdvancedAlert</li>
-    <li>:warning:Alert</li>
-    <li>:slot_machine:Autocomplete</li>
-    <li>:monkey_face:Avatar</li>
-    <li>:flower_playing_cards:Badge</li>
-    <li>:rotating_light:Button</li>
-    <li>:bread:Breadcrumbs</li>
-    <li>:black_joker:Card</li>
-    <li>:carousel_horse:Carousel</li>
-    <li>:white_check_mark:Checkbox</li>
-    <li>:credit_card:Chip</li>
-    <li>:date:Datepicker</li>
-    <li>:label:FormLabel</li>
-    <li>Input</li>
-    <li>:framed_picture:Icon</li>
-    <li>:page_facing_up:Pagination</li>
-    <li>:hourglass_flowing_sand:ProgressBar</li>
-    <li>Modal</li>
-    <li>:link:Link</li>
-    <li>:bookmark_tabs:List</li>
-    <li>:cyclone:Spinner</li>
-    <li>Select</li>
-    <li>:paperclips:Stepper</li>
-    <li>Switch</li>
-    <li>:radio_button:Radio</li>
-    <li>:star:Rating</li>
-    <li>:level_slider:Range</li>
-    <li>Table</li>
-    <li>Tabs</li>
-    <li>Tooltip</li>
-    <li>:clipboard:TransferList</li>
+    <li>:abacus: Accordion</li>
+    <li>:smiling_imp: AdvancedAlert</li>
+    <li>:warning: Alert</li>
+    <li>:slot_machine: Autocomplete</li>
+    <li>:monkey_face: Avatar</li>
+    <li>:flower_playing_cards: Badge</li>
+    <li>:rotating_light: Button</li>
+    <li>:bread: Breadcrumbs</li>
+    <li>:black_joker: Card</li>
+    <li>:carousel_horse: Carousel</li>
+    <li>:white_check_mark: Checkbox</li>
+    <li>:credit_card: Chip</li>
+    <li>:date: Datepicker</li>
+    <li>:label: FormLabel</li>
+    <li>:electric_plug: Input</li>
+    <li>:framed_picture: Icon</li>
+    <li>:page_facing_up: Pagination</li>
+    <li>:hourglass_flowing_sand: ProgressBar</li>
+    <li>:cinema: Modal</li>
+    <li>:link: Link</li>
+    <li>:bookmark_tabs: List</li>
+    <li>:cyclone: Spinner</li>
+    <li>:arrow_down_small: Select</li>
+    <li>:paperclips: Stepper</li>
+    <li>:bulb: Switch</li>
+    <li>:radio_button: Radio</li>
+    <li>:star: Rating</li>
+    <li>:level_slider: Range</li>
+    <li>:book: Table</li>
+    <li>:musical_keyboard: Tabs</li>
+    <li>:ticket: Tooltip</li>
+    <li>:clipboard: TransferList</li>
 </ul>
 
 <h3 tabindex="-1" dir="auto">Installation</h3>
