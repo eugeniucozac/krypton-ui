@@ -72,6 +72,8 @@ const App = () => {
   return <Button variant="outline">Click Me!</Button>;
 }
 ```
+<h3 tabindex="-1" dir="auto">Contributions</h3>
+ <p>Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug. Totally open to any suggestions and improvements.</p>
 <h3 tabindex="-1" dir="auto">License</h3>
 <p>This project is licensed under the terms of the <a href="https://github.com/eugeniucozac/krypton-ui/blob/main/LICENSE">MIT license</a>.</p>
 
