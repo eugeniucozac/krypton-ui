@@ -28,11 +28,16 @@
 <h3 tabindex="-1" dir="auto">Getting started with Krypton UI</h3>
 
 <p dir="auto">This is an example of a simple application that utilizes Krypton UI's <code>Button</code> component:</p>
+<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto">
 
+```javascript
+import * as React from 'react';
+import { Button } from "krypton-ui";
+
+const App = () => {
+  return <Button variant="outline">Click Me!</Button>;
+}
+```
 <h3 tabindex="-1" dir="auto">License</h3>
 <p>This project is licensed under the terms of the <a href="https://github.com/eugeniucozac/krypton-ui/blob/main/LICENSE">MIT license</a>.</p>
-<div class="highlight highlight-source-js notranslate position-relative overflow-auto" dir="auto">
-<pre>
-dwdwad
-</pre>
- </div>
+
